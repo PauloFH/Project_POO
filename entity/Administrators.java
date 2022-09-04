@@ -55,6 +55,7 @@ public class Administrators {
     // implements a fake register while not a database
     if (
       newAdmin.getName().isEmpty() || 
+      newAdmin.getUser().isEmpty() ||
       newAdmin.getPassword().isEmpty() || 
       newAdmin.getAccessCode().isEmpty()
     ) {
