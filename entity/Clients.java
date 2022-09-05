@@ -1,38 +1,97 @@
 package entity;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.swing.JOptionPane;
 
 public class Clients {
     // implements Book
-    private static int id;
+    private static int numbClients;
+    private int id;
     private String name;
     private String address;
     private String cpf;
 
-    public void registerClients (String name, String address, String cpf){
+    static List<Clients> bd = new ArrayList<>();
 
+    public void registerClients (String name, String address, String cpf){
+        try{
             if (name != null && !name.isEmpty() &&
                 address != null && !address.isEmpty() &&
                 cpf != null && !cpf.isEmpty()) {
-                    setAddress(address);
-                    setCpf(cpf);
-                    setName(name);
-                    this.id += 1;
+
+                  Clients client = new Clients();
+                   client.cpf = cpf;
+                   client.address = address;
+                   client.name = name;
+                   client.id = numbClients+1;
+                   Clients.numbClients += 1;
+
+                    bd.add(client);
                 }
+            }   catch (Exception e) {
+                JOptionPane.showMessageDialog(null,"Erro: "+e);
+            }
         }
 
-    public void editClients(Clients client,String name, String address, String cpf){
-                setAddress(address);
-                setCpf(cpf);
-                setName(name);
+    public void editClients(int id,String name, String address, String cpf){
+        try {
+            
+        if(id > 0 && id < Clients.numbClients ){
+            Clients client = new Clients();
+            client.cpf = cpf;
+            client.address = address;
+            client.name = name;
+            bd.set(id, client);
+        }    
+    }catch(Exception e){
+        JOptionPane.showMessageDialog(null,"Erro: "+e);
+    }
 
     }
     public void deleteClients(Clients client){
-        this.address = null;
-        this.cpf = null;
-        this.name = null;
-        client = null;
+        try {
+            bd.remove(id);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Erro: "+e);
+        }
     }
+    public Clients searchcpf(String cpf){
+            try {
+                for(Clients client: bd){
+                    if(client.cpf.equals(cpf)){
+                        System.out.println("id: "+client.id);
+                        System.out.println("name: "+client.name);
+                        System.out.println("cpf: "+client.cpf);
+                        System.out.println("address: "+client.address);
+                        return client;
+                    } 
+                }
+                
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null,"Erro: "+e);
+            }  
+            return null;         
+    }
+    public Clients searchname(String name){
+        try {
+            for(Clients client: bd){
+                if(client.name.equals(name)){
+                    System.out.println("id: "+client.id);
+                    System.out.println("name: "+client.name);
+                    System.out.println("cpf: "+client.cpf);
+                    System.out.println("address: "+client.address);
+                    return client;
+                } 
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Erro: "+e);
+        }  
+        return null;         
+}
 
         /*Métodos Set  e Get */
     public void setAddress(String address) {
@@ -40,6 +99,8 @@ public class Clients {
         this.address = address;
         }
     }
+    
+
     public void setCpf(String cpf) {
         if(cpf != null && !cpf.isEmpty()){
         this.cpf = cpf;
@@ -50,6 +111,10 @@ public class Clients {
         this.name = name;
         }
     }
+    public void setId(int id) {
+        if(id > numbClients)
+        this.id = id;
+    }
     public String getAddress() {
         return address;
     }
@@ -58,5 +123,8 @@ public class Clients {
     }
     public String getName() {
         return name;
+    }
+    public int getId() {
+        return id;
     }
   }
