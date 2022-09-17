@@ -13,37 +13,30 @@ public class VinylRecord {
     static ArrayList<VinylRecord> vinylRecords = new ArrayList<>();
 
     public void registerVinyl(String title, String bandsName, String musicalStyle, int totalRecords, double rentalPrice){
-            setTitle(title);
-            setBandsName(bandsName);
-            setMusicalStyle(musicalStyle);
-            setTotalRecords(totalRecords);
-            setRentalPrice(rentalPrice);
-            
+
             VinylRecord newRecord = new VinylRecord();
-            newRecord.title = title;
-            newRecord.bandsName = bandsName;
-            newRecord.musicalStyle = musicalStyle;
-            newRecord.totalRecords = totalRecords;
-            newRecord.rentalPrice = rentalPrice;
+
+            newRecord.setTitle(title);
+            newRecord.setBandsName(bandsName);
+            newRecord.setMusicalStyle(musicalStyle);
+            newRecord.setTotalRecords(totalRecords);
+            newRecord.setRentalPrice(rentalPrice);
 
             vinylRecords.add(newRecord);
     }
 
     public void edit(int id, String title, String bandsName, String musicalStyle, int totalRecords, double rentalPrice){
             setId(id);
-            setTitle(title);
-            setBandsName(bandsName);
-            setMusicalStyle(musicalStyle);
-            setTotalRecords(totalRecords);
-            setRentalPrice(rentalPrice);
 
             VinylRecord editRecord = new VinylRecord();
-            editRecord.title = title;
-            editRecord.bandsName = bandsName;
-            editRecord.musicalStyle = musicalStyle;
-            editRecord.totalRecords = totalRecords;
-            editRecord.rentalPrice = rentalPrice;
-        
+
+            editRecord.setTitle(title);
+            editRecord.setBandsName(bandsName);
+            editRecord.setMusicalStyle(musicalStyle);
+            editRecord.setTotalRecords(totalRecords);
+            editRecord.setRentalPrice(rentalPrice);
+            
+
             vinylRecords.set(id, editRecord);
     }
 
