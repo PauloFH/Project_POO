@@ -2,30 +2,26 @@ package entity;
 
 import java.util.ArrayList;
 
-public class VinylRecord {
-    private String title;
+public class VinylRecord extends Products {
     private String bandsName;
     private String musicalStyle;
-    private int totalRecords;
-    private double rentalPrice;
-    private int id;
-    
+
     static ArrayList<VinylRecord> vinylRecords = new ArrayList<>();
 
-    public void registerVinyl(String title, String bandsName, String musicalStyle, int totalRecords, double rentalPrice){
+    public void registerVinyl(String title, String bandsName, String musicalStyle, int copiesAmount, double rentPrice){
 
             VinylRecord newRecord = new VinylRecord();
 
             newRecord.setTitle(title);
             newRecord.setBandsName(bandsName);
             newRecord.setMusicalStyle(musicalStyle);
-            newRecord.setTotalRecords(totalRecords);
-            newRecord.setRentalPrice(rentalPrice);
+            newRecord.setCopiesAmount(copiesAmount);
+            newRecord.setRentPrice(rentPrice);
 
             vinylRecords.add(newRecord);
     }
 
-    public void edit(int id, String title, String bandsName, String musicalStyle, int totalRecords, double rentalPrice){
+    public void edit(int id, String title, String bandsName, String musicalStyle, int copiesAmount, double rentPrice){
             setId(id);
 
             VinylRecord editRecord = new VinylRecord();
@@ -33,8 +29,8 @@ public class VinylRecord {
             editRecord.setTitle(title);
             editRecord.setBandsName(bandsName);
             editRecord.setMusicalStyle(musicalStyle);
-            editRecord.setTotalRecords(totalRecords);
-            editRecord.setRentalPrice(rentalPrice);
+            editRecord.setCopiesAmount(copiesAmount);
+            editRecord.setRentPrice(rentPrice);
             
 
             vinylRecords.set(id, editRecord);
@@ -95,14 +91,6 @@ public class VinylRecord {
             return null;
         }
     }
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-            if(!title.isEmpty()) this.title = title;
-            else throw new IllegalArgumentException("Title cannot be empty");
-    }
 
     public String getBandsName() {
         return bandsName;
@@ -122,31 +110,6 @@ public class VinylRecord {
             else throw new IllegalArgumentException(" Musical style must not be empty");
     }
 
-    public int getTotalRecords(){
-        return totalRecords;
-    }
-
-    public void setTotalRecords(int totalRecords) {
-            if(totalRecords > 0) this.totalRecords = totalRecords;
-            else throw new IllegalArgumentException("Total records must be greater than 0");
-    }
-
-    public double getRentalPrice() {
-        return rentalPrice;
-    }
-
-    public void setRentalPrice(double rentalPrice) {
-            if(rentalPrice > 0) this.rentalPrice = rentalPrice;
-            else throw new IllegalArgumentException("rentalPrice must be greater than 0");
-    }
-
-    public int getId(int id) {
-        return id;
-    }
-
-    public void setId(int id) {
-            if(id >= 0) this.id = id;
-            else throw new IllegalArgumentException("Invalid id");
-    }
+   
 
 }
