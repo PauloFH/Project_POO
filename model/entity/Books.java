@@ -4,15 +4,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Books {
+public class Books extends Products{
     // implements Book
-    private String title;
     private String gender;
     private String author;
     private Date releaseDate;
     private int pagesAmount;
-    private int copiesAmount;
-    private double rentPrice;
 
     List<Books> db = new ArrayList<Books>();
 
