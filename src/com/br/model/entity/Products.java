@@ -1,13 +1,17 @@
 package com.br.model.entity;
 
+import java.util.ArrayList;
+
 public class Products{
-  private String title;
+  protected String title;
   private double rentPrice;
   private int copiesAmount;
   private int id;
 
 
-     public ArrayList search(Products product) {
+     public ArrayList<Products> search(Products product) {
+    	 
+		return null;
         //verification  of products by id
      }
 

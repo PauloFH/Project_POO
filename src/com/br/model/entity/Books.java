@@ -32,8 +32,8 @@ public class Books extends Products{
         newBook.author = author;
         newBook.releaseDate = releaseDate;
         newBook.pagesAmount = pagesAmount;
-        newBook.copiesAmount = copiesAmount;
-        newBook.rentPrice = rentPrice;
+        newBook.setCopiesAmount(copiesAmount);
+        newBook.setRentPrice(rentPrice);
 
         db.add(newBook);
     }
@@ -62,8 +62,8 @@ public class Books extends Products{
         newBook.author = author;
         newBook.releaseDate = releaseDate;
         newBook.pagesAmount = pagesAmount;
-        newBook.copiesAmount = copiesAmount;
-        newBook.rentPrice = rentPrice;
+        newBook.setCopiesAmount(copiesAmount);
+        newBook.setRentPrice(rentPrice);
 
         // It replaces the book in the database in the id position
         db.set(id, newBook);
@@ -86,8 +86,8 @@ public class Books extends Products{
                 System.out.println("Gender: " + book.gender);
                 System.out.println("Release date: " + book.releaseDate);
                 System.out.println("Pages amount: " + book.pagesAmount);
-                System.out.println("Copies amount: " + book.copiesAmount);
-                System.out.println("Rent price: " + book.rentPrice + "\n");
+                System.out.println("Copies amount: " + book.getCopiesAmount());
+                System.out.println("Rent price: " + book.getRentPrice() + "\n");
 
                 return book;
             }
@@ -110,8 +110,8 @@ public class Books extends Products{
                 System.out.println("Gender: " + book.gender);
                 System.out.println("Release date: " + book.releaseDate);
                 System.out.println("Pages amount: " + book.pagesAmount);
-                System.out.println("Copies amount: " + book.copiesAmount);
-                System.out.println("Rent price: " + book.rentPrice + "\n");
+                System.out.println("Copies amount: " + book.getCopiesAmount());
+                System.out.println("Rent price: " + book.getRentPrice() + "\n");
                 
                 filteredBooks.add(book);
             }
@@ -135,8 +135,8 @@ public class Books extends Products{
                 System.out.println("Gender: " + book.gender);
                 System.out.println("Release date: " + book.releaseDate);
                 System.out.println("Pages amount: " + book.pagesAmount);
-                System.out.println("Copies amount: " + book.copiesAmount);
-                System.out.println("Rent price: " + book.rentPrice + "\n");
+                System.out.println("Copies amount: " + book.getCopiesAmount());
+                System.out.println("Rent price: " + book.getRentPrice() + "\n");
                 
                 filteredBooks.add(book);
             }
@@ -160,8 +160,8 @@ public class Books extends Products{
                 System.out.println("Gender: " + book.gender);
                 System.out.println("Release date: " + book.releaseDate);
                 System.out.println("Pages amount: " + book.pagesAmount);
-                System.out.println("Copies amount: " + book.copiesAmount);
-                System.out.println("Rent price: " + book.rentPrice + "\n");
+                System.out.println("Copies amount: " + book.getCopiesAmount());
+                System.out.println("Rent price: " + book.getRentPrice() + "\n");
                 
                 filteredBooks.add(book);
             }
