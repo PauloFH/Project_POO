@@ -1,4 +1,4 @@
-package entity;
+package com.br.model.entity;
 
 import java.util.List;
 

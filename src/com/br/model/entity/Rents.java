@@ -1,11 +1,11 @@
-package entity;
+package com.br.model.entity;
 
 import java.util.List;
 
-public class Rents {
+public class Rents extends Products {
   private int id;
   private Clients client;
-  private List<Product> products;
+  private List<Products> products;
   private String date;
 
   public int getId() {
@@ -32,15 +32,23 @@ public class Rents {
     }
   }
 
-  public List<Product> getProducts() {
+  public List<Products> getProducts() {
     return this.products;
   }
 
-  public void setProducts(Product product) {
+  public void setProducts(Products product) {
     if (product == null) {
       System.out.println("Por favor, coloque um produto");
     } else {
       this.products.add(product);
     }
   }
+
+public String getDate() {
+	return date;
+}
+
+public void setDate(String date) {
+	this.date = date;
+}
 }
