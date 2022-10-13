@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 import com.br.model.entity.Administrators;
 
-public class AdministratorsDAO extends BaseDAO<Administrators> {
+public class AdministratorsDAO extends BaseDAO<Administrators> implements AdminInterDAO {
 	public boolean add(Administrators admin) {
 		String sql = "INSERT INTO tb_Admin(name, user, password, accesscode) VALUES (?,?,?,?);";
 		try {
@@ -22,7 +22,7 @@ public class AdministratorsDAO extends BaseDAO<Administrators> {
 			return true;
 		} catch (SQLException e) {
 			// TODO: handle exception
-			JOptionPane.showMessageDialog(null, "Erro: "+e);
+			e.printStackTrace();
 			
 			return false;
 		}
@@ -38,7 +38,7 @@ public class AdministratorsDAO extends BaseDAO<Administrators> {
 			return true;
 		} catch (SQLException e) {
 			// TODO: handle exception
-			JOptionPane.showMessageDialog(null, "Erro: "+e);
+			e.printStackTrace();
 			
 			return false;
 		}
@@ -57,7 +57,7 @@ public class AdministratorsDAO extends BaseDAO<Administrators> {
 			return true;
 		} catch (SQLException e) {
 			// TODO: handle exception
-			JOptionPane.showMessageDialog(null, "Erro: "+e);
+			e.printStackTrace();
 			
 			return false;
 		}
@@ -83,7 +83,7 @@ public class AdministratorsDAO extends BaseDAO<Administrators> {
 				return null;
 			}
 		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null,"Erro: "+e);
+			e.printStackTrace();
 			
 			return null;
 		}
@@ -97,7 +97,7 @@ public class AdministratorsDAO extends BaseDAO<Administrators> {
 
 			return rs;
 		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null,"Erro: "+e);
+			e.printStackTrace();
 			
 			return null;
 		}
@@ -128,6 +128,24 @@ public class AdministratorsDAO extends BaseDAO<Administrators> {
 			return rs;
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null,"Erro: "+e);
+			
+			return null;
+		}
+	}
+	
+	public ResultSet findByUserAndPassword(String user, String password) {
+		String sql = "SELECT * FROM tb_Admin WHERE user=? AND password=?;";
+		try {
+			PreparedStatement pst = getConnection().prepareStatement(sql);
+			pst.setString(1, user);
+			pst.setString(2, password);
+			
+			ResultSet rs = pst.executeQuery();
+			
+			return rs;
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
 			
 			return null;
 		}
