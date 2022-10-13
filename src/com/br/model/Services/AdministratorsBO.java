@@ -36,7 +36,7 @@ public class AdministratorsBO {
 	  }
 
 	  public boolean registerAdministrator(Administrators newAdmin) {
-		 ResultSet response = adminDAO.findBySpecifiedField(newAdmin, "accesscode");
+		 ResultSet response = adminDAO.findBySpecifiedField(newAdmin, "acessCode");
 		 try {
 			if (response == null || !response.next()) {
 				if (adminDAO.add(newAdmin) == true) {
