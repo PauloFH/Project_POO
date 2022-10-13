@@ -1,8 +1,5 @@
 package com.br.model.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Administrators {
   // implements class attributes
   private String name;
