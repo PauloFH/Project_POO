@@ -6,8 +6,20 @@ public class Administrators {
   private String user;
   private String password;
   private String accessCode;
+  private Long id;
 
   // implements GETTERS and SETTERS to ensure encapsulation of attributes
+  
+  public Long getId() {
+	  return this.id;
+  }
+  
+  public void setId(Long id) {
+	  if (id > 0) {
+		  this.id = id;
+	  }
+  }
+  
   public String getName() {
     return this.name;
   }
