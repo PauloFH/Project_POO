@@ -6,12 +6,12 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import com.br.model.DAO.BaseInterDAO;
 import com.br.model.DAO.ClientsDAO;
-import com.br.model.DAO.Inter_Client;
 import com.br.model.entity.Clients;
 
 public class ClientsBO{
-		Inter_Client<Clients> dao = new ClientsDAO();
+		BaseInterDAO<Clients> dao = new ClientsDAO();
 		
         public boolean registerClients (Clients client){
         ResultSet q = dao.findBySpecifiedField(client, "cpf");
