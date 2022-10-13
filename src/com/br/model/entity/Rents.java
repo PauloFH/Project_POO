@@ -14,7 +14,7 @@ public class Rents extends Products {
  
   public void setId(Long id) {
     if (id < 0) {
-      System.out.println("Digite um valor válido");
+      System.out.println("Id tem que ser positivo");
     } else {
       this.id = id;
     }
