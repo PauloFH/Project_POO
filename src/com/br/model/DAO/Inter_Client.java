@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 
 public interface Inter_Client<entity> {
-	public interface BaseInterDAO<entity> {
 		public Connection getConnection();
 		public boolean add (entity e);
 		public boolean del(entity e);
@@ -15,4 +14,3 @@ public interface Inter_Client<entity> {
 		public ResultSet findBySpecifiedField(entity e, String field);
 	}
 
-}
