@@ -1,5 +1,180 @@
 package com.br.model.DAO;
 
-public class VinylRecordDAO {
+	import java.sql.PreparedStatement;
+	import java.sql.ResultSet;
+	import java.sql.SQLException;
 
-}
+	import com.br.model.entity.VinylRecord;
+	public class VinylRecordDAO  extends BaseDAO<VinylRecord>{
+		public boolean inserir(VinylRecord vinylRecord) {
+			String sql = "INSERT INTO tb_vin11'ylRecord (title, rentPrice, copiesAmount, bandsName, musicalStyle) VALUES(?, ?, ?, ?, ?);";
+			try {
+				PreparedStatement pst = getConnection().prepareStatement(sql);
+				pst.setString(1, vinylRecord.getTitle());
+				pst.setDouble(2, vinylRecord.getRentPrice());
+				pst.setInt(3, vinylRecord.getCopiesAmount());
+				pst.setString(4, vinylRecord.getBandsName());
+				pst.setString(5, vinylRecord.getMusicalStyle());
+				pst.execute();
+				
+			} catch(SQLException e) {
+				// TODO Auto-generated catch block
+						e.printStackTrace();
+						return false;
+			}
+			return false;
+		}
+		
+		public boolean deletar(VinylRecord vinylRecord) {
+			String sql = "DELETE FROM tb_vinylRecord WHERE id_vinylRecord=?;";
+			try {
+				PreparedStatement pst = getConnection().prepareStatement(sql);
+				pst.setInt(1, vinylRecord.getId(0));
+				pst.execute();
+				
+				return true;
+				
+			}catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			}
+		}
+		public boolean alterar(VinylRecord vinylRecord) {
+			String sql = "UPDATE tb_vinylRecord SET title=?, rentPrice=?, copiesAmount=?, bandsName=?, musicalStyle=? WHERE id_vinylRecord=?";
+			try {
+				PreparedStatement pst = getConnection().prepareStatement(sql);
+				pst.setString(1, vinylRecord.getTitle());
+				pst.setDouble(2, vinylRecord.getRentPrice());
+				pst.setInt(3, vinylRecord.getCopiesAmount());
+				pst.setString(4, vinylRecord.getBandsName());
+				pst.setString(5, vinylRecord.getMusicalStyle());
+				pst.setInt(6, vinylRecord.getId(0));
+				pst.executeUpdate();
+				return true;
+				
+			}catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			}	
+		}
+		
+		public VinylRecord findById(VinylRecord e) {
+			String sql = "SELECT * FROM tb_vinylRecord WHERE id_vinylRecord=? ;";
+			try {
+				PreparedStatement pst = getConnection().prepareStatement(sql);
+				pst.setInt(1, e.getId(0));
+				ResultSet rs = pst.executeQuery();
+				if(rs.next()) {
+					VinylRecord vinyl = new VinylRecord();
+					vinyl.setTitle(rs.getString("title"));
+					vinyl.setRentPrice(rs.getDouble("rentPrice"));
+					vinyl.setCopiesAmount(rs.getInt("copiesAmount"));
+					vinyl.setBandsName(rs.getString("bandsName"));
+					vinyl.setMusicalStyle(rs.getString("musicalStyle"));
+					vinyl.setId(e.getId(0));
+					return vinyl;
+				}
+				else return null;
+			
+			} catch (SQLException ex) {
+				// TODO Auto-generated catch block
+				ex.printStackTrace();
+				return null;
+			}
+		}
+		
+		@Override
+		public ResultSet findAll() {
+			String sql = "SELECT * FROM tb_vinylRecord;";
+			try {
+				PreparedStatement pst = getConnection().prepareStatement(sql);
+				ResultSet rs = pst.executeQuery();
+				return rs;
+			
+			} catch (SQLException ex) {
+				// TODO Auto-generated catch block
+				ex.printStackTrace();
+				return null;
+			}
+		}
+		
+		@Override
+		public ResultSet findBySpecifiedField(VinylRecord e, String field) {
+			String sql = "SELECT * FROM tb_aluno WHERE " + field +"=? ;";
+			try {
+				PreparedStatement pst = getConnection().prepareStatement(sql);
+				switch (field) {
+				case "title":
+					pst.setString(1, e.getTitle());
+					break;
+					
+				case "rentPrice":
+					pst.setDouble(1, e.getRentPrice());
+					break;
+					
+				case "telefone":
+					pst.setInt(1, e.getCopiesAmount());
+					break;
+					
+				case "endereco":
+					pst.setString(1, e.getBandsName());
+					break;
+					
+				case "musicalStyle":
+					pst.setString(1, e.getMusicalStyle());
+					break;
+				
+				default: 
+					pst.setInt(1, e.getId(0));
+				}
+				
+				ResultSet rs = pst.executeQuery();
+				return rs;
+			
+			} catch (SQLException ex) {
+				// TODO Auto-generated catch block
+				ex.printStackTrace();
+				return null;
+			}
+		}
+		
+		public VinylRecord buscar(VinylRecord vinylRecord) {
+			String sql = "SELECT * FROM tb_vinylRecord WHERE id_vinylRecord=? ;";
+			try {
+				PreparedStatement pst = getConnection().prepareStatement(sql);
+				pst.setInt(1, vinylRecord.getId(0));
+				ResultSet rs = pst.executeQuery();
+				if(rs.next()) {
+					return vinylRecord;
+				}
+				else return null;
+			
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return null;
+			}
+			
+		}
+		
+		public ResultSet buscar() {
+			String sql = "SELECT * FROM tb_vinylRecord;";
+			try {
+				PreparedStatement pst = getConnection().prepareStatement(sql);
+				ResultSet rs = pst.executeQuery();
+				
+				return rs;
+			
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return null;
+			}
+			
+		}
+
+		
+	}
+
