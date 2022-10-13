@@ -36,7 +36,6 @@ public class Clients {
         }
     }
     public void setId(int id) {
-        if(id > numbClients)
         this.id = id;
     }
     public String getAddress() {

@@ -2,10 +2,12 @@ package com.br.model.Services;
 
 import javax.swing.JOptionPane;
 
+import com.br.model.DAO.ClientsDAO;
+import com.br.model.DAO.Inter_Client;
 import com.br.model.entity.Clients;
 
 public class ClientsBO extends Clients{
-		
+		Inter_Client<Clients> dao = new ClientsDAO();
         public boolean registerClients (String name, String address, String cpf){
         try{
             if (name != null && !name.isEmpty() &&
