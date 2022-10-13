@@ -4,13 +4,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.swing.JOptionPane;
-
 import com.br.model.entity.Administrators;
 
 public class AdministratorsDAO extends BaseDAO<Administrators> implements AdminInterDAO {
 	public boolean add(Administrators admin) {
-		String sql = "INSERT INTO tb_Admin(name, user, password, accesscode) VALUES (?,?,?,?);";
+		String sql = "INSERT INTO tb_admin(name,user,password, acessCode) VALUES (?,?,?,?);";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setString(1, admin.getName());
@@ -29,7 +27,7 @@ public class AdministratorsDAO extends BaseDAO<Administrators> implements AdminI
 	}
 	
 	public boolean del(Administrators admin) {
-		String sql = "DELETE FROM tb_Admin WHERE accesscode=?;";
+		String sql = "DELETE FROM tb_admin WHERE acessCode=?;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setString(1, admin.getAccessCode());
@@ -45,13 +43,14 @@ public class AdministratorsDAO extends BaseDAO<Administrators> implements AdminI
 	}
 	
 	public boolean edit(Administrators admin) {
-		String sql = "UPDATE tb_Admin SET name=?,user=?,password=? WHERE accesscode=?;";
+		String sql = "UPDATE tb_admin SET name=?,user=?,password=?,acessCode=? WHERE acessCode=?;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setString(1, admin.getName());
 			pst.setString(2, admin.getUser());
 			pst.setString(3, admin.getPassword());
 			pst.setString(4, admin.getAccessCode());
+			pst.setString(5, admin.getAccessCode());
 			pst.executeUpdate();
 			
 			return true;
@@ -65,7 +64,7 @@ public class AdministratorsDAO extends BaseDAO<Administrators> implements AdminI
 	
 
 	public Administrators findById(Administrators admin) {
-		String sql = "SELECT * FROM tb_Admin WHERE id=?";
+		String sql = "SELECT * FROM tb_admin WHERE id=?";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setLong(1, admin.getId());
@@ -75,7 +74,7 @@ public class AdministratorsDAO extends BaseDAO<Administrators> implements AdminI
 				newAdmin.setName(rs.getString("name"));
 				newAdmin.setUser(rs.getString("user"));
 				newAdmin.setPassword(rs.getString("password"));
-				newAdmin.setAccessCode(rs.getString("accesscode"));
+				newAdmin.setAccessCode(rs.getString("acessCode"));
 				newAdmin.setId(admin.getId());
 				
 				return newAdmin;
@@ -90,7 +89,7 @@ public class AdministratorsDAO extends BaseDAO<Administrators> implements AdminI
 	}
 	
 	public ResultSet findAll() {
-		String sql = "SELECT * FROM tb_Admin;";
+		String sql = "SELECT * FROM tb_admin;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			ResultSet rs = pst.executeQuery();
@@ -104,7 +103,7 @@ public class AdministratorsDAO extends BaseDAO<Administrators> implements AdminI
 	}
 	
 	public ResultSet findBySpecifiedField(Administrators admin, String field) {
-		String sql = "SELECT * FROM tb_Admin WHERE " + field+ "=?";
+		String sql = "SELECT * FROM tb_admin WHERE " + field+ "=?";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			switch (field) {
@@ -114,7 +113,7 @@ public class AdministratorsDAO extends BaseDAO<Administrators> implements AdminI
 			case "user":
 				pst.setString(1, admin.getUser());
 				break;
-			case "accesscode":
+			case "acessCode":
 				pst.setString(1, admin.getAccessCode());
 				break;
 
@@ -127,14 +126,14 @@ public class AdministratorsDAO extends BaseDAO<Administrators> implements AdminI
 			
 			return rs;
 		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null,"Erro: "+e);
+			e.printStackTrace();;
 			
 			return null;
 		}
 	}
 	
 	public ResultSet findByUserAndPassword(String user, String password) {
-		String sql = "SELECT * FROM tb_Admin WHERE user=? AND password=?;";
+		String sql = "SELECT * FROM tb_admin WHERE user=? AND password=?;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setString(1, user);
