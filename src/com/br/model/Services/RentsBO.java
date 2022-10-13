@@ -14,7 +14,7 @@ public class RentsBO {
 		return true;
 	}
 	
-	public boolean generateReport(Calendar date) {
+	public boolean generateReport(Calendar dateInitial, Calendar endDate) {
 		return true;
 	}
 }
