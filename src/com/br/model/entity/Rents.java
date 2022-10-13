@@ -3,18 +3,18 @@ package com.br.model.entity;
 import java.util.List;
 
 public class Rents extends Products {
-  private int id;
+  private Long id;
   private Clients client;
   private List<Products> products;
   private String date;
 
-  public int getId() {
+  public Long getId() {
     return this.id;
   }
  
-  public void setId(int id) {
+  public void setId(Long id) {
     if (id < 0) {
-      System.out.println("Digite um valor válido");
+      System.out.println("Id tem que ser positivo");
     } else {
       this.id = id;
     }
@@ -44,11 +44,11 @@ public class Rents extends Products {
     }
   }
 
-public String getDate() {
+  public String getDate() {
 	return date;
-}
+  }
 
-public void setDate(String date) {
+  public void setDate(String date) {
 	this.date = date;
-}
+  }
 }
