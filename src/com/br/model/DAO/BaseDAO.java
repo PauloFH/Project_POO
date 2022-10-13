@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.br.model.DAO.Inter_Client.BaseInterDAO;
+
 public class BaseDAO<entity> implements BaseInterDAO<entity> {
 	private Connection con;
 	
