@@ -20,7 +20,7 @@ public class ClientsDAO extends BaseDAO<Clients>{
 				pst.execute();
 				return true;
 		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null,"Erro: "+e);
+			
 			return false;
 		}
 	}
