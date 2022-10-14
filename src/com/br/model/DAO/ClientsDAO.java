@@ -26,7 +26,7 @@ public class ClientsDAO extends BaseDAO<Clients>{
 	}
 		
 	public boolean del (Clients client) {
-		String sql = "DELETE FROM tb_Clients WHERE cpf=?;";
+		String sql = "DELETE FROM tb_clients WHERE cpf=?;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setString(1, client.getCpf());
@@ -38,7 +38,7 @@ public class ClientsDAO extends BaseDAO<Clients>{
 		}
 	}
 	public boolean edit (Clients client) {
-			String sql = "UPDATE tb_Clients SET name=?,cpf=?,adress=? WHERE cpf=? ";
+			String sql = "UPDATE tb_clients SET name=?,cpf=?,adress=? WHERE cpf=? ";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setString(1, client.getName());
@@ -52,7 +52,7 @@ public class ClientsDAO extends BaseDAO<Clients>{
 		}
 	}
 		public Clients findById(Clients client) {
-			String sql = "SELECT * FROM tb_Clients WHERE id=?";
+			String sql = "SELECT * FROM tb_clients WHERE id=?";
 			try {
 				PreparedStatement pst = getConnection().prepareStatement(sql);
 				pst.setInt(1, client.getId());
@@ -72,7 +72,7 @@ public class ClientsDAO extends BaseDAO<Clients>{
 			}
 		}
 		public ResultSet findAll() {
-			String sql = "SELECT * FROM tb_Clients;";
+			String sql = "SELECT * FROM tb_clients;";
 			try {
 				PreparedStatement pst = getConnection().prepareStatement(sql);
 				ResultSet rs = pst.executeQuery();
@@ -84,7 +84,7 @@ public class ClientsDAO extends BaseDAO<Clients>{
 		}
 		
 		public ResultSet findBySpecifiedField(Clients client, String field) {
-			String sql = "SELECT * FROM tb_Clients WHERE " + field+ "=?";
+			String sql = "SELECT * FROM tb_clients WHERE " + field+ "=?";
 			try {
 				PreparedStatement pst = getConnection().prepareStatement(sql);
 				switch (field) {

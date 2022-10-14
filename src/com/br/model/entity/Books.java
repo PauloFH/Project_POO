@@ -9,7 +9,7 @@ public class Books extends Products{
 	private int id;
     private String gender;
     private String author;
-    private Date releaseDate;
+    private String releaseDate;
     private int pagesAmount;
 
     public int getId() {
@@ -48,15 +48,15 @@ public class Books extends Products{
     	}
     }
     
-    public Date getReleaseDate() {
+    public String getReleaseDate() {
     	return this.releaseDate;
     }
   
-    public void setReleaseDate(Date releaseDate) {
-    	if (releaseDate == null) {
+    public void setReleaseDate(String string) {
+    	if (string == null) {
     		throw new IllegalArgumentException("releaseDate não pode ser vázia");
     	} else {
-    		this.releaseDate = releaseDate;
+    		this.releaseDate = string;
     	}
     }
     
