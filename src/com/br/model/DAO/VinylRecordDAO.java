@@ -6,7 +6,7 @@ package com.br.model.DAO;
 
 	import com.br.model.entity.VinylRecord;
 	public class VinylRecordDAO  extends BaseDAO<VinylRecord>{
-		public boolean inserir(VinylRecord vinylRecord) {
+		public boolean add(VinylRecord vinylRecord) {
 			String sql = "INSERT INTO tb_vin11'ylRecord (title, rentPrice, copiesAmount, bandsName, musicalStyle) VALUES(?, ?, ?, ?, ?);";
 			try {
 				PreparedStatement pst = getConnection().prepareStatement(sql);
@@ -25,7 +25,7 @@ package com.br.model.DAO;
 			return false;
 		}
 		
-		public boolean deletar(VinylRecord vinylRecord) {
+		public boolean del(VinylRecord vinylRecord) {
 			String sql = "DELETE FROM tb_vinylRecord WHERE id_vinylRecord=?;";
 			try {
 				PreparedStatement pst = getConnection().prepareStatement(sql);
@@ -40,7 +40,7 @@ package com.br.model.DAO;
 				return false;
 			}
 		}
-		public boolean alterar(VinylRecord vinylRecord) {
+		public boolean edit(VinylRecord vinylRecord) {
 			String sql = "UPDATE tb_vinylRecord SET title=?, rentPrice=?, copiesAmount=?, bandsName=?, musicalStyle=? WHERE id_vinylRecord=?";
 			try {
 				PreparedStatement pst = getConnection().prepareStatement(sql);
@@ -138,41 +138,6 @@ package com.br.model.DAO;
 				ex.printStackTrace();
 				return null;
 			}
-		}
-		
-		public VinylRecord buscar(VinylRecord vinylRecord) {
-			String sql = "SELECT * FROM tb_vinylRecord WHERE id_vinylRecord=? ;";
-			try {
-				PreparedStatement pst = getConnection().prepareStatement(sql);
-				pst.setInt(1, vinylRecord.getId(0));
-				ResultSet rs = pst.executeQuery();
-				if(rs.next()) {
-					return vinylRecord;
-				}
-				else return null;
-			
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				return null;
-			}
-			
-		}
-		
-		public ResultSet buscar() {
-			String sql = "SELECT * FROM tb_vinylRecord;";
-			try {
-				PreparedStatement pst = getConnection().prepareStatement(sql);
-				ResultSet rs = pst.executeQuery();
-				
-				return rs;
-			
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				return null;
-			}
-			
 		}
 
 		
