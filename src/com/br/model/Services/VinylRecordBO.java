@@ -11,11 +11,11 @@ import com.br.model.entity.VinylRecord;
 
 public class VinylRecordBO {
 	BaseInterDAO<VinylRecord> dao = new VinylRecordDAO();
-	public boolean adicionar(VinylRecord vinylRecord) {
+	public boolean add(VinylRecord vinylRecord) {
 		ResultSet rs = dao.findBySpecifiedField(vinylRecord, "cpf");
 		try {
 			if(rs==null || !(rs.next()) ) {
-				if(dao.inserir(vinylRecord) == true)
+				if(dao.add(vinylRecord) == true)
 					return true;
 					else return false;
 			}
@@ -27,7 +27,7 @@ public class VinylRecordBO {
 		}	
 		
 	}
-	public List<VinylRecord> listar(){
+	public List<VinylRecord> listAll(){
 		List<VinylRecord> vinylRecords = new ArrayList<VinylRecord>();
 		ResultSet rs = dao.findAll();
 		try {
@@ -50,12 +50,12 @@ public class VinylRecordBO {
 		}
 	}
 	
-	public boolean atualizar (VinylRecord vinylRecord) {
+	public boolean edit (VinylRecord vinylRecord) {
 		
 		ResultSet rs = dao.findBySpecifiedField(vinylRecord, "id_vinylRecord");
 		try {
 			if(rs!=null && rs.next() ) {
-				if(dao.alterar(vinylRecord) == true)
+				if(dao.edit(vinylRecord) == true)
 					return true;
 					else return false;
 			}
@@ -66,11 +66,11 @@ public class VinylRecordBO {
 			return false;
 		}	
 	}
-	public boolean apagar (VinylRecord vinylRecord) {
+	public boolean del (VinylRecord vinylRecord) {
 		ResultSet rs = dao.findBySpecifiedField(vinylRecord, "id_vinylRecord");
 		try {
 			if(rs!=null && rs.next() ) {
-				if(dao.deletar(vinylRecord) == true)
+				if(dao.del(vinylRecord) == true)
 					return true;
 					else return false;
 			}
