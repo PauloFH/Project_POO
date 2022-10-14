@@ -6,168 +6,69 @@ import java.util.List;
 
 public class Books extends Products{
     // implements Book
+	private int id;
     private String gender;
     private String author;
     private Date releaseDate;
     private int pagesAmount;
 
-    List<Books> db = new ArrayList<Books>();
-
-    public void registerBook(String title, String gender, String author, Date releaseDate, int pagesAmount,
-            int copiesAmount, double rentPrice) {
-
-        if (title == null || title.isEmpty() ||
-                gender == null || gender.isEmpty() ||
-                author == null || author.isEmpty() ||
-                releaseDate == null ||
-                pagesAmount <= 0 ||
-                copiesAmount <= 0 ||
-                rentPrice <= 0) {
-            throw new IllegalArgumentException("Check the book information");
-        }
-
-        Books newBook = new Books();
-        newBook.title = title;
-        newBook.gender = gender;
-        newBook.author = author;
-        newBook.releaseDate = releaseDate;
-        newBook.pagesAmount = pagesAmount;
-        newBook.setCopiesAmount(copiesAmount);
-        newBook.setRentPrice(rentPrice);
-
-        db.add(newBook);
+    public int getId() {
+    	return this.id;
     }
-
-    public void deleteBook(int id) {
-        if (id < 0) {
-            throw new IllegalArgumentException("Check the book id");
-        }
-
-        // It removes the book from the database in the id position
-        db.remove(id);
-
-        // When a database got implemented on the system, it should be changed to
-        // receive an id of the book and delete it from the database.
+    
+    public void setId(int id) {
+    	if (id < 0) {
+    		throw new IllegalArgumentException("Id tem que ser positivo");
+    	} else {
+    		this.id = id;
+    	}
     }
-
-    public void editBook(int id, String title, String gender, String author, Date releaseDate, int pagesAmount,
-            int copiesAmount, double rentPrice) {
-        if (id < 0) {
-            throw new IllegalArgumentException("Check the book id");
-        }
-
-        Books newBook = new Books();
-        newBook.title = title;
-        newBook.gender = gender;
-        newBook.author = author;
-        newBook.releaseDate = releaseDate;
-        newBook.pagesAmount = pagesAmount;
-        newBook.setCopiesAmount(copiesAmount);
-        newBook.setRentPrice(rentPrice);
-
-        // It replaces the book in the database in the id position
-        db.set(id, newBook);
-
-        // When a database got implemented on the system, it should be changed to
-        // receive an id of the book and edit it from the database.
+    
+    public String getGender() {
+    	return this.gender;
     }
-
-    public Books getBookByTitle(String title) {
-        // When a database got implemented on the system, it should be changed to
-        // receive an id of the book and return it from the database.
-
-        for (Books book : db) {
-            if (book.title.equals(title)) {
-                // A different approach should be implemented to handle with the returned book
-                // This is just an example showing that the book is returned correctly
-
-                System.out.println("Title: " + book.title);
-                System.out.println("Author: " + book.author);
-                System.out.println("Gender: " + book.gender);
-                System.out.println("Release date: " + book.releaseDate);
-                System.out.println("Pages amount: " + book.pagesAmount);
-                System.out.println("Copies amount: " + book.getCopiesAmount());
-                System.out.println("Rent price: " + book.getRentPrice() + "\n");
-
-                return book;
-            }
-        }
-
-        return null;
+    
+    public void setGender(String gender) {
+    	if (gender.isEmpty()) {
+    		throw new IllegalArgumentException("Gender não pode ser vázio");
+    	} else {
+    		this.gender = gender;
+    	}
     }
-
-    public List<Books> getBooksByGender(String gender) {
-        List<Books> filteredBooks = new ArrayList<Books>();
-
-        System.out.println("___________ Books with this gender ____________\n");
-        for (Books book : db) {
-            if (book.gender.equals(gender)) {
-                // A different approach should be implemented to handle with the returned books list
-                // This is just an example showing that all the ocurrences of the books with this keyword are returned correctly
-
-                System.out.println("Title: " + book.title);
-                System.out.println("Author: " + book.author);
-                System.out.println("Gender: " + book.gender);
-                System.out.println("Release date: " + book.releaseDate);
-                System.out.println("Pages amount: " + book.pagesAmount);
-                System.out.println("Copies amount: " + book.getCopiesAmount());
-                System.out.println("Rent price: " + book.getRentPrice() + "\n");
-                
-                filteredBooks.add(book);
-            }
-        }
-        System.out.println("________________________________________________\n");
-
-        return filteredBooks;
+    
+    public String getAuthor() {
+    	return this.author;
     }
-
-    public List<Books> getBookByAuthor(String author) {
-        List<Books> filteredBooks = new ArrayList<Books>();
-
-        System.out.println("___________ Books from this author ____________\n");
-        for (Books book : db) {
-            if (book.author.equals(author)) {
-                 // A different approach should be implemented to handle with the returned books list
-                // This is just an example showing that all the ocurrences of the books with this keyword are returned correctly
-
-                System.out.println("Title: " + book.title);
-                System.out.println("Author: " + book.author);
-                System.out.println("Gender: " + book.gender);
-                System.out.println("Release date: " + book.releaseDate);
-                System.out.println("Pages amount: " + book.pagesAmount);
-                System.out.println("Copies amount: " + book.getCopiesAmount());
-                System.out.println("Rent price: " + book.getRentPrice() + "\n");
-                
-                filteredBooks.add(book);
-            }
-        }
-        System.out.println("________________________________________________\n");
-
-        return filteredBooks;
+    
+    public void setAuthor(String author) {
+    	if (author.isEmpty()) {
+    		throw new IllegalArgumentException("Author não ser vázio");
+    	} else {
+    		this.author = author;
+    	}
     }
-
-    public List<Books> getBooksByReleaseDate(Date releaseDate) {
-        List<Books> filteredBooks = new ArrayList<Books>();
-
-        System.out.println("_________ Books with this release date _________\n");
-        for (Books book : db) {
-            if (book.releaseDate.equals(releaseDate)) {
-                 // A different approach should be implemented to handle with the returned books list
-                // This is just an example showing that all the ocurrences of the books with this keyword are returned correctly
-
-                System.out.println("Title: " + book.title);
-                System.out.println("Author: " + book.author);
-                System.out.println("Gender: " + book.gender);
-                System.out.println("Release date: " + book.releaseDate);
-                System.out.println("Pages amount: " + book.pagesAmount);
-                System.out.println("Copies amount: " + book.getCopiesAmount());
-                System.out.println("Rent price: " + book.getRentPrice() + "\n");
-                
-                filteredBooks.add(book);
-            }
-        }
-        System.out.println("________________________________________________\n");
-
-        return filteredBooks;
+    
+    public Date getReleaseDate() {
+    	return this.releaseDate;
+    }
+  
+    public void setReleaseDate(Date releaseDate) {
+    	if (releaseDate == null) {
+    		throw new IllegalArgumentException("releaseDate não pode ser vázia");
+    	} else {
+    		this.releaseDate = releaseDate;
+    	}
+    }
+    
+    public int getPagesAmount() {
+    	return this.pagesAmount;
+    }
+    
+    public void setPagesAmount(int pagesAmount) {
+    	if (pagesAmount <= 0) {
+    		throw new IllegalArgumentException("PagesAmount não pode ser 0 ou inferior");
+    	} else {
+    		this.pagesAmount = pagesAmount;
+    	}
     }
 }

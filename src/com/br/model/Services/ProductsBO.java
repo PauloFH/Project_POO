@@ -1,16 +1,23 @@
 package com.br.model.Services;
 
+<<<<<<< HEAD
 
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.ResultSet;
+=======
+import java.util.List;
+>>>>>>> d73ba0341846460032aa3e27a8e90ef9ea7224ba
 import java.sql.SQLClientInfoException;
 import java.sql.SQLException;
 
 import com.br.model.DAO.BaseInterDAO;
 import com.br.model.DAO.VinylRecordDAO;
 import com.br.model.entity.Books;
+<<<<<<< HEAD
 import com.br.model.entity.Products;
+=======
+>>>>>>> d73ba0341846460032aa3e27a8e90ef9ea7224ba
 import com.br.model.entity.VinylRecord;
 
 public class ProductsBO<E> {
@@ -33,6 +40,7 @@ public class ProductsBO<E> {
 		}
 	}
 	
+<<<<<<< HEAD
 	public void del(Products e) {
 		if(e instanceof Books) {
 			BooksDAO dao = new BooksDAO();
@@ -179,4 +187,11 @@ private List<E> listProducts(E e) {
 			return null;
 		}	
 	
+=======
+
+	private List<E> searchProducts(E e) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+>>>>>>> d73ba0341846460032aa3e27a8e90ef9ea7224ba
 }
