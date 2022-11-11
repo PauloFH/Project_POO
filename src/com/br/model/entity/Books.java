@@ -1,9 +1,5 @@
 package com.br.model.entity;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 public class Books extends Products{
     // implements Book
 	private int id;
