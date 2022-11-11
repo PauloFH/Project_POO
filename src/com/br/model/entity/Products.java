@@ -36,7 +36,7 @@ public abstract class Products{
            else throw new IllegalArgumentException("rent price must be greater than 0");
    }
 
-   public int getId(int id) {
+   public int getId() {
        return id;
    }
 

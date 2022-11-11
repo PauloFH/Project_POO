@@ -7,7 +7,7 @@ package com.br.model.DAO;
 	import com.br.model.entity.VinylRecord;
 	public class VinylRecordDAO  extends BaseDAO<VinylRecord>{
 		public boolean add(VinylRecord vinylRecord) {
-			String sql = "INSERT INTO tb_vin11'ylRecord (title, rentPrice, copiesAmount, bandsName, musicalStyle) VALUES(?, ?, ?, ?, ?);";
+			String sql = "INSERT INTO tb_vinylRecord (title, rentPrice, copiesAmount, bandsName, musicalStyle) VALUES(?, ?, ?, ?, ?);";
 			try {
 				PreparedStatement pst = getConnection().prepareStatement(sql);
 				pst.setString(1, vinylRecord.getTitle());
