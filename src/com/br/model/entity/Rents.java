@@ -1,6 +1,5 @@
 package com.br.model.entity;
 
-import java.sql.Date;
 import java.util.Calendar;
 
 public class Rents extends Products {

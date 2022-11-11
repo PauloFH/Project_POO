@@ -29,7 +29,7 @@ package com.br.model.DAO;
 			String sql = "DELETE FROM tb_vinylRecord WHERE id_vinylRecord=?;";
 			try {
 				PreparedStatement pst = getConnection().prepareStatement(sql);
-				pst.setInt(1, vinylRecord.getId(0));
+				pst.setInt(1, vinylRecord.getId());
 				pst.execute();
 				
 				return true;
@@ -49,7 +49,7 @@ package com.br.model.DAO;
 				pst.setInt(3, vinylRecord.getCopiesAmount());
 				pst.setString(4, vinylRecord.getBandsName());
 				pst.setString(5, vinylRecord.getMusicalStyle());
-				pst.setInt(6, vinylRecord.getId(0));
+				pst.setInt(6, vinylRecord.getId());
 				pst.executeUpdate();
 				return true;
 				
@@ -64,7 +64,7 @@ package com.br.model.DAO;
 			String sql = "SELECT * FROM tb_vinylRecord WHERE id_vinylRecord=? ;";
 			try {
 				PreparedStatement pst = getConnection().prepareStatement(sql);
-				pst.setInt(1, e.getId(0));
+				pst.setInt(1, e.getId());
 				ResultSet rs = pst.executeQuery();
 				if(rs.next()) {
 					VinylRecord vinyl = new VinylRecord();
@@ -73,7 +73,7 @@ package com.br.model.DAO;
 					vinyl.setCopiesAmount(rs.getInt("copiesAmount"));
 					vinyl.setBandsName(rs.getString("bandsName"));
 					vinyl.setMusicalStyle(rs.getString("musicalStyle"));
-					vinyl.setId(e.getId(0));
+					vinyl.setId(e.getId());
 					return vinyl;
 				}
 				else return null;
@@ -127,7 +127,7 @@ package com.br.model.DAO;
 					break;
 				
 				default: 
-					pst.setInt(1, e.getId(0));
+					pst.setInt(1, e.getId());
 				}
 				
 				ResultSet rs = pst.executeQuery();
