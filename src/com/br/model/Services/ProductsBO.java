@@ -5,13 +5,14 @@ import java.sql.SQLClientInfoException;
 import java.sql.SQLException;
 
 import com.br.model.DAO.BaseInterDAO;
+import com.br.model.DAO.BooksDAO;
 import com.br.model.DAO.VinylRecordDAO;
 import com.br.model.entity.Books;
 import com.br.model.entity.VinylRecord;
 
 public class ProductsBO<E> {
 	  
-	public void add(E e) {
+	public void add(E e) throws Exception {
 	if(e instanceof Books) {
 		BooksDAO dao = new BooksDAO();
 		List<E> searchedBook = searchProducts(e);

@@ -1,4 +1,4 @@
-package com.br.Views;
+package com.br.api.Views;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

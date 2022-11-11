@@ -35,7 +35,6 @@ public class RentsBO {
 	}
 
 
-	@Override
 	public Connection getConnection() {
 		// TODO Auto-generated method stub
 		return null;
