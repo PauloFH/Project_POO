@@ -1,4 +1,4 @@
-module javafx {
+module Project_POO {
 	requires javafx.controls;
 	requires javafx.graphics;
 	requires javafx.fxml;
