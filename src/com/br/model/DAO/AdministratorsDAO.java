@@ -4,9 +4,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 import com.br.model.entity.Administrators;
 
-public class AdministratorsDAO extends BaseDAO<Administrators> implements AdminInterDAO {
+public class AdministratorsDAO extends BaseDAO<Administrators>{
 	public boolean add(Administrators admin) {
 		String sql = "INSERT INTO tb_admin(name,user,password, acessCode) VALUES (?,?,?,?);";
 		try {
@@ -149,4 +151,15 @@ public class AdministratorsDAO extends BaseDAO<Administrators> implements AdminI
 			return null;
 		}
 	}
+    public void login(String passwd, String loginuser ) throws SQLException{
+
+            String sql = "select * from tb_funcionarios where user = ? and password = ?";
+            PreparedStatement stmt = getConnection().prepareStatement(sql);
+            stmt.setString(1, loginuser);
+            stmt.setString(2, passwd);
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()) {
+            	
+            }
+    }
 }

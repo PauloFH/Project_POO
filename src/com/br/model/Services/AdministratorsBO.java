@@ -3,43 +3,47 @@ package com.br.model.Services;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+import com.br.api.DTO.AdministratorsDTO;
 import com.br.model.DAO.AdminInterDAO;
 import com.br.model.DAO.AdministratorsDAO;
+import com.br.model.DAO.BaseInterDAO;
 import com.br.model.entity.Administrators;
 
 public class AdministratorsBO {
-	AdminInterDAO adminDAO = new AdministratorsDAO();
+	BaseInterDAO<Administrators> adminDAO = new AdministratorsDAO();
 	
-		public boolean login(String user, String password) {
-			ResultSet response = adminDAO.findByUserAndPassword(user, password);
+		public boolean login(AdministratorsDTO dto) {
+			String user = dto.getUser();
+			String password = dto.getPasswd();
+			ResultSet response = ((AdminInterDAO) adminDAO).findByUserAndPassword(user, password);
 			try {
 				if (response.next()) {
-					System.out.println("Logado com sucesso!");
 					
 					return true;
 				} else {
-					System.out.println("Por favor, verifique seu usuário e senha!");
 					
 					return false;
 				}
 			} catch (Exception e) {
 				// TODO: handle exception
-				e.printStackTrace();
+				JOptionPane.showMessageDialog(null,"Erro: "+e);
 				
 				return false;
 			}
 		}
 
-	  public void logout() {
+	  public boolean logout() {
 	    // implements a fake logout while not active login session
-	    System.out.println("Logout");
+		  return true;
 	  }
 
-	  public boolean registerAdministrator(Administrators newAdmin) {
-		 ResultSet response = adminDAO.findBySpecifiedField(newAdmin, "acessCode");
+	  public boolean registerAdministrator(AdministratorsDTO newAdmin) {
+		  Administrators admin = Administrators.converter(newAdmin);
+		 ResultSet response = adminDAO.findBySpecifiedField(admin, "acessCode");
 		 try {
 			if (response == null || !response.next()) {
-				if (adminDAO.add(newAdmin) == true) {
+				if (adminDAO.add(admin) == true) {
 					return true;
 				} else {
 					return false;
@@ -49,7 +53,7 @@ public class AdministratorsBO {
 			}
 		} catch (SQLException e) {
 			// TODO: handle exception
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,"Erro: "+e);
 			
 			return false;
 		}

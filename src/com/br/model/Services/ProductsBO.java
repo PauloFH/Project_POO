@@ -1,10 +1,6 @@
 package com.br.model.Services;
 
 import java.util.List;
-import java.sql.SQLClientInfoException;
-import java.sql.SQLException;
-
-import com.br.model.DAO.BaseInterDAO;
 import com.br.model.DAO.BooksDAO;
 import com.br.model.DAO.VinylRecordDAO;
 import com.br.model.entity.Books;

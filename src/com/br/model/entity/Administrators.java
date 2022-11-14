@@ -1,5 +1,10 @@
 package com.br.model.entity;
 
+import javax.swing.JOptionPane;
+
+import com.br.api.DTO.AdministratorsDTO;
+
+
 public class Administrators {
   // implements class attributes
   private String name;
@@ -67,4 +72,16 @@ public class Administrators {
       this.accessCode = code;
     }
   }
+  public static Administrators converter(AdministratorsDTO dto) {
+	  Administrators admin = new Administrators();
+	  try {
+		  admin.setName(dto.getName());
+		  admin.setUser(dto.getUser());
+		  admin.setPassword(dto.getPasswd());
+		  admin.setAccessCode(dto.getAcsscode());
+	} catch (Exception e) {
+		JOptionPane.showMessageDialog(null,"Erro: "+e);
+	}
+		return admin;
+	}
 }
