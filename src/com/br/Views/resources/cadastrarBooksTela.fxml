@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #393939;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #393939;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.Views.resources.CadBooksController">
    <children>
       <ImageView fitHeight="33.0" fitWidth="249.0" layoutX="250.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -56,7 +56,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="buttonAddLivro" layoutX="98.0" layoutY="389.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="163.0" style="-fx-background-color: #01A76A;" text="Cadastrar" textFill="WHITE">
+      <Button fx:id="buttonAddLivro" layoutX="98.0" layoutY="389.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="40.0" prefWidth="163.0" style="-fx-background-color: #01A76A;" text="Cadastrar" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font></Button>
@@ -66,5 +66,10 @@
       <TextField fx:id="pagesAmount" layoutX="437.0" layoutY="230.0" prefHeight="40.0" prefWidth="249.0" style="-fx-border-radius: 4px;" />
       <TextField fx:id="copiesAmount" layoutX="97.0" layoutY="310.0" prefHeight="40.0" prefWidth="274.0" style="-fx-border-radius: 4px;" />
       <TextField fx:id="rentPrice" layoutX="412.0" layoutY="311.0" prefHeight="40.0" prefWidth="274.0" style="-fx-border-radius: 4px;" />
+      <Label fx:id="msgCadastroIncompleto" layoutX="96.0" layoutY="358.0" style="-fx-background-color: #DCB5B5; -fx-background-radius: 5px;" text="Complete todas as informações para concluir o cadastro!" textFill="#a80000" visible="false">
+         <font>
+            <Font name="Microsoft New Tai Lue" size="14.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

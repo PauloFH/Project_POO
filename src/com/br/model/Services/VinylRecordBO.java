@@ -27,11 +27,12 @@ public class VinylRecordBO {
 		}	
 		
 	}
-<<<<<<< HEAD
+
 	public List<VinylRecord> listAll(){
-=======
+		
+	}
 	public List<VinylRecord>findAll(){
->>>>>>> d73ba0341846460032aa3e27a8e90ef9ea7224ba
+
 		List<VinylRecord> vinylRecords = new ArrayList<VinylRecord>();
 		ResultSet rs = dao.findAll();
 		try {
