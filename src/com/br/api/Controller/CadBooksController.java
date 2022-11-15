@@ -42,6 +42,6 @@ public class CadBooksController {
 	}
 	
 	public void closer(ActionEvent event) throws Exception{
-	
+		Main.
 	}
 }
