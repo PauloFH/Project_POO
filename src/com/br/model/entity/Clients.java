@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-public class Clients <E>{
+public class Clients{
     // implements Book
     protected static int numbClients;
     private int id;
@@ -13,7 +13,7 @@ public class Clients <E>{
     private String address;
     private String cpf;
 
-    static List<Clients> bd = new ArrayList<>();
+    static List<Clients> bd = new ArrayList<Clients>();
 
 
 
