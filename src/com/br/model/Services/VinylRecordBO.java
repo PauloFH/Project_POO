@@ -28,7 +28,7 @@ public class VinylRecordBO {
 		
 	}
 
-	public List<VinylRecord> listAll(){
+	public void listAll(){
 		
 	}
 	public List<VinylRecord>findAll(){

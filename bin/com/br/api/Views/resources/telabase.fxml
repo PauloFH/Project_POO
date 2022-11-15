@@ -13,27 +13,27 @@
                   <Image url="@imgs/Logo.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="buttonbooks" fitHeight="40.0" fitWidth="40.0" layoutX="5.0" layoutY="108.0" onMouseClicked="#openbooksview" onMouseEntered="#showflag1" onMouseExited="#closeflag1" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="buttonbooks" fitHeight="40.0" fitWidth="40.0" layoutX="5.0" layoutY="108.0" onMouseClicked="#openbooksview" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imgs/Bookicon.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="buttonrecords" fitHeight="40.0" fitWidth="40.0" layoutX="5.0" layoutY="198.0" onMouseClicked="#openrecordsview" onMouseEntered="#showflag2" onMouseExited="#closeflag2" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="buttonrecords" fitHeight="40.0" fitWidth="40.0" layoutX="5.0" layoutY="198.0" onMouseClicked="#openrecordsview" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imgs/Recordicon.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="buttonclients" fitHeight="40.0" fitWidth="40.0" layoutX="7.0" layoutY="276.0" onMouseClicked="#openclientsview" onMouseEntered="#showflag3" onMouseExited="#closeflag3" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="buttonclients" fitHeight="40.0" fitWidth="40.0" layoutX="7.0" layoutY="276.0" onMouseClicked="#openclientsview" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imgs/Clienticon.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="buttonrents" fitHeight="40.0" fitWidth="40.0" layoutX="5.0" layoutY="355.0" onMouseClicked="#openrentsview" onMouseEntered="#showflag4" onMouseExited="#closeflag4" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="buttonrents" fitHeight="40.0" fitWidth="40.0" layoutX="5.0" layoutY="355.0" onMouseClicked="#openrentsview" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imgs/renticon.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="buttonlogout" fitHeight="40.0" fitWidth="40.0" layoutX="5.0" layoutY="435.0" onMouseClicked="#logout" onMouseEntered="#showflag5" onMouseExited="#closeflag5" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="buttonlogout" fitHeight="40.0" fitWidth="40.0" layoutX="5.0" layoutY="435.0" onMouseClicked="#logout" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imgs/Logouticon.png" />
                </image>
