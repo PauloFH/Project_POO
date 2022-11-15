@@ -1,13 +1,9 @@
 package com.br.api.Views;
 
 import javax.swing.JOptionPane;
-<<<<<<< HEAD
 import javax.swing.Popup;
 
 import com.br.api.Controller.CadBooksController;
-
-=======
->>>>>>> 6bd7b347933b48fd7aa7b5001a3a85a7a86294c1
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
