@@ -40,4 +40,8 @@ public class CadBooksController {
 			BooksBO.add(book);
 		}
 	}
+	
+	public void closer(ActionEvent event) throws Exception{
+	
+	}
 }

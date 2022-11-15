@@ -1,6 +1,9 @@
 package com.br.api.Views;
 
 import javax.swing.JOptionPane;
+import javax.swing.Popup;
+
+import com.br.api.Controller.CadBooksController;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -72,5 +75,20 @@ public class Main extends Application {
 			} catch (Exception e) {
 				JOptionPane.showMessageDialog(null,"Erro: "+e);
 			}
-			}
+		}
+		
+		public static void telaCadastroBooks() {
+
+				Popup popup = new Popup();
+				CadBooksController controller = new CadBooksController();
+				FXMLLoader loader;
+				try {
+					loader = new FXMLLoader(getClass().getResource("resources/cadastrarBooksTela.fxml"));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				loader.setController(controller);
+				popup.getContent().add((Parent)loader.load());
+			
+		}
 }
