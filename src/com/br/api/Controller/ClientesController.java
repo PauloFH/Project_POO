@@ -9,9 +9,11 @@ import javax.swing.JOptionPane;
 
 import com.br.api.DTO.ClientsDTO;
 import com.br.api.Views.Main;
+import com.br.model.Services.ClientsBO;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -33,7 +35,7 @@ public class ClientesController implements Initializable {
 	private TableColumn<ClientsDTO, String> columnCpf;
 	@FXML
 	private TableColumn<ClientsDTO, Button> columnBotao;
-	
+	 		private ClientsBO bo = new ClientsBO();
 	private ObservableList<ClientsDTO> listaDeClientes;
 	 
 	@Override
@@ -42,17 +44,7 @@ public class ClientesController implements Initializable {
 	} 
 	
 	public void listarClientes() {
-		ClientsDTO client = new ClientsDTO();
-		client.setName("Ramos Carlos");
-		client.setAddress("Rua napoleão");
-		client.setCpf("454-545-454-14");
-		client.setSelect(new CheckBox());
-		Button botao = new Button();
-		botao.setText("editar");
-		client.setButton(botao);
-		List<ClientsDTO> clientes = new ArrayList<ClientsDTO>();
-		clientes.add(client);
-		
+		List<ClientsDTO> clientes = bo.listAll();
 		listaDeClientes = FXCollections.observableArrayList(clientes);
 		columnSelecione.setCellValueFactory(new PropertyValueFactory<>("select"));
 		columnNome.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -89,4 +81,10 @@ public class ClientesController implements Initializable {
 	public void deleteClientes() {
 		JOptionPane.showMessageDialog(null, "deletado com sucesso");
 	}
+	
+    @FXML
+    void telamenu(ActionEvent event) {
+    	Main.telamenu();
+    	
+    }
 }

@@ -2,8 +2,8 @@ package com.br.model.entity;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.JOptionPane;
+import com.br.api.DTO.ClientsDTO;
 
 public class Clients{
     // implements Book
@@ -50,4 +50,16 @@ public class Clients{
     public int getId() {
         return id;
     }
-  }
+    public static Clients converter(ClientsDTO dto) {
+    	Clients client = new Clients();
+    	try {
+  		  client.setName(dto.getName());
+  		client.setCpf(dto.getCpf());
+  		client.setAddress(dto.getAddress());
+  	} catch (Exception e) {
+  		JOptionPane.showMessageDialog(null,"Erro: "+e);
+  	}
+  		return client;
+	}
+  		
+  	}

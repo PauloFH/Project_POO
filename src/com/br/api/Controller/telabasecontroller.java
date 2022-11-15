@@ -6,6 +6,9 @@ package com.br.api.Controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.br.api.Views.Main;
+
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -33,79 +36,30 @@ public class telabasecontroller {
     @FXML // fx:id="buttonrents"
     private ImageView buttonrents; // Value injected by FXMLLoader
 
-    @FXML
-    void closeflag1(MouseEvent event) {
-
-    }
-
-    @FXML
-    void closeflag2(MouseEvent event) {
-
-    }
-
-    @FXML
-    void closeflag3(MouseEvent event) {
-
-    }
-
-    @FXML
-    void closeflag4(MouseEvent event) {
-
-    }
-
-    @FXML
-    void closeflag5(MouseEvent event) {
-
-    }
-
+  
     @FXML
     void logout(MouseEvent event) {
-
+    	Main.telalogin();
     }
 
     @FXML
     void openbooksview(MouseEvent event) {
-
+    	Main.telaControleLivro();
     }
 
     @FXML
     void openclientsview(MouseEvent event) {
-
+    	Main.telaControleClientes();
     }
 
     @FXML
     void openrecordsview(MouseEvent event) {
-
+    	Main.telaControleDiscos();
     }
 
     @FXML
     void openrentsview(MouseEvent event) {
-
-    }
-
-    @FXML
-    void showflag1(MouseEvent event) {
-
-    }
-
-    @FXML
-    void showflag2(MouseEvent event) {
-
-    }
-
-    @FXML
-    void showflag3(MouseEvent event) {
-
-    }
-
-    @FXML
-    void showflag4(MouseEvent event) {
-
-    }
-
-    @FXML
-    void showflag5(MouseEvent event) {
-
+    	
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete

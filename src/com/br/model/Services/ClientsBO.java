@@ -11,10 +11,14 @@ import com.br.model.DAO.BaseInterDAO;
 import com.br.model.DAO.ClientsDAO;
 import com.br.model.entity.Clients;
 
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+
 public class ClientsBO{
-		BaseInterDAO<Clients> dao = new ClientsDAO();
+		ClientsDAO dao = new ClientsDAO();
 		
-        public boolean registerClients (ClientsDTO client){
+        public boolean registerClients (ClientsDTO dto){
+        	Clients client = Clients.converter(dto);
         ResultSet q = dao.findBySpecifiedField(client, "cpf");
         try{
             if (q== null || !q.next()){
@@ -28,7 +32,8 @@ public class ClientsBO{
             }
         }
 
-    public boolean editClients(Clients client){
+    public boolean editClients(ClientsDTO dto){
+    	Clients client = Clients.converter(dto);
     		ResultSet rs = dao.findBySpecifiedField(client, "cpf");
     	try { if(rs!=null && rs.next()) {
     			if(dao.edit(client) == true)
@@ -43,7 +48,8 @@ public class ClientsBO{
     	
     }
     
-    public boolean deleteClients(Clients client){
+    public boolean deleteClients(ClientsDTO dto){
+    	Clients client = Clients.converter(dto);
 		ResultSet rs = dao.findBySpecifiedField(client, "cpf");
     	try {
     		if(rs !=null && rs.next()) {
@@ -103,18 +109,21 @@ public class ClientsBO{
         }  
              
 }
-    public List<Clients> listAll(){
+    public List<ClientsDTO> listAll(){
     		ResultSet rs = dao.findAll();
-    		List<Clients> rslist = new ArrayList<Clients>();
+    		
+    		List<ClientsDTO> rslist = new ArrayList<ClientsDTO>();
     		
     	try {
         		while(rs.next()) {
-        			Clients cl = new Clients();            		
-        			cl.setId(rs.getInt("id"));
+        			ClientsDTO cl = new ClientsDTO();
+        			cl.setSelect(new CheckBox());
         			cl.setName(rs.getString("name"));
         			cl.setCpf(rs.getString("cpf"));
         			cl.setAddress(rs.getString("adress"));
-        		
+        			Button botao = new Button();
+        			botao.setText("editar");
+        			cl.setButton(botao);
         			rslist.add(cl);
         		}
     		return rslist;

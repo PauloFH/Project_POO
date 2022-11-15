@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
+import com.br.api.DTO.ClientsDTO;
 import com.br.model.entity.Clients;
 
 
@@ -110,6 +111,7 @@ public class ClientsDAO extends BaseDAO<Clients>{
 				return null;
 			}
 		}
+
 		
 		
 		

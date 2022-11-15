@@ -46,9 +46,50 @@ public class Main extends Application {
 				
 			}
 			catch(Exception e) {
-				e.printStackTrace();
+				JOptionPane.showMessageDialog(null,"Erro: "+e);
 			}
 		}
+<<<<<<< HEAD
+=======
+		
+		public static void telaControleDiscos() {
+			try {
+				Parent root = FXMLLoader.load(Main.class.getResource("resources/controleDisco.fxml"));
+				Scene scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
+			} catch (Exception e) {
+				// TODO: handle exception
+				JOptionPane.showMessageDialog(null,"Erro: "+e);
+			}
+		}
+		
+
+		public static void telaControleClientes() {
+			try {
+				Parent root = FXMLLoader.load(Main.class.getResource("resources/controleClientes.fxml"));
+				Scene scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
+			} catch (Exception e) {
+				// TODO: handle exception
+				JOptionPane.showMessageDialog(null,"Erro: "+e);
+			}
+		}
+		
+		public static void telaControleLivro() {
+			try {
+				Parent root = FXMLLoader.load(Main.class.getResource("resources/controleLivros.fxml"));
+				Scene scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
+			} catch (Exception e) {
+				// TODO: handle exception
+				JOptionPane.showMessageDialog(null,"Erro: "+e);
+			}
+		}
+
+>>>>>>> b6b40a05624fad698ca69b1e216b65e5ef99e4d3
 		public static void telamenu(){
 			try {
 				Parent root = FXMLLoader.load(Main.class.getResource("resources/telabase.fxml"));
@@ -58,7 +99,7 @@ public class Main extends Application {
 				stage.show();
 				
 			}catch(Exception e) {
-
+				JOptionPane.showMessageDialog(null,"Erro: "+e);
 			}
 		}
 		public static void telacadastroadmin() {
