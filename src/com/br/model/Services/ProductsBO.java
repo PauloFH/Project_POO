@@ -1,28 +1,21 @@
 package com.br.model.Services;
 
-<<<<<<< HEAD
-
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.ResultSet;
-=======
 import java.util.List;
->>>>>>> d73ba0341846460032aa3e27a8e90ef9ea7224ba
+import com.br.model.DAO.BooksDAO;
 import java.sql.SQLClientInfoException;
 import java.sql.SQLException;
-
 import com.br.model.DAO.BaseInterDAO;
 import com.br.model.DAO.VinylRecordDAO;
 import com.br.model.entity.Books;
-<<<<<<< HEAD
 import com.br.model.entity.Products;
-=======
->>>>>>> d73ba0341846460032aa3e27a8e90ef9ea7224ba
 import com.br.model.entity.VinylRecord;
 
 public class ProductsBO<E> {
 	  
-	public void add(E e) {
+	public void add(E e) throws Exception {
 	if(e instanceof Books) {
 		BooksDAO dao = new BooksDAO();
 		List<E> searchedBook = searchProducts(e);
@@ -39,8 +32,6 @@ public class ProductsBO<E> {
 		}else throw new Exception("book already exist");
 		}
 	}
-	
-<<<<<<< HEAD
 	public void del(Products e) {
 		if(e instanceof Books) {
 			BooksDAO dao = new BooksDAO();
@@ -186,12 +177,9 @@ private List<E> listProducts(E e) {
 
 			return null;
 		}	
-	
-=======
 
 	private List<E> searchProducts(E e) {
 		// TODO Auto-generated method stub
 		return null;
 	}
->>>>>>> d73ba0341846460032aa3e27a8e90ef9ea7224ba
 }

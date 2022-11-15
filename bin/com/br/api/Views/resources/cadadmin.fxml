@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #505050;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.api.Controler.cadadmincontroller">
+   <children>
+      <Button fx:id="buttoncad" layoutX="456.0" layoutY="322.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="52.0" prefWidth="187.0" style="-fx-background-color: #01A76A;" text="Cadastrar" textFill="WHITE">
+         <font>
+            <Font name="Microsoft Tai Le Bold" size="28.0" />
+         </font></Button>
+      <TextField fx:id="user" alignment="CENTER" layoutX="351.0" layoutY="146.0" prefHeight="25.0" prefWidth="399.0" promptText="Usuário" style="-fx-border-radius: 4%;">
+         <font>
+            <Font name="Microsoft Tai Le Bold" size="20.0" />
+         </font></TextField>
+      <Pane prefHeight="500.0" prefWidth="250.0" style="-fx-background-color: #252525;">
+         <children>
+            <ImageView fitHeight="52.0" fitWidth="30.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/Logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="243.0" fitWidth="259.0" layoutX="4.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/img.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label layoutX="333.0" layoutY="14.0" text="Cadastro" textFill="WHITE">
+         <font>
+            <Font name="Microsoft Tai Le Bold" size="43.0" />
+         </font>
+      </Label>
+      <Button fx:id="movetologin" layoutX="404.0" layoutY="421.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#viewlogin" prefHeight="52.0" prefWidth="292.0" style="-fx-background-color: #D3F0DB; -fx-border-width: 1%;" text="Já tem cadastro? Clique aqui" textFill="#61cfa7">
+         <font>
+            <Font name="Microsoft Tai Le Bold" size="18.0" />
+         </font>
+      </Button>
+      <PasswordField fx:id="passwd" alignment="CENTER" layoutX="350.0" layoutY="198.0" prefHeight="42.0" prefWidth="399.0" promptText="Password" style="-fx-border-radius: 4%;">
+         <font>
+            <Font name="Microsoft Tai Le Bold" size="20.0" />
+         </font>
+      </PasswordField>
+      <TextField fx:id="namecomp" alignment="CENTER" layoutX="350.0" layoutY="94.0" prefHeight="25.0" prefWidth="399.0" promptText="Nome Completo" style="-fx-border-radius: 4%;">
+         <font>
+            <Font name="Microsoft Tai Le Bold" size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="codass" alignment="CENTER" layoutX="351.0" layoutY="250.0" prefHeight="25.0" prefWidth="399.0" promptText="Código de acesso" style="-fx-border-radius: 4%;">
+         <font>
+            <Font name="Microsoft Tai Le Bold" size="20.0" />
+         </font>
+      </TextField>
+   </children>
+</Pane>
