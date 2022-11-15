@@ -9,13 +9,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #505050;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane id="outpane" maxHeight="500.0" maxWidth="800.0" minHeight="500.0" minWidth="800.0" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #505050;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.api.Controller.loginController">
    <children>
       <Button fx:id="buttonLogin" layoutX="422.0" layoutY="275.0" mnemonicParsing="false" onAction="#login" prefHeight="70.0" prefWidth="267.0" style="-fx-background-color: #01A76A;" text="Login" textFill="WHITE">
          <font>
             <Font name="Microsoft Tai Le Bold" size="28.0" />
          </font></Button>
-      <TextField alignment="CENTER" layoutX="350.0" layoutY="110.0" prefHeight="25.0" prefWidth="399.0" promptText="Usuário" style="-fx-border-radius: 4%;">
+      <TextField fx:id="user" alignment="CENTER" layoutX="350.0" layoutY="110.0" prefHeight="25.0" prefWidth="399.0" promptText="Usuário" style="-fx-border-radius: 4%;">
          <font>
             <Font name="Microsoft Tai Le Bold" size="28.0" />
          </font></TextField>
@@ -37,16 +37,17 @@
             </ImageView>
          </children>
       </Pane>
-
       <Label layoutX="350.0" layoutY="41.0" text="Login" textFill="WHITE">
-
          <font>
             <Font name="Microsoft Tai Le Bold" size="43.0" />
          </font>
       </Label>
-
-      <Button layoutX="400.0" layoutY="389.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="311.0" style="-fx-background-color: #D3F0DB; -fx-border-width: 1%;" text="Não tem cadastro? Clique aqui" textFill="#61cfa7">
-
+      <Button fx:id="buttonout" layoutX="749.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeview" prefHeight="36.0" prefWidth="44.0" style="-fx-background-color: #505050;" text="X" textFill="WHITE">
+         <font>
+            <Font name="Microsoft Tai Le Bold" size="22.0" />
+         </font>
+      </Button>
+      <Button fx:id="gotocadastro" layoutX="400.0" layoutY="389.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#gotocadastro" prefHeight="70.0" prefWidth="311.0" style="-fx-background-color: #D3F0DB; -fx-border-width: 1%;" text="Não tem cadastro? Clique aqui" textFill="#61cfa7">
          <font>
             <Font name="Microsoft Tai Le Bold" size="18.0" />
          </font>

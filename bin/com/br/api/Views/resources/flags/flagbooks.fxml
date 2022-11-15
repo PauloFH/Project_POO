@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="156.0" style="-fx-background-color: #01A76A;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Polygon fill="#01a76a" layoutX="89.0" layoutY="2.0" points="49.99998474121094, -4.6666646003723145, 50.0, 29.333335876464844, 100.33332824707031, 9.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Polygon fill="#01a76a" layoutX="88.0" layoutY="31.0" points="49.99998474121094, -4.6666646003723145, 50.0, 23.612579345703125, 96.0, 10.112579345703125" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-6.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imgs/Bandeirinha.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="7.0" layoutY="11.0" text="Gerenciar Livros" textFill="WHITE">
+         <font>
+            <Font name="Microsoft Tai Le" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

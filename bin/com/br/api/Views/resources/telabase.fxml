@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #252525;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.api.Controller.telabasecontroller">
+   <children>
+      <Pane prefHeight="500.0" prefWidth="50.0" style="-fx-background-color: #505050;">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="30.0" layoutX="11.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/Logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="buttonbooks" fitHeight="40.0" fitWidth="40.0" layoutX="5.0" layoutY="108.0" onMouseClicked="#openbooksview" onMouseEntered="#showflag1" onMouseExited="#closeflag1" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/Bookicon.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="buttonrecords" fitHeight="40.0" fitWidth="40.0" layoutX="5.0" layoutY="198.0" onMouseClicked="#openrecordsview" onMouseEntered="#showflag2" onMouseExited="#closeflag2" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/Recordicon.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="buttonclients" fitHeight="40.0" fitWidth="40.0" layoutX="7.0" layoutY="276.0" onMouseClicked="#openclientsview" onMouseEntered="#showflag3" onMouseExited="#closeflag3" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/Clienticon.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="buttonrents" fitHeight="40.0" fitWidth="40.0" layoutX="5.0" layoutY="355.0" onMouseClicked="#openrentsview" onMouseEntered="#showflag4" onMouseExited="#closeflag4" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/renticon.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="buttonlogout" fitHeight="40.0" fitWidth="40.0" layoutX="5.0" layoutY="435.0" onMouseClicked="#logout" onMouseEntered="#showflag5" onMouseExited="#closeflag5" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/Logouticon.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</Pane>
