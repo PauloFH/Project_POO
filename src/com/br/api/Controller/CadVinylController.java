@@ -1,4 +1,4 @@
-package com.br.controllers;
+package com.br.api.Controller;
 
 import com.br.model.Services.ProductsBO;
 import com.br.model.entity.VinylRecord;

@@ -1,4 +1,4 @@
-package com.br.controllers;
+package com.br.api.Controller;
 
 import com.br.model.Services.ClientsBO;
 import com.br.model.entity.Clients;
