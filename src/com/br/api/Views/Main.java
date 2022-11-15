@@ -1,9 +1,6 @@
 package com.br.api.Views;
 
 import javax.swing.JOptionPane;
-import javax.swing.Popup;
-
-import com.br.api.Controller.CadBooksController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -52,6 +49,8 @@ public class Main extends Application {
 				JOptionPane.showMessageDialog(null,"Erro: "+e);
 			}
 		}
+<<<<<<< HEAD
+=======
 		
 		public static void telaControleDiscos() {
 			try {
@@ -90,6 +89,7 @@ public class Main extends Application {
 			}
 		}
 
+>>>>>>> b6b40a05624fad698ca69b1e216b65e5ef99e4d3
 		public static void telamenu(){
 			try {
 				Parent root = FXMLLoader.load(Main.class.getResource("resources/telabase.fxml"));
@@ -116,16 +116,41 @@ public class Main extends Application {
 		
 		public static void telaCadastroBooks() {
 
-				Popup popup = new Popup();
-				CadBooksController controller = new CadBooksController();
-				FXMLLoader loader;
-				try {
-					loader = new FXMLLoader(getClass().getResource("resources/cadastrarBooksTela.fxml"));
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				loader.setController(controller);
-				popup.getContent().add((Parent)loader.load());
-			
+			try {
+				Parent root = FXMLLoader.load(Main.class.getResource("resources/cadastrarBooksTela.fxml"));
+				Scene scene = new Scene (root);
+				stage.setScene(scene);
+				stage.setTitle("TelaCadastroLivros");
+				stage.show();
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null,"Erro: "+e);
+			}
 		}
+		
+		public static void telaCadastroVinyl() {
+
+			try {
+				Parent root = FXMLLoader.load(Main.class.getResource("resources/cadastrarVinylTela.fxml"));
+				Scene scene = new Scene (root);
+				stage.setScene(scene);
+				stage.setTitle("TelaCadastroDiscos");
+				stage.show();
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null,"Erro: "+e);
+			}
+		}
+		
+		public static void telaCadastroCliente() {
+
+			try {
+				Parent root = FXMLLoader.load(Main.class.getResource("resources/cadastrarClienteTela.fxml"));
+				Scene scene = new Scene (root);
+				stage.setScene(scene);
+				stage.setTitle("TelaCadastroCliente");
+				stage.show();
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null,"Erro: "+e);
+			}
+		}
+
 }
