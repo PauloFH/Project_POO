@@ -69,7 +69,7 @@ public class ClientesController implements Initializable {
 	}
 	
 	public void irParaHome() {
-		
+		Main.telamenu();
 	}
 	
 	public void irParaAluguel() {
@@ -77,7 +77,7 @@ public class ClientesController implements Initializable {
 	}
 	
 	public void logout() {
-		
+		Main.telalogin();
 	}
 	
 	public void irParaCadastroClientes( ) {

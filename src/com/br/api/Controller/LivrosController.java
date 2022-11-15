@@ -85,7 +85,7 @@ public class LivrosController implements Initializable {
 	}
 	
 	public void irParaHome() {
-		
+		Main.telamenu();
 	}
 	
 	public void irParaAluguel() {
@@ -93,7 +93,7 @@ public class LivrosController implements Initializable {
 	}
 	
 	public void logout() {
-		
+		Main.telalogin();
 	}
 	
 	public void irTelaCadastroLivros( ) {
