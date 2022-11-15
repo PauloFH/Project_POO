@@ -2,9 +2,7 @@ package com.br.model.entity;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.JOptionPane;
-
 import com.br.api.DTO.ClientsDTO;
 
 public class Clients{
@@ -15,7 +13,7 @@ public class Clients{
     private String address;
     private String cpf;
 
-    static List<Clients> bd = new ArrayList<>();
+    static List<Clients> bd = new ArrayList<Clients>();
 
 
 
