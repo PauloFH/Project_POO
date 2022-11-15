@@ -5,8 +5,11 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+<<<<<<< HEAD
 import com.br.api.DTO.ClientsDTO;
 
+=======
+>>>>>>> 74516812bba18665df02bc597ef1c829bb497aa8
 public class Clients{
     // implements Book
     protected static int numbClients;
@@ -15,7 +18,7 @@ public class Clients{
     private String address;
     private String cpf;
 
-    static List<Clients> bd = new ArrayList<>();
+    static List<Clients> bd = new ArrayList<Clients>();
 
 
 
