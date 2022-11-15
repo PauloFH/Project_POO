@@ -18,7 +18,7 @@ public class CadBooksController {
 	@FXML private TextField rentPrice;
 	@FXML private Label msgCadastroIncompleto; 
 	
-	ProductsBO<Books> bo = new ProductsBO<Books>();
+	ProductsBO<Books> BooksBO = new ProductsBO<Books>();
 	
 	public void cadastrar(ActionEvent event) throws Exception{
 		if(title.getText().isEmpty() || gender.getText().isEmpty() || releaseDate.getText().isEmpty() || author.getText().isEmpty() || pagesAmount.getText().isEmpty() || copiesAmount.getText().isEmpty() || rentPrice.getText().isEmpty()) {
@@ -37,7 +37,7 @@ public class CadBooksController {
 			double price = Double.parseDouble(rentPrice.getText());
 			book.setRentPrice(price);
 			
-			bo.add(book);
+			BooksBO.add(book);
 		}
 	}
 }

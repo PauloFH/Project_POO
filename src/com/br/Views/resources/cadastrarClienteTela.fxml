@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #393939;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #393939;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.controllers.CadClienteController">
    <children>
       <ImageView fitHeight="33.0" fitWidth="249.0" layoutX="250.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -31,41 +31,22 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="452.0" layoutY="144.0" style="-fx-font-family: Inter; -fx-font-size: 15px; -fx-font-weight: 700;" text="Telefone" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-      <Label layoutX="99.0" layoutY="225.0" style="-fx-font-family: Inter; -fx-font-size: 15px; -fx-font-weight: 700;" text="E-mail" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-      <Label layoutX="453.0" layoutY="226.0" style="-fx-font-family: Inter; -fx-font-size: 15px; -fx-font-weight: 700;" text="Cep" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-      <Button fx:id="buttonAddCliente" layoutX="97.0" layoutY="398.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="163.0" style="-fx-background-color: #01A76A;" text="Cadastrar" textFill="WHITE">
+      <Button fx:id="buttonAddCliente" layoutX="97.0" layoutY="358.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="163.0" style="-fx-background-color: #01A76A;" text="Cadastrar" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
       <TextField fx:id="CPF" layoutX="97.0" layoutY="171.0" prefHeight="40.0" prefWidth="305.0" style="-fx-border-radius: 4px;" />
-      <TextField fx:id="phone" layoutX="451.0" layoutY="170.0" prefHeight="40.0" prefWidth="234.0" style="-fx-border-radius: 4px;" />
-      <TextField fx:id="email" layoutX="97.0" layoutY="253.0" prefHeight="40.0" prefWidth="287.0" style="-fx-border-radius: 4px;" />
-      <TextField fx:id="cep" layoutX="452.0" layoutY="252.0" prefHeight="40.0" prefWidth="234.0" style="-fx-border-radius: 4px;" />
-      <Label layoutX="520.0" layoutY="302.0" style="-fx-font-family: Inter; -fx-font-size: 15px; -fx-font-weight: 700;" text="Bairro" textFill="WHITE">
+      <Label layoutX="96.0" layoutY="220.0" style="-fx-font-family: Inter; -fx-font-size: 15px; -fx-font-weight: 700;" text="Endereço" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="district" layoutX="519.0" layoutY="329.0" prefHeight="40.0" prefWidth="163.0" style="-fx-border-radius: 4px;" />
-      <Label layoutX="96.0" layoutY="303.0" style="-fx-font-family: Inter; -fx-font-size: 15px; -fx-font-weight: 700;" text="Endereço" textFill="WHITE">
+      <TextField fx:id="address" layoutX="97.0" layoutY="246.0" onAction="#cadastrar" prefHeight="40.0" prefWidth="590.0" style="-fx-border-radius: 4px;" />
+      <Label fx:id="msgCadastroIncompleto" layoutX="97.0" layoutY="327.0" nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: #DCB5B5; -fx-background-radius: 5px;" text="Complete todas as informações para concluir o cadastro!" textFill="#a80000" visible="false">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Microsoft New Tai Lue" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="adress" layoutX="97.0" layoutY="329.0" prefHeight="40.0" prefWidth="351.0" style="-fx-border-radius: 4px;" />
    </children>
 </Pane>

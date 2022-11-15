@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-public class Clients {
+public class Clients <E>{
     // implements Book
     protected static int numbClients;
     private int id;
