@@ -1,42 +1,62 @@
 package com.br.api.DTO;
 
+
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+
 public class ClientsDTO {
 	private String name;
-	private String Cpf;
-	private String address;
-	private int id;
-	
-	public String getName() {
-		return name;
+    private String address;
+    private String cpf;
+    private CheckBox select;
+    private Button button;
+
+
+    /*Métodos Set  e Get */
+	public void setAddress(String address) {
+	    if(address != null&& !address.isEmpty()){
+	    this.address = address;
+	    }
 	}
 	
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public String getCpf() {
-		return Cpf;
-	}
 	
 	public void setCpf(String cpf) {
-		Cpf = cpf;
+	    if(cpf != null && !cpf.isEmpty()){
+	    this.cpf = cpf;
+	    }
 	}
-
+	public void setName(String name) {
+	    if(name != null && !name.isEmpty()){
+	    this.name = name;
+	    }
+	}
 	public String getAddress() {
-		return address;
+        	return address;
+    }
+    public String getCpf() {
+    	return cpf;
+    }	
+    public String getName() {
+        return name;
+    }
+
+
+	public CheckBox getSelect() {
+		return select;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+
+	public void setSelect(CheckBox select) {
+		this.select = select;
 	}
 
-	public int getId() {
-		return id;
+
+	public Button getButton() {
+		return button;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+
+	public void setButton(Button button) {
+		this.button = button;
 	}
-	
-	
 }
