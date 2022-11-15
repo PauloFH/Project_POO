@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
+
 import com.br.api.DTO.BookDTO;
 import com.br.api.Views.Main;
 
@@ -101,7 +103,7 @@ public class LivrosController implements Initializable {
 	}
 	
 	public void deleteLivros() {
-		
+		JOptionPane.showMessageDialog(null, "deletado com sucesso");
 	}
 }
 

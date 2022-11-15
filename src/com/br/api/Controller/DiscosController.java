@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
+
 import com.br.api.DTO.VinylRecordDTO;
 import com.br.api.Views.Main;
 
@@ -95,6 +97,6 @@ public class DiscosController implements Initializable {
 	}
 	
 	public void deleteDiscos() {
-		
+		JOptionPane.showMessageDialog(null, "deletado com sucesso!");
 	}
 }

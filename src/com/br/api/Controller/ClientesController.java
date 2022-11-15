@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
+
 import com.br.api.DTO.ClientsDTO;
 import com.br.api.Views.Main;
 
@@ -85,6 +87,6 @@ public class ClientesController implements Initializable {
 	}
 	
 	public void deleteClientes() {
-		
+		JOptionPane.showMessageDialog(null, "deletado com sucesso");
 	}
 }
