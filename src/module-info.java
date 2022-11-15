@@ -1,6 +1,5 @@
-module javafx {
+module Project_POO {
 	requires javafx.controls;
-	requires javafx.graphics;
 	requires javafx.fxml;
 	requires java.sql;
 	requires java.desktop;

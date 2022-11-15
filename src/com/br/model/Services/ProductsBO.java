@@ -1,5 +1,6 @@
 package com.br.model.Services;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.ResultSet;
@@ -8,6 +9,7 @@ import com.br.model.DAO.BooksDAO;
 import java.sql.SQLClientInfoException;
 import java.sql.SQLException;
 import com.br.model.DAO.BaseInterDAO;
+import com.br.model.DAO.BooksDAO;
 import com.br.model.DAO.VinylRecordDAO;
 import com.br.model.entity.Books;
 import com.br.model.entity.Products;
@@ -18,7 +20,7 @@ public class ProductsBO<E> {
 	public void add(E e) throws Exception {
 	if(e instanceof Books) {
 		BooksDAO dao = new BooksDAO();
-		List<E> searchedBook = searchProducts(e);
+		List<E> searchedBook = searchProducts1(e);
 		if(searchedBook.isEmpty()) {
 			dao.add((Books) e);
 		}else throw new Exception("book already exist");
@@ -26,16 +28,17 @@ public class ProductsBO<E> {
 	}
 	else{
 		VinylRecordDAO dao = new VinylRecordDAO();
-		List<E> searchedVinylRecord = searchProducts(e);
+		List<E> searchedVinylRecord = searchProducts1(e);
 		if(searchedVinylRecord.isEmpty()) {
 			dao.add((VinylRecord) e);
 		}else throw new Exception("book already exist");
 		}
 	}
+
 	public void del(Products e) {
 		if(e instanceof Books) {
 			BooksDAO dao = new BooksDAO();
-			dao.deletar((Books)e);
+			dao.del((Books)e);
 		}
 		else
 		{
@@ -57,7 +60,7 @@ public class ProductsBO<E> {
 	
 
 	@SuppressWarnings("unchecked")
-	private List<E> searchProducts(E e) {
+	private List<E> searchProducts1(E e) {
 		// TODO Auto-generated method stub
 		if(e.getClass().getSimpleName().equals(Books.class.getSimpleName()))
 			BooksDAO dao = new BooksDAO();
@@ -178,8 +181,10 @@ private List<E> listProducts(E e) {
 			return null;
 		}	
 
+
 	private List<E> searchProducts(E e) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 }
