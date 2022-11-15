@@ -1,4 +1,4 @@
-package com.br.api.Controler;
+package com.br.api.Controller;
 
 
 import java.net.URL;

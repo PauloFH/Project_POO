@@ -1,11 +1,11 @@
-package com.br.api.Controler;
+package com.br.api.Controller;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import com.br.api.DTO.ClienteDTO;
+import com.br.api.DTO.ClientsDTO;
 import com.br.api.Views.Main;
 
 import javafx.collections.FXCollections;
@@ -20,19 +20,19 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class ClientesController implements Initializable {
 	@FXML
-	private TableView<ClienteDTO> tabelaClientes;
+	private TableView<ClientsDTO> tabelaClientes;
 	@FXML
-	private TableColumn<ClienteDTO, CheckBox> columnSelecione;
+	private TableColumn<ClientsDTO, CheckBox> columnSelecione;
 	@FXML
-	private TableColumn<ClienteDTO, String> columnNome;
+	private TableColumn<ClientsDTO, String> columnNome;
 	@FXML 
-	private TableColumn<ClienteDTO, String> columnEndereco;
+	private TableColumn<ClientsDTO, String> columnEndereco;
 	@FXML
-	private TableColumn<ClienteDTO, String> columnCpf;
+	private TableColumn<ClientsDTO, String> columnCpf;
 	@FXML
-	private TableColumn<ClienteDTO, Button> columnBotao;
+	private TableColumn<ClientsDTO, Button> columnBotao;
 	
-	private ObservableList<ClienteDTO> listaDeClientes;
+	private ObservableList<ClientsDTO> listaDeClientes;
 	 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -40,7 +40,7 @@ public class ClientesController implements Initializable {
 	} 
 	
 	public void listarClientes() {
-		ClienteDTO client = new ClienteDTO();
+		ClientsDTO client = new ClientsDTO();
 		client.setName("Ramos Carlos");
 		client.setAddress("Rua napoleão");
 		client.setCpf("454-545-454-14");
@@ -48,7 +48,7 @@ public class ClientesController implements Initializable {
 		Button botao = new Button();
 		botao.setText("editar");
 		client.setButton(botao);
-		List<ClienteDTO> clientes = new ArrayList<ClienteDTO>();
+		List<ClientsDTO> clientes = new ArrayList<ClientsDTO>();
 		clientes.add(client);
 		
 		listaDeClientes = FXCollections.observableArrayList(clientes);

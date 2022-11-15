@@ -3,7 +3,7 @@ package com.br.api.DTO;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 
-public class ClienteDTO {
+public class ClientsDTO {
 	private String name;
     private String address;
     private String cpf;
