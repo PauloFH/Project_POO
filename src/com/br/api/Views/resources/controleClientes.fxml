@@ -16,36 +16,36 @@
          <children>
             <ImageView fitHeight="54.0" fitWidth="38.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@imgs/Logo.png" />
+                  <Image url="@../../../../../../../../Repositories/studies_java/Project_POO/src/com/br/api/Views/resources/imgs/Logo.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="45.0" fitWidth="40.0" layoutX="9.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@imgs/Book.png" />
+                  <Image url="@../../../../../../../../Repositories/studies_java/Project_POO/src/com/br/api/Views/resources/imgs/Book.png" />
                </image>
             </ImageView>
             <Button layoutX="8.0" layoutY="87.0" mnemonicParsing="false" onAction="#irParaControleLivros" prefHeight="45.0" prefWidth="40.0" style="-fx-background-color: transparent;" />
             <ImageView fitHeight="45.0" fitWidth="40.0" layoutX="9.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@imgs/Music-Record.png" />
+                  <Image url="@../../../../../../../../Repositories/studies_java/Project_POO/src/com/br/api/Views/resources/imgs/Music-Record.png" />
                </image>
             </ImageView>
             <Button layoutX="8.0" layoutY="146.0" mnemonicParsing="false" onAction="#irParaControleDiscos" prefHeight="45.0" prefWidth="40.0" style="-fx-background-color: transparent;" />
             <ImageView fitHeight="45.0" fitWidth="40.0" layoutX="9.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@imgs/Client.png" />
+                  <Image url="@../../../../../../../../Repositories/studies_java/Project_POO/src/com/br/api/Views/resources/imgs/Client.png" />
                </image>
             </ImageView>
             <Button layoutX="8.0" layoutY="199.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="40.0" style="-fx-background-color: transparent;" />
             <ImageView fitHeight="45.0" fitWidth="40.0" layoutX="9.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@imgs/Purchase.png" />
+                  <Image url="@../../../../../../../../Repositories/studies_java/Project_POO/src/com/br/api/Views/resources/imgs/Purchase.png" />
                </image>
             </ImageView>
             <Button layoutX="8.0" layoutY="256.0" mnemonicParsing="false" onAction="#irParaAluguel" prefHeight="45.0" prefWidth="40.0" style="-fx-background-color: transparent;" />
             <ImageView fitHeight="45.0" fitWidth="40.0" layoutX="9.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@imgs/Logout.png" />
+                  <Image url="@../../../../../../../../Repositories/studies_java/Project_POO/src/com/br/api/Views/resources/imgs/Logout.png" />
                </image>
             </ImageView>
             <Button layoutX="8.0" layoutY="317.0" mnemonicParsing="false" onAction="#logout" prefHeight="45.0" prefWidth="40.0" style="-fx-background-color: transparent;" />
@@ -59,28 +59,29 @@
             </Label>
             <ImageView fitHeight="24.0" fitWidth="21.0" layoutX="38.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@imgs/arrow-back.png" />
+                  <Image url="@../../../../../../../../Repositories/studies_java/Project_POO/src/com/br/api/Views/resources/imgs/arrow-back.png" />
                </image>
             </ImageView>
             <Button layoutX="34.0" layoutY="20.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="29.0" style="-fx-background-color: transparent;" />
             <Button layoutX="82.0" layoutY="311.0" mnemonicParsing="false" onAction="#irParaCadastroClientes" prefHeight="45.0" prefWidth="147.0" style="-fx-background-color: #5B5B5B;" text="ADD" textFill="#010101" />
             <ImageView fitHeight="45.0" fitWidth="49.0" layoutX="82.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@imgs/btnNew.png" />
+                  <Image url="@../../../../../../../../Repositories/studies_java/Project_POO/src/com/br/api/Views/resources/imgs/btnNew.png" />
                </image>
             </ImageView>
             <Button layoutX="308.0" layoutY="311.0" mnemonicParsing="false" onAction="#deleteClientes" prefHeight="45.0" prefWidth="147.0" style="-fx-background-color: #5B5B5B;" text="DELETE" textFill="#010101" />
             <ImageView fitHeight="45.0" fitWidth="49.0" layoutX="308.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@imgs/btnDelete.png" />
+                  <Image url="@../../../../../../../../Repositories/studies_java/Project_POO/src/com/br/api/Views/resources/imgs/btnDelete.png" />
                </image>
             </ImageView>
-            <TableView fx:id="tabelaClientes" layoutX="39.0" layoutY="69.0" prefHeight="188.0" prefWidth="476.0" style="-fx-background-color: #FFF; -fx-text-fill: #FFFFFF;">
+            <TableView fx:id="tabelaClientes" layoutX="39.0" layoutY="69.0" prefHeight="188.0" prefWidth="476.0" style="-fx-background-color: #FFF;">
               <columns>
-                <TableColumn fx:id="columnSelecione" prefWidth="56.0" style="-fx-text-fill: #FFFFFF; -fx-font-size: 11; -fx-background-color: #FFF;" text="Selecione" />
-                <TableColumn fx:id="columnNome" prefWidth="138.0" style="-fx-font-size: 11; -fx-text-fill: #FFFFFF; -fx-background-color: #FFF;" text="Name" />
-                  <TableColumn fx:id="columnEndereco" prefWidth="141.0" style="-fx-font-size: 11; -fx-text-fill: #FFFFFF; -fx-background-color: #FFF;" text="Endereço" />
-                  <TableColumn fx:id="columnCpf" prefWidth="138.0" style="-fx-font-size: 11; -fx-text-fill: #FFFFFF; -fx-background-color: #FFF;" text="CPF" />
+                <TableColumn fx:id="columnSelecione" prefWidth="56.0" style="-fx-font-size: 11; -fx-background-color: #FFF;" text="Selecione" />
+                <TableColumn fx:id="columnNome" prefWidth="138.0" style="-fx-font-size: 11; -fx-background-color: #FFF;" text="Name" />
+                  <TableColumn fx:id="columnEndereco" prefWidth="141.0" style="-fx-font-size: 11; -fx-background-color: #FFF;" text="Endereço" />
+                  <TableColumn fx:id="columnCpf" style="-fx-font-size: 11; -fx-background-color: #FFF;" text="CPF" />
+                  <TableColumn fx:id="columnBotao" prefWidth="59.0" style="-fx-font-size: 11; -fx-background-color: #FFF;" text="Ações" />
               </columns>
             </TableView>
          </children></AnchorPane>
