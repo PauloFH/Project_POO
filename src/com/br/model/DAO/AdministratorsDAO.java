@@ -4,11 +4,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 import com.br.model.entity.Administrators;
 
-public class AdministratorsDAO extends BaseDAO<Administrators> implements AdminInterDAO {
+public class AdministratorsDAO extends BaseDAO<Administrators>{
+	
 	public boolean add(Administrators admin) {
-		String sql = "INSERT INTO tb_admin(name,user,password, acessCode) VALUES (?,?,?,?);";
+		String sql = "UPDATE tb_admin SET name=?,user=?,password=? WHERE acessCode=?";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setString(1, admin.getName());
@@ -20,14 +23,14 @@ public class AdministratorsDAO extends BaseDAO<Administrators> implements AdminI
 			return true;
 		} catch (SQLException e) {
 			// TODO: handle exception
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,"Erro no add Administrators: "+e);
 			
 			return false;
 		}
 	}
 	
 	public boolean del(Administrators admin) {
-		String sql = "DELETE FROM tb_admin WHERE acessCode=?;";
+		String sql = "DELETE FROM tb_admin WHERE user=?;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setString(1, admin.getAccessCode());
@@ -36,27 +39,26 @@ public class AdministratorsDAO extends BaseDAO<Administrators> implements AdminI
 			return true;
 		} catch (SQLException e) {
 			// TODO: handle exception
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,"Erro no del Administrators: "+e);
 			
 			return false;
 		}
 	}
 	
 	public boolean edit(Administrators admin) {
-		String sql = "UPDATE tb_admin SET name=?,user=?,password=?,acessCode=? WHERE acessCode=?;";
+		String sql = "UPDATE tb_admin SET name=?,user=?,password=? WHERE user=?;";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setString(1, admin.getName());
 			pst.setString(2, admin.getUser());
 			pst.setString(3, admin.getPassword());
-			pst.setString(4, admin.getAccessCode());
-			pst.setString(5, admin.getAccessCode());
+			pst.setString(4, admin.getUser());
 			pst.executeUpdate();
 			
 			return true;
 		} catch (SQLException e) {
 			// TODO: handle exception
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,"Erro no edit Administrators: "+e);
 			
 			return false;
 		}
@@ -82,7 +84,7 @@ public class AdministratorsDAO extends BaseDAO<Administrators> implements AdminI
 				return null;
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,"Erro no findbyid Administrators: "+e);
 			
 			return null;
 		}
@@ -96,7 +98,7 @@ public class AdministratorsDAO extends BaseDAO<Administrators> implements AdminI
 
 			return rs;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,"Erro no findall Administrators: "+e);
 			
 			return null;
 		}
@@ -126,7 +128,7 @@ public class AdministratorsDAO extends BaseDAO<Administrators> implements AdminI
 			
 			return rs;
 		} catch (SQLException e) {
-			e.printStackTrace();;
+			JOptionPane.showMessageDialog(null,"Erro no findSfield Administrators: "+e);
 			
 			return null;
 		}
@@ -144,7 +146,7 @@ public class AdministratorsDAO extends BaseDAO<Administrators> implements AdminI
 			return rs;
 		} catch (SQLException e) {
 			// TODO: handle exception
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,"Erro no login Administrators: "+e);
 			
 			return null;
 		}

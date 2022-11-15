@@ -1,4 +1,4 @@
-                       package com.br.model.DAO;
+package com.br.model.DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,7 +11,7 @@ public class BaseDAO<entity> implements BaseInterDAO <entity> {
 	synchronized public Connection getConnection() {
 		if(con == null) {
 			try {
-				con = DriverManager.getConnection("jdbc:mysql://sql10.freesqldatabase.com:3306/","sql10526105","QA8b6k86SJ");
+				con = DriverManager.getConnection("jdbc:mysql://sql10.freesqldatabase.com:3306/sql10526105","sql10526105","QA8b6k86SJ");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

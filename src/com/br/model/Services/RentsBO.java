@@ -2,12 +2,10 @@ package com.br.model.Services;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.util.Calendar;
-
 import com.br.model.DAO.BaseInterDAO;
 import com.br.model.entity.Rents;
 
-public class RentsBO {
+public class RentsBO implements BaseInterDAO<Rents> {
 	BaseInterDAO<Rents> rent = new RentsBO();
 
 
@@ -35,21 +33,18 @@ public class RentsBO {
 	}
 
 
-	@Override
 	public Connection getConnection() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
-	@Override
 	public boolean del(Rents e) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 
-	@Override
 	public boolean edit(Rents e) {
 		// TODO Auto-generated method stub
 		return false;
