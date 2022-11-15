@@ -14,6 +14,7 @@ public class AdministratorsBO {
 	BaseInterDAO<Administrators> adminDAO = new AdministratorsDAO();
 	
 		public boolean login(AdministratorsDTO dto) {
+			
 			String user = dto.getUser();
 			String password = dto.getPasswd();
 			ResultSet response = ((AdminInterDAO) adminDAO).findByUserAndPassword(user, password);
@@ -27,7 +28,7 @@ public class AdministratorsBO {
 				}
 			} catch (Exception e) {
 				// TODO: handle exception
-				JOptionPane.showMessageDialog(null,"Erro: "+e);
+				JOptionPane.showMessageDialog(null,"Erro no login: "+e);
 				
 				return false;
 			}
@@ -42,7 +43,7 @@ public class AdministratorsBO {
 		  Administrators admin = Administrators.converter(newAdmin);
 		 ResultSet response = adminDAO.findBySpecifiedField(admin, "acessCode");
 		 try {
-			if (response == null || !response.next()) {
+			if (response.next()) {
 				if (adminDAO.add(admin) == true) {
 					return true;
 				} else {
@@ -53,7 +54,7 @@ public class AdministratorsBO {
 			}
 		} catch (SQLException e) {
 			// TODO: handle exception
-			JOptionPane.showMessageDialog(null,"Erro: "+e);
+			JOptionPane.showMessageDialog(null,"Erro no registerAdminstrators: "+e);
 			
 			return false;
 		}

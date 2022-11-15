@@ -7,5 +7,5 @@ module javafx {
 	requires javafx.base;
 	
 	opens com.br.api.Views to javafx.graphics, javafx.fxml;
-	opens com.br.api.Controler to javafx.fxml;
+	opens com.br.api.Controller to javafx.fxml;
 }

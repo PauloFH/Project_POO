@@ -1,9 +1,13 @@
-package com.br.api.Controler;
+package com.br.api.Controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
+
+import com.br.api.DTO.AdministratorsDTO;
 import com.br.api.Views.Main;
+import com.br.model.Services.AdministratorsBO;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,7 +16,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class loginController {
-
+	AdministratorsBO bo = new AdministratorsBO();
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
 
@@ -46,7 +50,21 @@ public class loginController {
 
     @FXML
     void login(ActionEvent event) {
-
+    	AdministratorsDTO dto = new AdministratorsDTO();
+		  dto.setPasswd(passwdlogin.getText());
+		  dto.setUser(user.getText());
+		  
+		  try {
+			  if(bo.login(dto)) {
+				  JOptionPane.showMessageDialog(null,"Logado com sucesso");
+				  Main.telamenu();
+			  }else {
+				  JOptionPane.showMessageDialog(null,"Senha ou usuário errado, tente novamente");
+			  }
+			  
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null,"Erro no login: "+e);
+		}
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete

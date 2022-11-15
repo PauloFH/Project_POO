@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #505050;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.api.Controler.cadadmincontroller">
+<Pane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #505050;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.api.Controller.cadadmincontroller">
    <children>
       <Button fx:id="buttoncad" layoutX="456.0" layoutY="322.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="52.0" prefWidth="187.0" style="-fx-background-color: #01A76A;" text="Cadastrar" textFill="WHITE">
          <font>

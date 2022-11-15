@@ -2,10 +2,12 @@
  * Sample Skeleton for 'cadadmin.fxml' Controller Class
  */
 
-package com.br.api.Controler;
+package com.br.api.Controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javax.swing.JOptionPane;
 
 import com.br.api.DTO.AdministratorsDTO;
 import com.br.api.Views.Main;
@@ -51,9 +53,14 @@ public class cadadmincontroller {
 		  dto.setUser(user.getText());
 		  dto.setAcsscode(codass.getText());
 		  try {
-			  	bo.registerAdministrator(dto);
+			  	if(bo.registerAdministrator(dto)) {
+			  		JOptionPane.showMessageDialog(null,"cadastrado com sucesso");
+			  		Main.telalogin();}
+			  	else {
+			  		JOptionPane.showMessageDialog(null,"Erro ao se cadastrar, verifique se o código está correto");
+			  	}
 		} catch (Exception e) {
-			// TODO: handle exception
+			JOptionPane.showMessageDialog(null,"Erro no cadastrar Administrators: "+e);
 		}
     }
 
