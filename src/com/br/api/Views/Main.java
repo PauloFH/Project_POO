@@ -37,7 +37,7 @@ public class Main extends Application {
 		
 		public static void telaControleDiscos() {
 			try {
-				Parent root = FXMLLoader.load(Tela.class.getResource("resources/controleDisco.fxml"));
+				Parent root = FXMLLoader.load(Main.class.getResource("resources/controleDisco.fxml"));
 				Scene scene = new Scene(root);
 				stage.setScene(scene);
 				stage.show();
@@ -50,7 +50,7 @@ public class Main extends Application {
 
 		public static void telaControleClientes() {
 			try {
-				Parent root = FXMLLoader.load(Tela.class.getResource("resources/controleClientes.fxml"));
+				Parent root = FXMLLoader.load(Main.class.getResource("resources/controleClientes.fxml"));
 				Scene scene = new Scene(root);
 				stage.setScene(scene);
 				stage.show();
@@ -62,7 +62,7 @@ public class Main extends Application {
 		
 		public static void telaControleLivro() {
 			try {
-				Parent root = FXMLLoader.load(Tela.class.getResource("resources/controleLivros.fxml"));
+				Parent root = FXMLLoader.load(Main.class.getResource("resources/controleLivros.fxml"));
 				Scene scene = new Scene(root);
 				stage.setScene(scene);
 				stage.show();
