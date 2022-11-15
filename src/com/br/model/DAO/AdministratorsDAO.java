@@ -1,7 +1,5 @@
 package com.br.model.DAO;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,20 +10,6 @@ import com.br.model.entity.Administrators;
 
 public class AdministratorsDAO extends BaseDAO<Administrators>{
 	
-	private Connection con;
-	
-	synchronized public Connection getConnection() {
-		if(con == null) {
-			try {
-				con = DriverManager.getConnection("jdbc:mysql://sql10.freesqldatabase.com:3306/","sql10526105","QA8b6k86SJ");
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			return con;
-			
-		}else return con;
-
-	}
 	public boolean add(Administrators admin) {
 		String sql = "UPDATE tb_admin SET name=?,user=?,password=? WHERE acessCode=?";
 		try {

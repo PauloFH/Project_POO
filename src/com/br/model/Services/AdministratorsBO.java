@@ -14,10 +14,10 @@ public class AdministratorsBO {
 	BaseInterDAO<Administrators> adminDAO = new AdministratorsDAO();
 	
 		public boolean login(AdministratorsDTO dto) {
-			
-			String user = dto.getUser();
-			String password = dto.getPasswd();
-			ResultSet response = ((AdminInterDAO) adminDAO).findByUserAndPassword(user, password);
+		 Administrators admin = Administrators.converter(dto);
+			String user = admin.getUser();
+			String password = admin.getPassword();
+			ResultSet response = ((AdministratorsDAO) adminDAO).findByUserAndPassword(user, password);
 			try {
 				if (response.next()) {
 					
