@@ -49,7 +49,7 @@ public class Main extends Application {
 				
 			}
 			catch(Exception e) {
-				e.printStackTrace();
+				JOptionPane.showMessageDialog(null,"Erro: "+e);
 			}
 		}
 		
@@ -61,7 +61,7 @@ public class Main extends Application {
 				stage.show();
 			} catch (Exception e) {
 				// TODO: handle exception
-				e.printStackTrace();
+				JOptionPane.showMessageDialog(null,"Erro: "+e);
 			}
 		}
 		
@@ -74,7 +74,7 @@ public class Main extends Application {
 				stage.show();
 			} catch (Exception e) {
 				// TODO: handle exception
-				e.printStackTrace();
+				JOptionPane.showMessageDialog(null,"Erro: "+e);
 			}
 		}
 		
@@ -86,7 +86,7 @@ public class Main extends Application {
 				stage.show();
 			} catch (Exception e) {
 				// TODO: handle exception
-				e.printStackTrace();
+				JOptionPane.showMessageDialog(null,"Erro: "+e);
 			}
 		}
 
@@ -99,7 +99,7 @@ public class Main extends Application {
 				stage.show();
 				
 			}catch(Exception e) {
-
+				JOptionPane.showMessageDialog(null,"Erro: "+e);
 			}
 		}
 		public static void telacadastroadmin() {
