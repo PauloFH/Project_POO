@@ -5,7 +5,9 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-public class Clients <E>{
+import com.br.api.DTO.ClientsDTO;
+
+public class Clients{
     // implements Book
     protected static int numbClients;
     private int id;
@@ -50,4 +52,16 @@ public class Clients <E>{
     public int getId() {
         return id;
     }
-  }
+    public static Clients converter(ClientsDTO dto) {
+    	Clients client = new Clients();
+    	try {
+  		  client.setName(dto.getName());
+  		client.setCpf(dto.getCpf());
+  		client.setAddress(dto.getAddress());
+  	} catch (Exception e) {
+  		JOptionPane.showMessageDialog(null,"Erro: "+e);
+  	}
+  		return client;
+	}
+  		
+  	}

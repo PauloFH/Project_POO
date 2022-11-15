@@ -10,7 +10,8 @@ public class RentsBO implements BaseInterDAO<Rents> {
 
 
 	public boolean add(Rents e) {
-		// TODO Auto-generated method stub
+		
+		
 		return false;
 	}
 

@@ -37,12 +37,16 @@
             </ImageView>
          </children>
       </Pane>
+
       <Label layoutX="350.0" layoutY="41.0" text="Login" textFill="WHITE">
+
          <font>
             <Font name="Microsoft Tai Le Bold" size="43.0" />
          </font>
       </Label>
+
       <Button layoutX="400.0" layoutY="389.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="311.0" style="-fx-background-color: #D3F0DB; -fx-border-width: 1%;" text="Não tem cadastro? Clique aqui" textFill="#61cfa7">
+
          <font>
             <Font name="Microsoft Tai Le Bold" size="18.0" />
          </font>
