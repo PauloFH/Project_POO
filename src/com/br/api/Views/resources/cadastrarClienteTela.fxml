@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -15,7 +16,7 @@
             <Image url="@imgs/Cadastrar%20Cliente.png" />
          </image>
       </ImageView>
-      <Button fx:id="closeButton" layoutX="691.0" layoutY="31.0" mnemonicParsing="false" style="-fx-background-color: #393939;" text="X" textFill="WHITE">
+      <Button fx:id="closeButton" layoutX="691.0" layoutY="31.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: #393939;" text="X" textFill="WHITE">
          <font>
             <Font name="Nirmala UI" size="14.0" />
          </font>
@@ -48,5 +49,6 @@
             <Font name="Microsoft New Tai Lue" size="14.0" />
          </font>
       </Label>
+      <Accordion />
    </children>
 </Pane>

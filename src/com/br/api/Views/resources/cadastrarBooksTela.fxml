@@ -15,7 +15,7 @@
             <Image url="@imgs/Cadastrar%20Livro%20(1).png" />
          </image>
       </ImageView>
-      <Button fx:id="closeButton" layoutX="691.0" layoutY="31.0" mnemonicParsing="false" style="-fx-background-color: #393939;" text="X" textFill="WHITE">
+      <Button fx:id="closeButton" layoutX="691.0" layoutY="31.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: #393939;" text="X" textFill="WHITE">
          <font>
             <Font name="Nirmala UI" size="14.0" />
          </font>
