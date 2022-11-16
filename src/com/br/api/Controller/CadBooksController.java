@@ -42,7 +42,7 @@ public class CadBooksController {
 		}
 	}
 	
-	public void closer(ActionEvent event) throws Exception{
+	public void close(ActionEvent event) throws Exception{
 		Main.telaControleLivro();
 	}
 }

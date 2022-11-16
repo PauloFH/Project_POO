@@ -74,7 +74,7 @@ public class BooksBO {
                 bk.setTitle(rs.getString("title"));
                 bk.setGender(rs.getString("gender"));
                 bk.setAuthor(rs.getString("author"));
-                bk.setReleaseDate(rs.getInt("releaseDate"));
+                bk.setReleaseDate(rs.getString("releaseDate"));
                 bk.setPagesAmount(rs.getInt("pagesAmount"));
                 bk.setCopiesAmount(rs.getInt("copiesAmount"));
                 bk.setRentPrice(rs.getDouble("rentPrice"));
@@ -98,7 +98,7 @@ public class BooksBO {
                 bk.setTitle(rs.getString("title"));
                 bk.setGender(rs.getString("gender"));
                 bk.setAuthor(rs.getString("author"));
-                bk.setReleaseDate(rs.getInt("releaseDate"));
+                bk.setReleaseDate(rs.getString("releaseDate"));
                 bk.setPagesAmount(rs.getInt("pagesAmount"));
                 bk.setCopiesAmount(rs.getInt("copiesAmount"));
                 bk.setRentPrice(rs.getDouble("rentPrice"));
@@ -122,7 +122,7 @@ public class BooksBO {
                 bk.setTitle(rs.getString("title"));
                 bk.setGender(rs.getString("gender"));
                 bk.setAuthor(rs.getString("author"));
-                bk.setReleaseDate(rs.getInt("releaseDate"));
+                bk.setReleaseDate(rs.getString("releaseDate"));
                 bk.setPagesAmount(rs.getInt("pagesAmount"));
                 bk.setCopiesAmount(rs.getInt("copiesAmount"));
                 bk.setRentPrice(rs.getDouble("rentPrice"));
@@ -146,7 +146,7 @@ public class BooksBO {
                 bk.setTitle(rs.getString("title"));
                 bk.setGender(rs.getString("gender"));
                 bk.setAuthor(rs.getString("author"));
-                bk.setReleaseDate(rs.getInt("releaseDate"));
+                bk.setReleaseDate(rs.getString("releaseDate"));
                 bk.setPagesAmount(rs.getInt("pagesAmount"));
                 bk.setCopiesAmount(rs.getInt("copiesAmount"));
                 bk.setRentPrice(rs.getDouble("rentPrice"));
@@ -169,7 +169,7 @@ public class BooksBO {
                 bk.setTitle(rs.getString("title"));
                 bk.setGender(rs.getString("gender"));
                 bk.setAuthor(rs.getString("author"));
-                bk.setReleaseDate(rs.getInt("releaseDate"));
+                bk.setReleaseDate(rs.getString("releaseDate"));
                 bk.setPagesAmount(rs.getInt("pagesAmount"));
                 bk.setCopiesAmount(rs.getInt("copiesAmount"));
                 bk.setRentPrice(rs.getDouble("rentPrice"));
