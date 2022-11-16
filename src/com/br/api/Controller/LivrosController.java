@@ -99,6 +99,7 @@ public class LivrosController implements Initializable {
 	}
 	
 	public void irTelaCadastroLivros( ) {
+		Main.telaCadastroBooks();
 		
 	}
 	

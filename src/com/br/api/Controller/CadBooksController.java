@@ -1,5 +1,6 @@
 package com.br.api.Controller;
 
+import com.br.api.Views.Main;
 import com.br.model.Services.ProductsBO;
 import com.br.model.entity.Books;
 
@@ -42,6 +43,6 @@ public class CadBooksController {
 	}
 	
 	public void closer(ActionEvent event) throws Exception{
-		Main.
+		Main.telaControleLivro();
 	}
 }
