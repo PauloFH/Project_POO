@@ -1,8 +1,9 @@
 package com.br.api.Controller;
 
 import com.br.api.DTO.ClientsDTO;
+import com.br.api.Views.Main;
 import com.br.model.Services.ClientsBO;
-import com.br.model.entity.Clients;
+
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -30,4 +31,9 @@ public class CadClienteController {
 			ClientsBO.registerClients(client);
 		}
 	}
+	
+	public void close(ActionEvent event) throws Exception{
+		Main.telaControleClientes();
+	}
+
 }
