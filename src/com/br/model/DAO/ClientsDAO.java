@@ -45,6 +45,7 @@ public class ClientsDAO extends BaseDAO<Clients>{
 			pst.setString(1, client.getName());
 			pst.setString(2, client.getCpf());
 			pst.setString(3, client.getAddress());
+			pst.setString(4, client.getCpf());
 			pst.executeUpdate();
 			return true;
 		} catch (Exception e) {

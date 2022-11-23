@@ -50,21 +50,7 @@ public class LivrosController implements Initializable {
 	} 
 	
 	public void listarLivros() {
-		BookDTO book = new BookDTO();
-		book.setAuthor("Neil Gaiman");
-		book.setCopiesAmount(20);
-		book.setGender("Ficção");
-		book.setTitle("Sandman");
-		book.setReleaseDate("10/05/1980");
-		book.setRentPrice(45.5);
-		book.setSelect(new CheckBox());
-		Button botao = new Button();
-		botao.setText("editar");
-		book.setButton(botao);
-	
 		List<BookDTO> books = new ArrayList<BookDTO>();
-		books.add(book);
-		
 		listaDeLivros = FXCollections.observableArrayList(books);
 		columnSelecione.setCellValueFactory(new PropertyValueFactory<>("select"));
 		columnGenero.setCellValueFactory(new PropertyValueFactory<>("gender"));
