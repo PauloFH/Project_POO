@@ -6,14 +6,17 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import com.br.api.DTO.BookDTO;
 import com.br.model.DAO.BaseInterDAO;
 import com.br.model.DAO.BooksDAO;
 import com.br.model.entity.Books;
+import com.br.model.entity.Products;
 
 public class BooksBO {
     BaseInterDAO<Books> dao = new BooksDAO();
 
-    public boolean registerBooks(Books book) {
+    public boolean registerBooks(BookDTO dto) {
+    	Books book = Books.converter(dto);
         ResultSet q = dao.findBySpecifiedField(book, "title");
         try {
             if (q == null || !q.next()) {
@@ -159,8 +162,8 @@ public class BooksBO {
         }
     }
 
-    public List<Books> listAll() {
-        ResultSet rs = dao.findAll();
+    public List<Books> listAll(Products entity) {
+        ResultSet rs = dao.findAll((Books)entity);
         List<Books> list = new ArrayList<Books>();
 
         try {

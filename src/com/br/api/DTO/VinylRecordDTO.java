@@ -10,7 +10,17 @@ public class VinylRecordDTO extends ProductsDTO {
     private Button button;
     
 
-    public String getBandsName() {
+    public VinylRecordDTO(String title,String bandsName, String musicalStyle,Double rentPrice,int copies, CheckBox select, Button button) {
+		super.title = title;
+		super.rentPrice = rentPrice;
+		super.copiesAmount = copies;
+		this.bandsName = bandsName;
+		this.musicalStyle = musicalStyle;
+		this.select = select;
+		this.button = button;
+	}
+
+	public String getBandsName() {
         return bandsName;
     }
 

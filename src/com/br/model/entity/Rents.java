@@ -1,19 +1,30 @@
 package com.br.model.entity;
 
-import java.util.Calendar;
+import java.sql.Date;
 
-public class Rents extends Products {
+public class Rents {
   private int id;
+  private String name;
+  private String name_2;
   private Clients client;
   private Books book;
-  private Products product;
   private VinylRecord vinyl;
-  private Calendar rentDate;
-  private Calendar devolutionDate;
+  private Date rentDate;
+  private Date devolutionDate;
   private Double price;
+  private int qtE;
+  private int qtA;
   private boolean devolution;
   
-  public int getId() {
+  public int getQtA() {
+	return qtA;
+}
+
+public void setQtA(int qtA) {
+	this.qtA = qtA;
+}
+
+public int getId() {
     return this.id;
   }
  
@@ -38,11 +49,11 @@ public class Rents extends Products {
   }
 
 
-  public Calendar getDate() {
+  public Date getDate() {
 	return rentDate;
   }
 
-  public void setDate( Calendar rentDate) {
+  public void setDate( Date rentDate) {
 	this.rentDate = rentDate;
   }
 
@@ -80,28 +91,44 @@ public void setBook(Books book) {
 	this.book = book;
 }
 
-public Calendar getRentDate() {
+public Date getRentDate() {
 	return rentDate;
 }
 
-public void setRentDate(Calendar rentDate) {
+public void setRentDate(Date rentDate) {
 	this.rentDate = rentDate;
 }
 
-public Calendar getDevolutionDate() {
+public Date getDevolutionDate() {
 	return devolutionDate;
 }
 
-public void setDevolutionDate(Calendar devolutionDate) {
+public void setDevolutionDate(Date devolutionDate) {
 	this.devolutionDate = devolutionDate;
 }
 
-public Products getProduct() {
-	return product;
+public String getName() {
+	return name;
 }
 
-public void setProduct(Products product) {
-	this.product = product;
+public void setName(String name) {
+	this.name = name;
+}
+
+public int getQtE() {
+	return qtE;
+}
+
+public void setQtE(int qtE) {
+	this.qtE = qtE;
+}
+
+public String getName_2() {
+	return name_2;
+}
+
+public void setName_2(String name_2) {
+	this.name_2 = name_2;
 }
 
 

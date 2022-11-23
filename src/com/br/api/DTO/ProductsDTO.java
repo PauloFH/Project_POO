@@ -2,8 +2,8 @@ package com.br.api.DTO;
 
 public abstract class ProductsDTO {
 	protected String title;
-	private double rentPrice;
-	private int copiesAmount;
+	protected double rentPrice;
+	protected int copiesAmount;
 	
 	public String getTitle() {
 	       return title;

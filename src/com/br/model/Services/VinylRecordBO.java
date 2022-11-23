@@ -34,7 +34,8 @@ public class VinylRecordBO {
 	public List<VinylRecord>findAll(){
 
 		List<VinylRecord> vinylRecords = new ArrayList<VinylRecord>();
-		ResultSet rs = dao.findAll();
+		VinylRecord v = new VinylRecord();
+		ResultSet rs = dao.findAll(v);
 		try {
 			while(rs.next()) {
 				VinylRecord vinyl = new VinylRecord();

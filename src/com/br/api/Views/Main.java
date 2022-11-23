@@ -120,7 +120,8 @@ public class Main extends Application {
 				stage.setTitle("TelaCadastroLivros");
 				stage.show();
 			} catch (Exception e) {
-				JOptionPane.showMessageDialog(null,"Erro: "+e);
+				//JOptionPane.showMessageDialog(null,"Erro: "+e);
+				e.printStackTrace();
 			}
 		}
 		
@@ -133,7 +134,8 @@ public class Main extends Application {
 				stage.setTitle("TelaCadastroDiscos");
 				stage.show();
 			} catch (Exception e) {
-				JOptionPane.showMessageDialog(null,"Erro: "+e);
+				//JOptionPane.showMessageDialog(null,"Erro de tela: "+e);
+				e.printStackTrace();
 			}
 		}
 		

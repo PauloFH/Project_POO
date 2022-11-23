@@ -75,7 +75,7 @@ public class ClientesController implements Initializable {
 	}
 	
 	public void irParaCadastroClientes( ) {
-		
+		Main.telaCadastroCliente();
 	}
 	
 	public void deleteClientes() {

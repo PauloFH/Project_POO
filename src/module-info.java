@@ -4,6 +4,7 @@ module javafx {
 	requires java.sql;
 	requires java.desktop;
 	requires javafx.base;
+	requires javafx.graphics;
 	
 	opens com.br.api.Views to javafx.graphics, javafx.fxml;
 	opens com.br.api.Controller to javafx.fxml;

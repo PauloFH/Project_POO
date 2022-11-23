@@ -1,5 +1,7 @@
 package com.br.api.Controller;
 
+import javax.swing.JOptionPane;
+
 import com.br.api.DTO.ClientsDTO;
 import com.br.api.Views.Main;
 import com.br.model.Services.ClientsBO;
@@ -23,12 +25,17 @@ public class CadClienteController {
 			msgCadastroIncompleto.setVisible(true);
 		}
 		else {
-			ClientsDTO client = new ClientsDTO();
-			client.setName(name.getText());
-			client.setCpf(CPF.getText());
-			client.setAddress(address.getText());
+			try {
+				ClientsDTO client = new ClientsDTO();
+				client.setName(name.getText());
+				client.setCpf(CPF.getText());
+				client.setAddress(address.getText());
+				
+				ClientsBO.registerClients(client);
+				JOptionPane.showMessageDialog(null,"Cadastrado com sucesso");
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null,"Erro: "+e);			}
 			
-			ClientsBO.registerClients(client);
 		}
 	}
 	
