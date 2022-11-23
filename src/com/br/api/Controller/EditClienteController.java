@@ -24,4 +24,8 @@ public class EditClienteController {
 			Main.telaControleClientes();
 		}
 	}
+	
+	public void close() {
+		Main.telaControleClientes();
+	}
 }
