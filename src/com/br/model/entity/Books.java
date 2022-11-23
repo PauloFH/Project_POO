@@ -1,24 +1,17 @@
 package com.br.model.entity;
 
+
+
+import java.sql.Date;
+
+import com.br.api.DTO.BookDTO;
+
 public class Books extends Products{
     // implements Book
-	private int id;
     private String gender;
     private String author;
     private String releaseDate;
     private int pagesAmount;
-
-    public int getId() {
-    	return this.id;
-    }
-    
-    public void setId(int id) {
-    	if (id < 0) {
-    		throw new IllegalArgumentException("Id tem que ser positivo");
-    	} else {
-    		this.id = id;
-    	}
-    }
     
     public String getGender() {
     	return this.gender;
@@ -47,14 +40,7 @@ public class Books extends Products{
     public String getReleaseDate() {
     	return this.releaseDate;
     }
-  
-    public void setReleaseDate(String string) {
-    	if (string == null) {
-    		throw new IllegalArgumentException("releaseDate não pode ser vázia");
-    	} else {
-    		this.releaseDate = string;
-    	}
-    }
+
     
     public int getPagesAmount() {
     	return this.pagesAmount;
@@ -67,4 +53,55 @@ public class Books extends Products{
     		this.pagesAmount = pagesAmount;
     	}
     }
+    public static Books converter(BookDTO dto) {
+    	Books book =  new Books();
+    	book.setTitle(dto.getTitle());
+    	book.setAuthor(dto.getAuthor());
+    	book.setCopiesAmount(dto.getCopiesAmount());
+    	book.setPagesAmount(dto.getPagesAmount());
+    	book.setGender(dto.getGender());
+    	book.setReleaseDate(dto.getReleaseDate());
+    	return book;
+    }
+
+    
+    //Ignorar metodos de discos
+	@Override
+	public String getBandsName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setBandsName(String bandsName) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getMusicalStyle() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setMusicalStyle(String musicalStyle) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void setReleaseDate(String date) {
+    	if (date == null) {
+    		throw new IllegalArgumentException("releaseString não pode ser vázia");
+    	} else {
+    		this.releaseDate = date;
+		
+	}
+
+	}
+
+
+  
 }

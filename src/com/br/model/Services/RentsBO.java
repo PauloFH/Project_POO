@@ -21,6 +21,19 @@ public class RentsBO implements BaseInterDAO<Rents> {
 
 
 	public boolean add(Rents rent) {
+		RentsDAO dao = new RentsDAO(); 
+		if(rent.getClient().getCpf() != null && rent.getName() != null && rent.getQtA() > 0 && rent.getRentDate() != null) {
+			Books book = new Books();
+			book.setTitle(e.getName());
+			VinylRecord disc = new VinylRecord();
+			disc.setTitle(e.getName());
+			ProductsBO<Books> BooksBO = new ProductsBO<Books>();
+			ProductsBO<VinylRecord> vinProductsBO = new ProductsBO<VinylRecord>();
+			List<Books> lsbooks = BooksBO.
+			
+			
+		}
+
 		
 		RentsDAO dao = new RentsDAO();
 		if(rent.getClient().getCpf() != null && rent.getTitle() != null && rent.getGetTotalRents() > 0 && rent.getRentDate() != null && rent.getPrice() > 0) {
@@ -74,7 +87,7 @@ public class RentsBO implements BaseInterDAO<Rents> {
 
 
 	public ResultSet findBySpecifiedField(Rents e, String field) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

@@ -1,20 +1,32 @@
 package com.br.model.entity;
 
+
 import java.util.Calendar;
 
-public class Rents extends Products {
+public class Rents {
   private int id;
+  private String name;
+  private String name_2;
   private Clients client;
   private Books book;
-  private Products product;
   private VinylRecord vinyl;
   private Calendar rentDate;
   private Calendar devolutionDate;
   private Double price;
+  private int qtE;
+  private int qtA;
   private boolean devolution;
   private int getTotalRents;
   
-  public int getId() {
+  public int getQtA() {
+	return qtA;
+}
+
+public void setQtA(int qtA) {
+	this.qtA = qtA;
+}
+
+public int getId() {
     return this.id;
   }
  
@@ -97,12 +109,28 @@ public void setDevolutionDate(Calendar devolutionDate) {
 	this.devolutionDate = devolutionDate;
 }
 
-public Products getProduct() {
-	return product;
+public String getName() {
+	return name;
 }
 
-public void setProduct(Products product) {
-	this.product = product;
+public void setName(String name) {
+	this.name = name;
+}
+
+public int getQtE() {
+	return qtE;
+}
+
+public void setQtE(int qtE) {
+	this.qtE = qtE;
+}
+
+public String getName_2() {
+	return name_2;
+}
+
+public void setName_2(String name_2) {
+	this.name_2 = name_2;
 }
 
 public int getGetTotalRents() {

@@ -1,5 +1,9 @@
 package com.br.api.DTO;
 
+
+
+import java.sql.Date;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 
@@ -39,11 +43,11 @@ public class BookDTO extends ProductsDTO {
     	return this.releaseDate;
     }
   
-    public void setReleaseDate(String string) {
-    	if (string == null) {
+    public void setReleaseDate(String s) {
+    	if (s == null) {
     		throw new IllegalArgumentException("releaseDate não pode ser vázia");
     	} else {
-    		this.releaseDate = string;
+    		this.releaseDate = s;
     	}
     }
     
@@ -74,4 +78,5 @@ public class BookDTO extends ProductsDTO {
 	public void setButton(Button button) {
 		this.button = button;
 	}
+
 }

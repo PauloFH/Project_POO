@@ -10,7 +10,7 @@ import com.br.model.DAO.BaseInterDAO;
 import com.br.model.entity.VinylRecord;
 
 public class VinylRecordBO {
-	BaseInterDAO<VinylRecord> dao = new VinylRecordDAO();
+	VinylRecordDAO dao = new VinylRecordDAO();
 	public boolean add(VinylRecord vinylRecord) {
 		ResultSet rs = dao.findBySpecifiedField(vinylRecord, "cpf");
 		try {
@@ -34,7 +34,8 @@ public class VinylRecordBO {
 	public List<VinylRecord>findAll(){
 
 		List<VinylRecord> vinylRecords = new ArrayList<VinylRecord>();
-		ResultSet rs = dao.findAll();
+		VinylRecord v = new VinylRecord();
+		ResultSet rs = dao.findAll(v);
 		try {
 			while(rs.next()) {
 				VinylRecord vinyl = new VinylRecord();

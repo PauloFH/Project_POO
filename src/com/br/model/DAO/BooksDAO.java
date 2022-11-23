@@ -88,7 +88,7 @@ public class BooksDAO extends BaseDAO<Books> {
         }
     }
 
-    public ResultSet findAll() {
+    public ResultSet findAll(Books book) {
         String sql = "SELECT * FROM tb_books;";
         try {
             PreparedStatement pst = getConnection().prepareStatement(sql);

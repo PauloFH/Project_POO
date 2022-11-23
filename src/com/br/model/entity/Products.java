@@ -1,8 +1,9 @@
 package com.br.model.entity;
 
-
+import java.sql.Date;
 
 public abstract class Products{
+	
   protected String title;
   private double rentPrice;
   private int copiesAmount;
@@ -44,4 +45,18 @@ public abstract class Products{
            if(id >= 0) this.id = id;
            else throw new IllegalArgumentException("Invalid id");
    }
+   public abstract String getGender();
+   public abstract void setGender(String gender);
+   public abstract String getReleaseDate();
+   public abstract void setReleaseDate(String date);
+   public abstract String getAuthor();
+   public abstract void setAuthor(String author);
+   public abstract int getPagesAmount();
+   public abstract void setPagesAmount(int pagesAmount);
+   
+   public abstract String getBandsName();
+   public abstract void setBandsName(String bandsName);
+   public abstract String getMusicalStyle();
+   public abstract void setMusicalStyle(String musicalStyle);
+   
 }

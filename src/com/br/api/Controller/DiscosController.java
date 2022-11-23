@@ -24,7 +24,7 @@ public class DiscosController implements Initializable {
 	@FXML
 	private TableView<VinylRecordDTO> tabelaDiscos;
 	@FXML
-	private TableColumn<VinylRecordDTO, CheckBox> columnSelecione;
+	private TableColumn<VinylRecordDTO, Void> columnSelecione;
 	@FXML
 	private TableColumn<VinylRecordDTO, String> columnTitulo;
 	@FXML 
@@ -36,39 +36,36 @@ public class DiscosController implements Initializable {
 	@FXML
 	private TableColumn<VinylRecordDTO, Double> columnPreco;
 	@FXML
-	private TableColumn<VinylRecordDTO, Button> columnBotao;
+	private TableColumn<VinylRecordDTO, Void> columnBotao;
 	
-	private ObservableList<VinylRecordDTO> listaDeDiscos;
+	//private ObservableList<VinylRecordDTO> listaDeDiscos;
 	 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		listarDiscos();
+		columnSelecione.setCellValueFactory(
+                new PropertyValueFactory<>("select"));
+		columnTitulo.setCellValueFactory(
+                new PropertyValueFactory<>("title"));
+		columnNome.setCellValueFactory(
+                new PropertyValueFactory<>("bandsName"));
+		columnEstilo.setCellValueFactory(
+                new PropertyValueFactory<>("musicalStyle"));
+		columnQtd.setCellValueFactory(
+                new PropertyValueFactory<>("copiesAmount"));
+		columnPreco.setCellValueFactory(
+                new PropertyValueFactory<>("rentPrice"));
+		columnBotao.setCellValueFactory(
+                new PropertyValueFactory<>("button"));
+
+		tabelaDiscos.setItems(listadeDiscos());
 	} 
 	
-	public void listarDiscos() {
-		VinylRecordDTO vinyl = new VinylRecordDTO();
-		vinyl.setBandsName("Zé Ramalho");
-		vinyl.setMusicalStyle("MPB");
-		vinyl.setTitle("20 Melhores");
-		vinyl.setCopiesAmount(14);
-		vinyl.setRentPrice(54.8);
-		vinyl.setSelect(new CheckBox());
-		Button botao = new Button();
-		botao.setText("editar");
-		vinyl.setButton(botao);
-	
-		List<VinylRecordDTO> vinyls = new ArrayList<VinylRecordDTO>();
-		vinyls.add(vinyl);
+	private ObservableList<VinylRecordDTO> listadeDiscos() {
 		
-		listaDeDiscos = FXCollections.observableArrayList(vinyls);
-		columnSelecione.setCellValueFactory(new PropertyValueFactory<>("select"));
-		columnNome.setCellValueFactory(new PropertyValueFactory<>("bandsName"));
-		columnTitulo.setCellValueFactory(new PropertyValueFactory<>("title"));
-		columnEstilo.setCellValueFactory(new PropertyValueFactory<>("musicalStyle"));
-		columnQtd.setCellValueFactory(new PropertyValueFactory<>("copiesAmount"));
-		columnPreco.setCellValueFactory(new PropertyValueFactory<>("rentPrice"));
-		columnBotao.setCellValueFactory(new PropertyValueFactory<>("button"));
-		tabelaDiscos.setItems(listaDeDiscos);
+		Button button = new Button();
+		button.setText("editar");
+		 return FXCollections.observableArrayList(
+				 new VinylRecordDTO("Seu ex é feio","Tony Canabrava","CarnavalTibau2019", 13.13, 22, new CheckBox(), button));
 	}
 	
 	
@@ -93,7 +90,7 @@ public class DiscosController implements Initializable {
 	}
 	
 	public void irParaCadastroDiscos( ) {
-		
+		Main.telaCadastroVinyl();
 	}
 	
 	public void deleteDiscos() {

@@ -1,6 +1,3 @@
-/**
- * Sample Skeleton for 'alugar.fxml' Controller Class
- */
 
 package com.br.api.Controller;
 
@@ -8,6 +5,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.br.api.Views.Main;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -15,6 +14,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 
 public class aluguelController {
 
@@ -23,6 +23,9 @@ public class aluguelController {
 
     @FXML // URL location of the FXML file that was given to the FXMLLoader
     private URL location;
+
+    @FXML // fx:id="Rentsdisc"
+    private Text Rentsdisc; // Value injected by FXMLLoader
 
     @FXML // fx:id="addTitle"
     private Button addTitle; // Value injected by FXMLLoader
@@ -54,6 +57,9 @@ public class aluguelController {
     @FXML // fx:id="generateReport"
     private Button generateReport; // Value injected by FXMLLoader
 
+    @FXML // fx:id="rentbooks"
+    private Text rentbooks; // Value injected by FXMLLoader
+
     @FXML // fx:id="returnDate"
     private DatePicker returnDate; // Value injected by FXMLLoader
 
@@ -62,8 +68,12 @@ public class aluguelController {
 
     @FXML // fx:id="searchTitle"
     private TextField searchTitle; // Value injected by FXMLLoader
+    
+    @FXML
+    void addproduct(ActionEvent event) {
 
-
+    }
+    
     @FXML
     void logout(MouseEvent event) {
         Main.telalogin();
@@ -87,9 +97,24 @@ public class aluguelController {
     @FXML
     void openrentsview(MouseEvent event) {
     }
+    
+    @FXML
+    void selectbook(ActionEvent event) {
 
+    }
+
+    @FXML
+    void selectdisc(ActionEvent event) {
+
+    }
+
+    @FXML
+    void telarelatorio(ActionEvent event) {
+
+    }
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
+        assert Rentsdisc != null : "fx:id=\"Rentsdisc\" was not injected: check your FXML file 'alugar.fxml'.";
         assert addTitle != null : "fx:id=\"addTitle\" was not injected: check your FXML file 'alugar.fxml'.";
         assert booksCheckbox != null : "fx:id=\"booksCheckbox\" was not injected: check your FXML file 'alugar.fxml'.";
         assert buttonbooks != null : "fx:id=\"buttonbooks\" was not injected: check your FXML file 'alugar.fxml'.";
@@ -100,6 +125,7 @@ public class aluguelController {
         assert createRent != null : "fx:id=\"createRent\" was not injected: check your FXML file 'alugar.fxml'.";
         assert diskCheckBox != null : "fx:id=\"diskCheckBox\" was not injected: check your FXML file 'alugar.fxml'.";
         assert generateReport != null : "fx:id=\"generateReport\" was not injected: check your FXML file 'alugar.fxml'.";
+        assert rentbooks != null : "fx:id=\"rentbooks\" was not injected: check your FXML file 'alugar.fxml'.";
         assert returnDate != null : "fx:id=\"returnDate\" was not injected: check your FXML file 'alugar.fxml'.";
         assert searchClient != null : "fx:id=\"searchClient\" was not injected: check your FXML file 'alugar.fxml'.";
         assert searchTitle != null : "fx:id=\"searchTitle\" was not injected: check your FXML file 'alugar.fxml'.";
