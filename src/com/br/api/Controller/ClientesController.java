@@ -117,7 +117,17 @@ public class ClientesController implements Initializable {
 						btn.setOnAction((ActionEvent event) -> {
 							clientesEdit = getTableView().getItems().get(getIndex());
 							
-							Main.telaEditarCliente();
+							ClientsDTO client = new ClientsDTO();
+							client.setAddress(clientesEdit.getAddress());
+							client.setCpf(clientesEdit.getCpf());
+							client.setName(clientesEdit.getName());
+							client.setId(clientesEdit.getId());
+							
+							if (bo.deleteClients(client)) {
+								JOptionPane.showMessageDialog(null, "Cliente deletado.");
+							}
+							
+							Main.telaControleClientes();
 						});
 					}
 					
