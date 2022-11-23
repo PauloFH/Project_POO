@@ -3,8 +3,9 @@ package com.br.model.DAO;
 	import java.sql.PreparedStatement;
 	import java.sql.ResultSet;
 	import java.sql.SQLException;
+import java.util.List;
 
-	import com.br.model.entity.VinylRecord;
+import com.br.model.entity.VinylRecord;
 	public class VinylRecordDAO  extends BaseDAO<VinylRecord>{
 		public boolean add(VinylRecord vinylRecord) {
 			String sql = "INSERT INTO tb_vinylRecord (title, rentPrice, copiesAmount, bandsName, musicalStyle) VALUES(?, ?, ?, ?, ?);";
@@ -101,7 +102,7 @@ package com.br.model.DAO;
 		}
 		
 		@Override
-		public ResultSet findBySpecifiedField(VinylRecord e, String field) {
+		public List<VinylRecord> findBySpecifiedField(VinylRecord e, String field) {
 			String sql = "SELECT * FROM tb_aluno WHERE " + field +"=? ;";
 			try {
 				PreparedStatement pst = getConnection().prepareStatement(sql);
@@ -129,15 +130,14 @@ package com.br.model.DAO;
 				default: 
 					pst.setInt(1, e.getId());
 				}
-				
-				ResultSet rs = pst.executeQuery();
-				return rs;
+			
 			
 			} catch (SQLException ex) {
 				// TODO Auto-generated catch block
 				ex.printStackTrace();
 				return null;
 			}
+			return null;
 		}
 
 		

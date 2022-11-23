@@ -12,6 +12,7 @@ public class Rents extends Products {
   private Calendar devolutionDate;
   private Double price;
   private boolean devolution;
+  private int getTotalRents;
   
   public int getId() {
     return this.id;
@@ -104,7 +105,16 @@ public void setProduct(Products product) {
 	this.product = product;
 }
 
+public int getGetTotalRents() {
+	return getTotalRents;
+}
 
-
+public void setGetTotalRents(int getTotalRents) {
+	if (id < 0) {
+	      System.out.println("totalRents tem que ser positivo");
+	    } else {
+	    	this.getTotalRents = getTotalRents;
+	    }
+	  }
 
 }

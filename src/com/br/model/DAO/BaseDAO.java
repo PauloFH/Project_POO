@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
+
+import com.br.model.entity.Books;
+import com.br.model.entity.VinylRecord;
 
 public class BaseDAO<entity> implements BaseInterDAO <entity> {
 	private Connection con;
@@ -42,7 +46,7 @@ public class BaseDAO<entity> implements BaseInterDAO <entity> {
 		return null;
 	}
 	@Override
-	public ResultSet findBySpecifiedField(entity e, String field) {
+	public List<entity> findBySpecifiedField(entity e, String field) {
 
 		return null;
 	}
