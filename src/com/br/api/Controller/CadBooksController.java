@@ -1,6 +1,9 @@
 package com.br.api.Controller;
 
 import java.net.URL;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
 import com.br.api.DTO.BookDTO;
@@ -54,15 +57,17 @@ public class CadBooksController {
     private TextField title; // Value injected by FXMLLoader
 
     @FXML
-    void cadastrar(ActionEvent event) {
+    void cadastrar(ActionEvent event) throws ParseException {
 		if(title.getText().isEmpty() || gender.getText().isEmpty() || releaseDate.getText().isEmpty() || author.getText().isEmpty() || pagesAmount.getText().isEmpty() || copiesAmount.getText().isEmpty() || rentPrice.getText().isEmpty()) {
 			msgCadastroIncompleto.setVisible(true);
 		}
 		else {
+			SimpleDateFormat form = new SimpleDateFormat();
+			Date newdate = (Date) form.parse(releaseDate.getText());
 			BookDTO book = new BookDTO();
 			book.setTitle(title.getText());
 			book.setGender(gender.getText());
-			book.setReleaseDate(releaseDate.getText());
+			book.setReleaseDate(newdate);
 			book.setAuthor(author.getText());
 			int pages = Integer.parseInt(pagesAmount.getText());
 			book.setPagesAmount(pages);

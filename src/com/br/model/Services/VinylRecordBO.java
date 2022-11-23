@@ -10,7 +10,7 @@ import com.br.model.DAO.BaseInterDAO;
 import com.br.model.entity.VinylRecord;
 
 public class VinylRecordBO {
-	BaseInterDAO<VinylRecord> dao = new VinylRecordDAO();
+	VinylRecordDAO dao = new VinylRecordDAO();
 	public boolean add(VinylRecord vinylRecord) {
 		ResultSet rs = dao.findBySpecifiedField(vinylRecord, "cpf");
 		try {

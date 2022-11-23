@@ -32,7 +32,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="buttonAddCliente" layoutX="97.0" layoutY="358.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="40.0" prefWidth="163.0" style="-fx-background-color: #01A76A;" text="Cadastrar" textFill="WHITE">
+      <Button fx:id="buttonAddCliente" layoutX="97.0" layoutY="358.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="163.0" style="-fx-background-color: #01A76A;" text="Editar" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
@@ -43,17 +43,12 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="address" layoutX="97.0" layoutY="246.0" prefHeight="40.0" prefWidth="590.0" style="-fx-border-radius: 4px;" />
+      <TextField fx:id="address" layoutX="97.0" layoutY="246.0" onAction="#cadastrar" prefHeight="40.0" prefWidth="590.0" style="-fx-border-radius: 4px;" />
       <Label fx:id="msgCadastroIncompleto" layoutX="97.0" layoutY="327.0" nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: #DCB5B5; -fx-background-radius: 5px;" text="Complete todas as informações para concluir o cadastro!" textFill="#a80000" visible="false">
          <font>
             <Font name="Microsoft New Tai Lue" size="14.0" />
          </font>
       </Label>
       <Accordion />
-      <Label fx:id="msgCadastroCompleto" layoutX="299.0" layoutY="367.0" style="-fx-background-color: #d4d4d4; -fx-background-radius: 5px;" text="Cadastro concluído!" textFill="#218d47" visible="false">
-         <font>
-            <Font name="Microsoft New Tai Lue" size="14.0" />
-         </font>
-      </Label>
    </children>
 </Pane>

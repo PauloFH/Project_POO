@@ -47,8 +47,8 @@ public abstract class Products{
    }
    public abstract String getGender();
    public abstract void setGender(String gender);
-   public abstract Date getReleaseDate();
-   public abstract void setReleaseDate(Date year);
+   public abstract String getReleaseDate();
+   public abstract void setReleaseDate(String date);
    public abstract String getAuthor();
    public abstract void setAuthor(String author);
    public abstract int getPagesAmount();

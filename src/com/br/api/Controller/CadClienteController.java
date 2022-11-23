@@ -25,9 +25,9 @@ public class CadClienteController {
 		if(name.getText().isEmpty() || CPF.getText().isEmpty() || address.getText().isEmpty()) {
 			msgCadastroIncompleto.setVisible(true);
 		}
-		else {
+		else {	ClientsDTO client = new ClientsDTO();
 			try {
-				ClientsDTO client = new ClientsDTO();
+				
 				client.setName(name.getText());
 				client.setCpf(CPF.getText());
 				client.setAddress(address.getText());

@@ -18,15 +18,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
 
 public class ClientesController implements Initializable {
 	@FXML
 	private TableView<ClientsDTO> tabelaClientes;
-	@FXML
-	private TableColumn<ClientsDTO, CheckBox> columnSelecione;
+//	@FXML
+//	private TableColumn<ClientsDTO, CheckBox> columnSelecione;
 	@FXML
 	private TableColumn<ClientsDTO, String> columnNome;
 	@FXML 
@@ -34,10 +36,17 @@ public class ClientesController implements Initializable {
 	@FXML
 	private TableColumn<ClientsDTO, String> columnCpf;
 	@FXML
-	private TableColumn<ClientsDTO, Button> columnBotao;
+	private TableColumn<ClientsDTO, Integer> columnId;
+//	@FXML
+//	private TableColumn<ClientsDTO, Button> columnBotao;
+	@FXML private TableColumn<ClientsDTO,Void> edit = new TableColumn<ClientsDTO, Void>("editar");
+	@FXML private TableColumn<ClientsDTO,Void> del = new TableColumn<ClientsDTO, Void>("deletar");
+	
 	 		private ClientsBO bo = new ClientsBO();
 	private ObservableList<ClientsDTO> listaDeClientes;
 	 
+	protected static ClientsDTO clientesEdit;
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		listarClientes();
@@ -46,12 +55,99 @@ public class ClientesController implements Initializable {
 	public void listarClientes() {
 		List<ClientsDTO> clientes = bo.listAll();
 		listaDeClientes = FXCollections.observableArrayList(clientes);
-		columnSelecione.setCellValueFactory(new PropertyValueFactory<>("select"));
+//		columnSelecione.setCellValueFactory(new PropertyValueFactory<>("select"));
 		columnNome.setCellValueFactory(new PropertyValueFactory<>("name"));
 		columnEndereco.setCellValueFactory(new PropertyValueFactory<>("address"));
 		columnCpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
-		columnBotao.setCellValueFactory(new PropertyValueFactory<>("button"));
+		columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
+//		columnBotao.setCellValueFactory(new PropertyValueFactory<>("button"));
 		tabelaClientes.setItems(listaDeClientes);
+		columnId.setVisible(false);
+		addButtonEdit();
+		addButtonDel();
+	}
+	
+	public void addButtonEdit() {
+		Callback<TableColumn<ClientsDTO, Void>, TableCell<ClientsDTO, Void>> cellFactory = new Callback<TableColumn<ClientsDTO, Void>, TableCell<ClientsDTO, Void>>(){
+
+			@Override
+			public TableCell<ClientsDTO, Void> call(TableColumn<ClientsDTO, Void> arg0) {
+				
+				final TableCell<ClientsDTO,Void> cell = new TableCell<ClientsDTO,Void>(){
+					
+					private final Button btn = new Button("editar");
+					
+					{
+						btn.setOnAction((ActionEvent event) -> {
+							clientesEdit = getTableView().getItems().get(getIndex());
+							Main.telaEditarCliente();
+						});
+					}
+					
+					@Override
+					public void updateItem(Void item, boolean empty) {
+						if(empty) {
+							setGraphic(null);
+						}
+						else {
+							setGraphic(btn);
+						}
+					}
+				};
+				
+				return cell;
+			}
+		};
+		
+		edit.setCellFactory(cellFactory);
+		tabelaClientes.getColumns().add(edit);
+	}
+	
+	public void addButtonDel() {
+		Callback<TableColumn<ClientsDTO, Void>, TableCell<ClientsDTO, Void>> cellFactory = new Callback<TableColumn<ClientsDTO, Void>, TableCell<ClientsDTO, Void>>(){
+
+			@Override
+			public TableCell<ClientsDTO, Void> call(TableColumn<ClientsDTO, Void> arg0) {
+				
+				final TableCell<ClientsDTO,Void> cell = new TableCell<ClientsDTO,Void>(){
+					
+					private final Button btn = new Button("apagar");
+					
+					{
+						btn.setOnAction((ActionEvent event) -> {
+							clientesEdit = getTableView().getItems().get(getIndex());
+							
+							ClientsDTO client = new ClientsDTO();
+							client.setAddress(clientesEdit.getAddress());
+							client.setCpf(clientesEdit.getCpf());
+							client.setName(clientesEdit.getName());
+							client.setId(clientesEdit.getId());
+							
+							if (bo.deleteClients(client)) {
+								JOptionPane.showMessageDialog(null, "Cliente deletado.");
+							}
+							
+							Main.telaControleClientes();
+						});
+					}
+					
+					@Override
+					public void updateItem(Void item, boolean empty) {
+						if(empty) {
+							setGraphic(null);
+						}
+						else {
+							setGraphic(btn);
+						}
+					}
+				};
+				
+				return cell;
+			}
+		};
+		
+		del.setCellFactory(cellFactory);
+		tabelaClientes.getColumns().add(del);
 	}
 	
 	public void irParaControleLivros() {
@@ -78,9 +174,9 @@ public class ClientesController implements Initializable {
 		Main.telaCadastroCliente();
 	}
 	
-	public void deleteClientes() {
-		JOptionPane.showMessageDialog(null, "deletado com sucesso");
-	}
+//	public void deleteClientes() {
+//		
+//	}
 	
     @FXML
     void telamenu(ActionEvent event) {

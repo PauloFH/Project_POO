@@ -4,6 +4,8 @@ package com.br.api.Controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
+
 import com.br.api.Views.Main;
 import com.br.model.Services.VinylRecordBO;
 import com.br.model.entity.VinylRecord;
@@ -52,6 +54,7 @@ public class CadVinylController {
 			msgCadastroIncompleto.setVisible(true);
 		}
 		else {
+			try {
 			VinylRecord vinylRecord = new VinylRecord();
 			vinylRecord.setTitle(title.getText());
 			vinylRecord.setBandsName(bandsName.getText());
@@ -62,6 +65,10 @@ public class CadVinylController {
 			vinylRecord.setRentPrice(price);
 			
 			bo.add(vinylRecord);
+			JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
+			}catch(Exception e) {
+			JOptionPane.showMessageDialog(null, "erro: " + e);
+			}
 		}
     }
 

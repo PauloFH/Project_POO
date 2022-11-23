@@ -10,7 +10,7 @@ import javafx.scene.control.CheckBox;
 public class BookDTO extends ProductsDTO {
 	private String gender;
 	private String author;
-    private Date releaseDate;
+    private String releaseDate;
     private int pagesAmount;
     private CheckBox select;
     private Button button;
@@ -39,11 +39,11 @@ public class BookDTO extends ProductsDTO {
     	}
     }
     
-    public Date getReleaseDate() {
+    public String getReleaseDate() {
     	return this.releaseDate;
     }
   
-    public void setReleaseDate(Date s) {
+    public void setReleaseDate(String s) {
     	if (s == null) {
     		throw new IllegalArgumentException("releaseDate não pode ser vázia");
     	} else {
@@ -78,4 +78,5 @@ public class BookDTO extends ProductsDTO {
 	public void setButton(Button button) {
 		this.button = button;
 	}
+
 }

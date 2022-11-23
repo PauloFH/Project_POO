@@ -1,6 +1,7 @@
 package com.br.model.entity;
 
-import java.sql.Date;
+
+import java.util.Calendar;
 
 public class Rents {
   private int id;
@@ -9,12 +10,13 @@ public class Rents {
   private Clients client;
   private Books book;
   private VinylRecord vinyl;
-  private Date rentDate;
-  private Date devolutionDate;
+  private Calendar rentDate;
+  private Calendar devolutionDate;
   private Double price;
   private int qtE;
   private int qtA;
   private boolean devolution;
+  private int getTotalRents;
   
   public int getQtA() {
 	return qtA;
@@ -49,11 +51,11 @@ public int getId() {
   }
 
 
-  public Date getDate() {
+  public Calendar getDate() {
 	return rentDate;
   }
 
-  public void setDate( Date rentDate) {
+  public void setDate( Calendar rentDate) {
 	this.rentDate = rentDate;
   }
 
@@ -91,19 +93,19 @@ public void setBook(Books book) {
 	this.book = book;
 }
 
-public Date getRentDate() {
+public Calendar getRentDate() {
 	return rentDate;
 }
 
-public void setRentDate(Date rentDate) {
+public void setRentDate(Calendar rentDate) {
 	this.rentDate = rentDate;
 }
 
-public Date getDevolutionDate() {
+public Calendar getDevolutionDate() {
 	return devolutionDate;
 }
 
-public void setDevolutionDate(Date devolutionDate) {
+public void setDevolutionDate(Calendar devolutionDate) {
 	this.devolutionDate = devolutionDate;
 }
 
@@ -131,7 +133,16 @@ public void setName_2(String name_2) {
 	this.name_2 = name_2;
 }
 
+public int getGetTotalRents() {
+	return getTotalRents;
+}
 
-
+public void setGetTotalRents(int getTotalRents) {
+	if (id < 0) {
+	      System.out.println("totalRents tem que ser positivo");
+	    } else {
+	    	this.getTotalRents = getTotalRents;
+	    }
+	  }
 
 }

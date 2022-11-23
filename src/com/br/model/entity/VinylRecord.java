@@ -1,7 +1,5 @@
 package com.br.model.entity;
 
-import java.sql.Date;
-
 public class VinylRecord extends Products {
     private String bandsName;
     private String musicalStyle;
@@ -39,18 +37,6 @@ public class VinylRecord extends Products {
 	}
 
 	@Override
-	public Date getReleaseDate() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setReleaseDate(Date date) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public String getAuthor() {
 		// TODO Auto-generated method stub
 		return null;
@@ -70,6 +56,18 @@ public class VinylRecord extends Products {
 
 	@Override
 	public void setPagesAmount(int pagesAmount) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getReleaseDate() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setReleaseDate(String date) {
 		// TODO Auto-generated method stub
 		
 	}
