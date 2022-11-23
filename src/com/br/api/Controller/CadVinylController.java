@@ -1,5 +1,6 @@
 package com.br.api.Controller;
 
+import com.br.api.Views.Main;
 import com.br.model.Services.ProductsBO;
 import com.br.model.entity.VinylRecord;
 
@@ -14,7 +15,8 @@ public class CadVinylController {
 	@FXML private TextField musicalStyle;
 	@FXML private TextField copiesAmount;
 	@FXML private TextField rentPrice;
-	@FXML private Label msgCadastroIncompleto; 
+	@FXML private Label msgCadastroIncompleto;
+	@FXML private Label msgCadastroCompleto;
 	
 	ProductsBO<VinylRecord> VinylRecordBO = new ProductsBO<VinylRecord>();
 	
@@ -33,7 +35,12 @@ public class CadVinylController {
 			vinylRecord.setRentPrice(price);
 			
 			VinylRecordBO.add(vinylRecord);
+			msgCadastroCompleto.setVisible(true);
 		}
+	}
+	
+	public void close(ActionEvent event) throws Exception{
+		Main.telaControleDiscos();
 	}
 
 }

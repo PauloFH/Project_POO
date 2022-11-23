@@ -15,6 +15,7 @@ public class CadClienteController {
 	@FXML private TextField CPF;
 	@FXML private TextField address;
 	@FXML private Label msgCadastroIncompleto;
+	@FXML private Label msgCadastroCompleto;
 	
 	ClientsBO ClientsBO = new ClientsBO();
 	
@@ -29,6 +30,7 @@ public class CadClienteController {
 			client.setAddress(address.getText());
 			
 			ClientsBO.registerClients(client);
+			msgCadastroCompleto.setVisible(true);
 		}
 	}
 	

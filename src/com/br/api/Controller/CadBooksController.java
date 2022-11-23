@@ -18,6 +18,7 @@ public class CadBooksController {
 	@FXML private TextField copiesAmount;
 	@FXML private TextField rentPrice;
 	@FXML private Label msgCadastroIncompleto; 
+	@FXML private Label msgCadastroCompleto;
 	
 	ProductsBO<Books> BooksBO = new ProductsBO<Books>();
 	
@@ -39,6 +40,7 @@ public class CadBooksController {
 			book.setRentPrice(price);
 			
 			BooksBO.add(book);
+			msgCadastroCompleto.setVisible(true);
 		}
 	}
 	
