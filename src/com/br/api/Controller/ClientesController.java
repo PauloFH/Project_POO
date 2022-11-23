@@ -7,7 +7,6 @@ import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
-import com.br.api.DTO.ClienteDTO;
 import com.br.api.DTO.ClientsDTO;
 import com.br.api.Views.Main;
 import com.br.model.Services.ClientsBO;
@@ -117,14 +116,7 @@ public class ClientesController implements Initializable {
 					{
 						btn.setOnAction((ActionEvent event) -> {
 							clientesEdit = getTableView().getItems().get(getIndex());
-							ClientsBO bo = new ClientsBO();
-							ClientsDTO clientDTO = new ClientsDTO();
-							clientsDTO.setName(clientesEdit.getName());
-							clientsDTO.setAddress(clientsEdit.getAddress());
-							clientsDTO.setCpf(clientsEdit.getCpf());
-							if (bo.deleteClients(clientDTO)) {
-								JOptionPane.showMessageDialog(null, "Cliente Apagado.");
-							}
+							
 							Main.telaEditarCliente();
 						});
 					}
@@ -172,9 +164,9 @@ public class ClientesController implements Initializable {
 		Main.telaCadastroCliente();
 	}
 	
-	public void deleteClientes() {
-		
-	}
+//	public void deleteClientes() {
+//		
+//	}
 	
     @FXML
     void telamenu(ActionEvent event) {
