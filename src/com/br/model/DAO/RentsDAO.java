@@ -17,10 +17,10 @@ public class RentsDAO extends BaseDAO<Rents>{
 		try {
 			
 			PreparedStatement pst = getConnection().prepareStatement(sql);
-			Date data = new Date(rent.getRentDate().getTimeInMillis());
+			Date data = new Date(rent.getRentDate().getTime());
 			pst.setInt(1, rent.getClient().getId());
 			pst.setDate(3, data);
-			pst.setDouble(4, rent.getRentPrice());
+			pst.setDouble(4, rent.getPrice());
 			pst.execute();
 			return true;
 		} catch (SQLException e) {
@@ -36,7 +36,7 @@ public class RentsDAO extends BaseDAO<Rents>{
 		try {
 			
 			PreparedStatement pst = getConnection().prepareStatement(sql);
-			Date data = new Date(rent.getDevolutionDate().getTimeInMillis());
+			Date data = new Date(rent.getDevolutionDate().getTime());
 			pst.setBoolean(1, true);
 			pst.setDate(2, data);
 			pst.executeUpdate();
