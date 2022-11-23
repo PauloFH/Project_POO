@@ -5,7 +5,9 @@ module javafx {
 	requires java.desktop;
 	requires javafx.base;
 	requires javafx.graphics;
+	requires java.naming;
 	
 	opens com.br.api.Views to javafx.graphics, javafx.fxml;
 	opens com.br.api.Controller to javafx.fxml;
+	opens com.br.api.DTO to javafx.base, javafx.fxml;
 }

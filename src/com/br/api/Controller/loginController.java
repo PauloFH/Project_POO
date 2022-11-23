@@ -1,12 +1,15 @@
 package com.br.api.Controller;
 
+import java.awt.HeadlessException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
 import com.br.api.DTO.AdministratorsDTO;
 import com.br.api.Views.Main;
+import com.br.exception.AutenticationException;
 import com.br.model.Services.AdministratorsBO;
 
 import javafx.event.ActionEvent;
@@ -49,7 +52,7 @@ public class loginController {
     }
 
     @FXML
-    void login(ActionEvent event) {
+    void login(ActionEvent event) throws HeadlessException, SQLException {
     	AdministratorsDTO dto = new AdministratorsDTO();
 		  dto.setPasswd(passwdlogin.getText());
 		  dto.setUser(user.getText());
@@ -62,7 +65,7 @@ public class loginController {
 				  JOptionPane.showMessageDialog(null,"Senha ou usuário errado, tente novamente");
 			  }
 			  
-		} catch (Exception e) {
+		} catch (AutenticationException e) {
 			JOptionPane.showMessageDialog(null,"Erro no login: "+e);
 		}
     }

@@ -12,7 +12,7 @@ import com.br.model.entity.Clients;
 
 public class ClientsDAO extends BaseDAO<Clients>{
 	public boolean add (Clients client) {
-		String sql = "INSERT INTO tb_clients(name,cpf, adress) VALUES (?,?,?,?);";
+		String sql = "INSERT INTO tb_clients(name,cpf, adress) VALUES (?,?,?);";
 		try {
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 				pst.setString(1, client.getName());
@@ -21,7 +21,7 @@ public class ClientsDAO extends BaseDAO<Clients>{
 				pst.execute();
 				return true;
 		} catch (SQLException e) {
-			
+			JOptionPane.showMessageDialog(null,"Erro: "+e);
 			return false;
 		}
 	}
@@ -60,9 +60,9 @@ public class ClientsDAO extends BaseDAO<Clients>{
 				ResultSet rs =pst.executeQuery();
 				if(rs.next()){
 					Clients newclient = new Clients();
-					newclient.setCpf(rs.getString("name"));
+					newclient.setName(rs.getString("name"));
 					newclient.setCpf(rs.getString("cpf"));
-					newclient.setCpf(rs.getString("adress"));
+					newclient.setAddress(rs.getString("adress"));
 					newclient.setId(client.getId());
 					return newclient;
 				}else {

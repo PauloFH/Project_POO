@@ -78,4 +78,5 @@ public class BookDTO extends ProductsDTO {
 	public void setButton(Button button) {
 		this.button = button;
 	}
+
 }
