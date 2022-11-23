@@ -60,7 +60,7 @@ public class DiscosController implements Initializable {
 	
 	private ObservableList<VinylRecordDTO> listadeDiscos() {
 		
-		List<VinylRecordDTO> discos = bo.listAll();
+		List<VinylRecordDTO> discos = bo.findAll();
 		listaDeDiscos = FXCollections.observableArrayList(discos);
 //		columnSelecione.setCellValueFactory(new PropertyValueFactory<>("select"));
 		columnTitulo.setCellValueFactory(new PropertyValueFactory<>("title"));
