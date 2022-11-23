@@ -7,7 +7,6 @@ import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
-import com.br.api.DTO.ClienteDTO;
 import com.br.api.DTO.ClientsDTO;
 import com.br.api.Views.Main;
 import com.br.model.Services.ClientsBO;
@@ -36,9 +35,12 @@ public class ClientesController implements Initializable {
 	private TableColumn<ClientsDTO, String> columnEndereco;
 	@FXML
 	private TableColumn<ClientsDTO, String> columnCpf;
+	@FXML
+	private TableColumn<ClientsDTO, Integer> columnId;
 //	@FXML
 //	private TableColumn<ClientsDTO, Button> columnBotao;
-	@FXML private TableColumn<ClientsDTO,Void> edit = new TableColumn<ClientsDTO, Void>("açoes");
+	@FXML private TableColumn<ClientsDTO,Void> edit = new TableColumn<ClientsDTO, Void>("editar");
+	@FXML private TableColumn<ClientsDTO,Void> del = new TableColumn<ClientsDTO, Void>("deletar");
 	
 	 		private ClientsBO bo = new ClientsBO();
 	private ObservableList<ClientsDTO> listaDeClientes;
@@ -57,9 +59,12 @@ public class ClientesController implements Initializable {
 		columnNome.setCellValueFactory(new PropertyValueFactory<>("name"));
 		columnEndereco.setCellValueFactory(new PropertyValueFactory<>("address"));
 		columnCpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
+		columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
 //		columnBotao.setCellValueFactory(new PropertyValueFactory<>("button"));
 		tabelaClientes.setItems(listaDeClientes);
+		columnId.setVisible(false);
 		addButtonEdit();
+		addButtonDel();
 	}
 	
 	public void addButtonEdit() {
@@ -98,6 +103,53 @@ public class ClientesController implements Initializable {
 		tabelaClientes.getColumns().add(edit);
 	}
 	
+	public void addButtonDel() {
+		Callback<TableColumn<ClientsDTO, Void>, TableCell<ClientsDTO, Void>> cellFactory = new Callback<TableColumn<ClientsDTO, Void>, TableCell<ClientsDTO, Void>>(){
+
+			@Override
+			public TableCell<ClientsDTO, Void> call(TableColumn<ClientsDTO, Void> arg0) {
+				
+				final TableCell<ClientsDTO,Void> cell = new TableCell<ClientsDTO,Void>(){
+					
+					private final Button btn = new Button("apagar");
+					
+					{
+						btn.setOnAction((ActionEvent event) -> {
+							clientesEdit = getTableView().getItems().get(getIndex());
+							
+							ClientsDTO client = new ClientsDTO();
+							client.setAddress(clientesEdit.getAddress());
+							client.setCpf(clientesEdit.getCpf());
+							client.setName(clientesEdit.getName());
+							client.setId(clientesEdit.getId());
+							
+							if (bo.deleteClients(client)) {
+								JOptionPane.showMessageDialog(null, "Cliente deletado.");
+							}
+							
+							Main.telaControleClientes();
+						});
+					}
+					
+					@Override
+					public void updateItem(Void item, boolean empty) {
+						if(empty) {
+							setGraphic(null);
+						}
+						else {
+							setGraphic(btn);
+						}
+					}
+				};
+				
+				return cell;
+			}
+		};
+		
+		del.setCellFactory(cellFactory);
+		tabelaClientes.getColumns().add(del);
+	}
+	
 	public void irParaControleLivros() {
 		Main.telaControleLivro();
 	}
@@ -122,9 +174,9 @@ public class ClientesController implements Initializable {
 		Main.telaCadastroCliente();
 	}
 	
-	public void deleteClientes() {
-		
-	}
+//	public void deleteClientes() {
+//		
+//	}
 	
     @FXML
     void telamenu(ActionEvent event) {

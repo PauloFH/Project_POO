@@ -5,11 +5,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 
 public class ClientsDTO {
+	private int id;
 	private String name;
     private String address;
     private String cpf;
-    private CheckBox select;
-    private Button button;
+//    private CheckBox select;
+//    private Button button;
 
 
     /*Métodos Set  e Get */
@@ -41,22 +42,32 @@ public class ClientsDTO {
     }
 
 
-	public CheckBox getSelect() {
-		return select;
+	public int getId() {
+		return id;
 	}
 
 
-	public void setSelect(CheckBox select) {
-		this.select = select;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 
-	public Button getButton() {
-		return button;
-	}
-
-
-	public void setButton(Button button) {
-		this.button = button;
-	}
+//	public CheckBox getSelect() {
+//		return select;
+//	}
+//
+//
+//	public void setSelect(CheckBox select) {
+//		this.select = select;
+//	}
+//
+//
+//	public Button getButton() {
+//		return button;
+//	}
+//
+//
+//	public void setButton(Button button) {
+//		this.button = button;
+//	}
 }

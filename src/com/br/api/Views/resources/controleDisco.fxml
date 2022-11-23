@@ -64,13 +64,13 @@
             </ImageView>
             <Button layoutX="34.0" layoutY="20.0" mnemonicParsing="false" onAction="#irParaHome" prefHeight="21.0" prefWidth="29.0" style="-fx-background-color: transparent;" />
             <Button layoutX="63.0" layoutY="411.0" mnemonicParsing="false" onAction="#irParaCadastroDiscos" prefHeight="45.0" prefWidth="147.0" style="-fx-background-color: #5B5B5B;" text="ADD" textFill="#010101" />
-            <ImageView fitHeight="45.0" fitWidth="49.0" layoutX="63.0" layoutY="411.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="45.0" fitWidth="49.0" layoutX="63.0" layoutY="411.0" onDragDetected="#irParaCadastroDiscos" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imgs/btnNew.png" />
                </image>
             </ImageView>
             <Button layoutX="535.0" layoutY="411.0" mnemonicParsing="false" onAction="#deleteDiscos" prefHeight="45.0" prefWidth="147.0" style="-fx-background-color: #5B5B5B;" text="DELETE" textFill="#010101" />
-            <ImageView fitHeight="45.0" fitWidth="49.0" layoutX="535.0" layoutY="411.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="45.0" fitWidth="49.0" layoutX="535.0" layoutY="411.0" onDragDetected="#deleteDiscos" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imgs/btnDelete.png" />
                </image>

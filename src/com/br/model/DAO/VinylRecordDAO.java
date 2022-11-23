@@ -103,7 +103,7 @@ package com.br.model.DAO;
 		
 		@Override
 		public ResultSet findBySpecifiedField(VinylRecord e, String field) {
-			String sql = "SELECT * FROM tb_aluno WHERE " + field +"=? ;";
+			String sql = "SELECT * FROM tb_vinylRecord WHERE " + field +"=? ;";
 			try {
 				PreparedStatement pst = getConnection().prepareStatement(sql);
 				switch (field) {
