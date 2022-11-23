@@ -49,8 +49,6 @@ public class Main extends Application {
 				JOptionPane.showMessageDialog(null,"Erro: "+e);
 			}
 		}
-<<<<<<< HEAD
-=======
 		
 		public static void telaControleDiscos() {
 			try {
@@ -89,7 +87,6 @@ public class Main extends Application {
 			}
 		}
 
->>>>>>> b6b40a05624fad698ca69b1e216b65e5ef99e4d3
 		public static void telamenu(){
 			try {
 				Parent root = FXMLLoader.load(Main.class.getResource("resources/telabase.fxml"));
