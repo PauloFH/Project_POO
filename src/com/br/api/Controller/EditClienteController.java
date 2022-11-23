@@ -6,7 +6,7 @@ import com.br.api.DTO.ClientsDTO;
 import com.br.api.Views.Main;
 import com.br.model.Services.ClientsBO;
 
-public class EditClienteController implements Initializable {
+public class EditClienteController {
 	@FXML private TextField name;
 	@FXML private TextField CPF;
 	@FXML private TextField address;

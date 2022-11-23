@@ -123,7 +123,7 @@ public class ClientesController implements Initializable {
 	}
 	
 	public void deleteClientes() {
-		JOptionPane.showMessageDialog(null, "deletado com sucesso");
+		
 	}
 	
     @FXML
