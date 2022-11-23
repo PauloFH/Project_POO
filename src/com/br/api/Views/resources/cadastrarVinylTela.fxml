@@ -62,5 +62,10 @@
          </font>
       </Label>
       <Accordion />
+      <Label fx:id="msgCadastroCompleto" layoutX="274.0" layoutY="335.0" style="-fx-background-color: #d4d4d4; -fx-background-radius: 5px;" text="Cadastro concluído!" textFill="#218d47" visible="false">
+         <font>
+            <Font name="Microsoft New Tai Lue" size="14.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

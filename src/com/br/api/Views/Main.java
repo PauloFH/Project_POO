@@ -2,6 +2,7 @@ package com.br.api.Views;
 
 import javax.swing.JOptionPane;
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -84,6 +85,17 @@ public class Main extends Application {
 			} catch (Exception e) {
 				// TODO: handle exception
 				JOptionPane.showMessageDialog(null,"Erro: "+e);
+			}
+		}
+
+		public static void telaControleDevolucao() {
+			try {
+				Parent root = FXMLLoader.load(Main.class.getResource("resources/returnTitles.fxml"));
+				Scene scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null,"Erro: " + e);
 			}
 		}
 
