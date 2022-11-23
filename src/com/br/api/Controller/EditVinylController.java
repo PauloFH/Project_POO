@@ -45,6 +45,6 @@ public class EditVinylController {
 	}
 	
 	public void close() {
-		Main.telaControleClientes();
+		Main.telaControleDiscos();
 	}
 }
