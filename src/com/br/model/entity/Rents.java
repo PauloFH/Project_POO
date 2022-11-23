@@ -16,6 +16,7 @@ public class Rents {
   private int qtE;
   private int qtA;
   private boolean devolution;
+  private int getTotalRents;
   
   public int getQtA() {
 	return qtA;
@@ -132,7 +133,16 @@ public void setName_2(String name_2) {
 	this.name_2 = name_2;
 }
 
+public int getGetTotalRents() {
+	return getTotalRents;
+}
 
-
+public void setGetTotalRents(int getTotalRents) {
+	if (id < 0) {
+	      System.out.println("totalRents tem que ser positivo");
+	    } else {
+	    	this.getTotalRents = getTotalRents;
+	    }
+	  }
 
 }

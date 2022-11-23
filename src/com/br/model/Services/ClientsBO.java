@@ -87,9 +87,9 @@ public class ClientsBO{
             
     }
     
-    public List<Clients> searchname(String name){
+    public List<Clients> searchname(Clients clients){
 		Clients client = new Clients();
-		client.setCpf(name);
+		client.setCpf(clients);
 		ResultSet rs = dao.findBySpecifiedField(client, "name");
 		List<Clients> rslist = new ArrayList<Clients>();
         try {

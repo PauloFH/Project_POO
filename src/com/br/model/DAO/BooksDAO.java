@@ -3,6 +3,8 @@ package com.br.model.DAO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -98,7 +100,7 @@ public class BooksDAO extends BaseDAO<Books> {
         }
     }
 
-    public ResultSet findBySpecifiedField(Books book, String field) {
+    public List<Books> findBySpecifiedField(Books book, String field) {
         String sql = "SELECT * FROM tb_books WHERE " + field + "=?;";
         try {
             PreparedStatement stmt = getConnection().prepareStatement(sql);
@@ -118,13 +120,13 @@ public class BooksDAO extends BaseDAO<Books> {
                 default:
                     stmt.setInt(1, book.getId());
                     break;
+            
             }
 
-            ResultSet rs = stmt.executeQuery();
-            return rs;
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e);
             return null;
         }
+		return null;
     }
 }

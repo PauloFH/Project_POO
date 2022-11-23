@@ -19,7 +19,7 @@ public class Books extends Products{
     
     public void setGender(String gender) {
     	if (gender.isEmpty()) {
-    		throw new IllegalArgumentException("Gender não pode ser vázio");
+    		throw new IllegalArgumentException("Gender não pode ser vazio");
     	} else {
     		this.gender = gender;
     	}
