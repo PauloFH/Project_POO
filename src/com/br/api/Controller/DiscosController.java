@@ -85,8 +85,8 @@ public class DiscosController implements Initializable {
 					
 					{
 						btn.setOnAction((ActionEvent event) -> {
-							clientesEdit = getTableView().getItems().get(getIndex());
-							Main.telaEditarCliente();
+							discosEdit = getTableView().getItems().get(getIndex());
+							Main.telaEditarDisco();
 						});
 					}
 					

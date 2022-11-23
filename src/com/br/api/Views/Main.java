@@ -163,5 +163,18 @@ public class Main extends Application {
 				JOptionPane.showMessageDialog(null,"Erro: "+e);
 			}
 		}
+		
+		public static void telaEditarDisco() {
+
+			try {
+				Parent root = FXMLLoader.load(Main.class.getResource("resources/discoEdit.fxml"));
+				Scene scene = new Scene (root);
+				stage.setScene(scene);
+				stage.setTitle("Tela Editar Disco");
+				stage.show();
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null,"Erro: "+e);
+			}
+		}
 
 }
