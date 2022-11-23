@@ -13,13 +13,16 @@ import com.br.model.Services.VinylRecordBO;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
 
 public class DiscosController implements Initializable {
 	@FXML
@@ -58,7 +61,7 @@ public class DiscosController implements Initializable {
 	private ObservableList<VinylRecordDTO> listadeDiscos() {
 		
 		List<VinylRecordDTO> discos = bo.listAll();
-		listaDeDiscos = FXCollections.observableArrayList(clientes);
+		listaDeDiscos = FXCollections.observableArrayList(discos);
 //		columnSelecione.setCellValueFactory(new PropertyValueFactory<>("select"));
 		columnTitulo.setCellValueFactory(new PropertyValueFactory<>("title"));
 		columnNome.setCellValueFactory(new PropertyValueFactory<>("bandsName"));
@@ -121,15 +124,16 @@ public class DiscosController implements Initializable {
 					
 					{
 						btn.setOnAction((ActionEvent event) -> {
-							clientesEdit = getTableView().getItems().get(getIndex());
+							discosEdit = getTableView().getItems().get(getIndex());
 							
 							VinylRecordDTO disco = new VinylRecordDTO();
-							client.setAddress(clientesEdit.getAddress());
-							client.setCpf(clientesEdit.getCpf());
-							client.setName(clientesEdit.getName());
-							client.setId(clientesEdit.getId());
-							
-							if (bo.deleteClients(client)) {
+							disco.setBandsName(discosEdit.getBandsName());
+							disco.setCopiesAmount(discosEdit.getCopiesAmount());
+							disco.setMusicalStyle(discosEdit.getMusicalStyle());
+							disco.setRentPrice(discosEdit.getRentPrice());
+							disco.setId(discosEdit.getId());
+							disco.setTitle(discosEdit.getTitle());
+							if (bo.del(disco)) {
 								JOptionPane.showMessageDialog(null, "Disco deletado.");
 							}
 							
