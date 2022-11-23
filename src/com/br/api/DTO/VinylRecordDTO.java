@@ -1,23 +1,24 @@
 package com.br.api.DTO;
 
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
+//import javafx.scene.control.Button;
+//import javafx.scene.control.CheckBox;
 
 public class VinylRecordDTO extends ProductsDTO {
     private String bandsName;
     private String musicalStyle;
-    private CheckBox select;
-    private Button button;
-    
+    private int id;
+//    private CheckBox select;
+//    private Button button;
+//    
 
-    public VinylRecordDTO(String title,String bandsName, String musicalStyle,Double rentPrice,int copies, CheckBox select, Button button) {
+    public VinylRecordDTO(String title,String bandsName, String musicalStyle,Double rentPrice,int copies) {
 		super.title = title;
 		super.rentPrice = rentPrice;
 		super.copiesAmount = copies;
 		this.bandsName = bandsName;
 		this.musicalStyle = musicalStyle;
-		this.select = select;
-		this.button = button;
+//		this.select = select;
+//		this.button = button;
 	}
 
 	public String getBandsName() {
@@ -38,19 +39,27 @@ public class VinylRecordDTO extends ProductsDTO {
             else throw new IllegalArgumentException(" Musical style must not be empty");
     }
 
-	public CheckBox getSelect() {
-		return select;
+	public int getId() {
+		return id;
 	}
 
-	public void setSelect(CheckBox select) {
-		this.select = select;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public Button getButton() {
-		return button;
-	}
-
-	public void setButton(Button button) {
-		this.button = button;
-	}
+//	public CheckBox getSelect() {
+//		return select;
+//	}
+//
+//	public void setSelect(CheckBox select) {
+//		this.select = select;
+//	}
+//
+//	public Button getButton() {
+//		return button;
+//	}
+//
+//	public void setButton(Button button) {
+//		this.button = button;
+//	}
 }
