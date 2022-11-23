@@ -1,6 +1,7 @@
 package com.br.model.entity;
 
 
+
 import java.sql.Date;
 
 import com.br.api.DTO.BookDTO;
@@ -9,7 +10,7 @@ public class Books extends Products{
     // implements Book
     private String gender;
     private String author;
-    private Date releaseDate;
+    private String releaseDate;
     private int pagesAmount;
     
     public String getGender() {
@@ -36,7 +37,7 @@ public class Books extends Products{
     	}
     }
     
-    public Date getReleaseDate() {
+    public String getReleaseDate() {
     	return this.releaseDate;
     }
 
@@ -89,16 +90,17 @@ public class Books extends Products{
 		
 	}
 
-	public void setReleaseDate(Date date) {
+
+	@Override
+	public void setReleaseDate(String date) {
     	if (date == null) {
-    		throw new IllegalArgumentException("releaseDate não pode ser vázia");
+    		throw new IllegalArgumentException("releaseString não pode ser vázia");
     	} else {
-    		this.releaseDate = date;}
-    	
+    		this.releaseDate = date;
 		
 	}
 
-
+	}
 
 
   

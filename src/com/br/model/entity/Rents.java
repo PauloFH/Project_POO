@@ -1,6 +1,7 @@
 package com.br.model.entity;
 
-import java.sql.Date;
+
+import java.util.Calendar;
 
 public class Rents {
   private int id;
@@ -9,8 +10,8 @@ public class Rents {
   private Clients client;
   private Books book;
   private VinylRecord vinyl;
-  private Date rentDate;
-  private Date devolutionDate;
+  private Calendar rentDate;
+  private Calendar devolutionDate;
   private Double price;
   private int qtE;
   private int qtA;
@@ -49,11 +50,11 @@ public int getId() {
   }
 
 
-  public Date getDate() {
+  public Calendar getDate() {
 	return rentDate;
   }
 
-  public void setDate( Date rentDate) {
+  public void setDate( Calendar rentDate) {
 	this.rentDate = rentDate;
   }
 
@@ -91,19 +92,19 @@ public void setBook(Books book) {
 	this.book = book;
 }
 
-public Date getRentDate() {
+public Calendar getRentDate() {
 	return rentDate;
 }
 
-public void setRentDate(Date rentDate) {
+public void setRentDate(Calendar rentDate) {
 	this.rentDate = rentDate;
 }
 
-public Date getDevolutionDate() {
+public Calendar getDevolutionDate() {
 	return devolutionDate;
 }
 
-public void setDevolutionDate(Date devolutionDate) {
+public void setDevolutionDate(Calendar devolutionDate) {
 	this.devolutionDate = devolutionDate;
 }
 

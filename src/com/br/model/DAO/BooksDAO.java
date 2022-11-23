@@ -16,7 +16,7 @@ public class BooksDAO extends BaseDAO<Books> {
             stmt.setString(1, book.getTitle());
             stmt.setString(2, book.getGender());
             stmt.setString(3, book.getAuthor());
-            stmt.setDate(4, book.getReleaseDate());
+            stmt.setString(4, book.getReleaseDate());
             stmt.setInt(5, book.getPagesAmount());
             stmt.setInt(6, book.getCopiesAmount());
             stmt.setDouble(7, book.getRentPrice());
@@ -48,7 +48,7 @@ public class BooksDAO extends BaseDAO<Books> {
             stmt.setString(1, book.getTitle());
             stmt.setString(2, book.getGender());
             stmt.setString(3, book.getAuthor());
-            stmt.setDate(4, book.getReleaseDate());
+            stmt.setString(4, book.getReleaseDate());
             stmt.setInt(5, book.getPagesAmount());
             stmt.setInt(6, book.getCopiesAmount());
             stmt.setDouble(7, book.getRentPrice());
@@ -72,7 +72,7 @@ public class BooksDAO extends BaseDAO<Books> {
                 bk.setTitle(rs.getString("title"));
                 bk.setGender(rs.getString("gender"));
                 bk.setAuthor(rs.getString("author"));
-                bk.setReleaseDate(rs.getDate("release_date"));
+                bk.setReleaseDate(rs.getString("release_date"));
                 bk.setPagesAmount(rs.getInt("pages_amount"));
                 bk.setCopiesAmount(rs.getInt("copies_amount"));
                 bk.setRentPrice(rs.getDouble("rent_price"));
@@ -113,7 +113,7 @@ public class BooksDAO extends BaseDAO<Books> {
                     stmt.setString(1, book.getAuthor());
                     break;
                 case "release_date":
-                    stmt.setDate(1, book.getReleaseDate());
+                    stmt.setString(1, book.getReleaseDate());
                     break;
                 default:
                     stmt.setInt(1, book.getId());

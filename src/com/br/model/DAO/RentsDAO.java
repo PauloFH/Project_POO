@@ -15,11 +15,10 @@ public class RentsDAO extends BaseDAO<Rents>{
 	public boolean add(Rents rent) {
 		String sql = "INSERT INTO tb_rents (client_id,rentData, price) VALUES (?, ?, ?, ?)";
 		try {
-			
+			Calendar cal = Calendar.getInstance();
 			PreparedStatement pst = getConnection().prepareStatement(sql);
-			Date data = new Date(rent.getRentDate().getTime());
 			pst.setInt(1, rent.getClient().getId());
-			pst.setDate(3, data);
+			pst.setDate(3, new java.sql.Date());
 			pst.setDouble(4, rent.getPrice());
 			pst.execute();
 			return true;

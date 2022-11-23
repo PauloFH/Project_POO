@@ -1,7 +1,6 @@
 package com.br.model.Services;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.sql.ResultSet;
 
@@ -55,12 +54,13 @@ public class ProductsBO<E> {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<E> searchProducts(E entity) {
 		// TODO Auto-generated method stub
 		if (entity.getClass().getSimpleName().equals(Books.class.getSimpleName())) {
 			BooksDAO dao = new BooksDAO();
 			ResultSet rs = dao.findAll((Books) entity);
-			Calendar date = Calendar.getInstance();
+
 
 			List<Books> books = new ArrayList<Books>();
 
@@ -70,7 +70,7 @@ public class ProductsBO<E> {
 					bk.setId(rs.getInt("id_books"));
 					bk.setTitle(rs.getString("title"));
 					bk.setGender(rs.getString("gender"));
-					bk.setReleaseDate(rs.getDate("release date"));
+					bk.setReleaseDate(rs.getString("release date"));
 					bk.setCopiesAmount(rs.getInt("copiesAmount"));
 					bk.setPagesAmount(rs.getInt("pagesAmount"));
 					bk.setRentPrice(rs.getInt("setRentPrice"));
@@ -112,6 +112,7 @@ public class ProductsBO<E> {
 		return null;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<E> listProducts(E entity) {
 	// TODO Auto-generated method stub
 	if(entity.getClass().getSimpleName().equals(Books.class.getSimpleName())) {
@@ -128,7 +129,7 @@ public class ProductsBO<E> {
 				book.setId(rs.getInt("id_book"));
 				book.setTitle(rs.getString("title"));
 				book.setGender(rs.getString("gender"));
-				book.setReleaseDate(rs.getDate("release date"));
+				book.setReleaseDate(rs.getString("release date"));
 				book.setCopiesAmount(rs.getInt("copiesAmount"));
 				book.setPagesAmount(rs.getInt("pagesAmount"));
 				book.setRentPrice(rs.getInt("setRentPrice"));
