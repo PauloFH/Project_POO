@@ -16,5 +16,6 @@ public interface BaseInterDAO<entity> {
 		public ResultSet findAll(Books book);
 		public ResultSet findAll(VinylRecord vinyl);
 		public ResultSet findBySpecifiedField(entity e, String field);
+		public ResultSet findAll();
 	}
 

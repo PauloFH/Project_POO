@@ -5,6 +5,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.br.model.entity.Books;
+import com.br.model.entity.VinylRecord;
+
 public class BaseDAO<entity> implements BaseInterDAO <entity> {
 	private Connection con;
 	
@@ -44,6 +47,16 @@ public class BaseDAO<entity> implements BaseInterDAO <entity> {
 	@Override
 	public ResultSet findBySpecifiedField(entity e, String field) {
 
+		return null;
+	}
+	@Override
+	public ResultSet findAll(Books book) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public ResultSet findAll(VinylRecord vinyl) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
