@@ -89,7 +89,7 @@ import com.br.model.entity.VinylRecord;
 		}
 		
 		@Override
-		public ResultSet findAll() {
+		public ResultSet findAll(VinylRecord v) {
 			String sql = "SELECT * FROM tb_vinylRecord;";
 			try {
 				PreparedStatement pst = getConnection().prepareStatement(sql);

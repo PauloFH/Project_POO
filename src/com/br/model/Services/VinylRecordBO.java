@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import com.br.model.DAO.VinylRecordDAO;
 import com.br.api.DTO.VinylRecordDTO;
 import com.br.model.entity.VinylRecord;
@@ -32,7 +34,7 @@ public class VinylRecordBO {
 		
 	}
 	public List<VinylRecordDTO>findAll(){
-
+		
 		List<VinylRecordDTO> vinylRecords = new ArrayList<VinylRecordDTO>();
 		VinylRecord v = new VinylRecord();
 		ResultSet rs = dao.findAll(v);
@@ -44,14 +46,14 @@ public class VinylRecordBO {
 				vinyl.setCopiesAmount(rs.getInt("copiesAmount"));
 				vinyl.setBandsName(rs.getString("bandsName"));
 				vinyl.setMusicalStyle(rs.getString("musicalStyle"));
-				vinyl.setId(rs.getInt(0));
+				vinyl.setId(rs.getInt("id"));
 				
 				vinylRecords.add(vinyl);
 			}
 			return vinylRecords;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			JOptionPane.showInternalMessageDialog(null, e);
 			return null;
 		}
 	}

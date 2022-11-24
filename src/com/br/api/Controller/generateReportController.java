@@ -1,14 +1,17 @@
 package com.br.api.Controller;
 
-import com.br.api.Views.Main;
+import com.br.api.DTO.ProductsDTO;
 
-import javafx.event.ActionEvent;
+import com.br.api.Views.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Callback;
 
 public class generateReportController {
 
@@ -17,7 +20,6 @@ public class generateReportController {
 
     @FXML
     private ImageView buttonbooks;
-
 
     @FXML
     private ImageView buttonclients;
@@ -77,9 +79,24 @@ public class generateReportController {
         Main.telaControleDevolucao();
     }
 
+    public void initialize() {
+        listEntries();
+    }
 
-    @FXML
-    void voltar(ActionEvent event) {
+    public void listEntries() {
+        addDeleteButton();
+    }
 
+    public void addDeleteButton() {
+        TableColumn<ProductsDTO, Void> colBtn = new TableColumn("Deletar");
+        Callback<TableColumn<ProductsDTO, Void>, TableCell<ProductsDTO, Void>> cellFactory = new Callback<TableColumn<ProductsDTO, Void>, TableCell<ProductsDTO, Void>>() {
+            @Override
+            public TableCell<ProductsDTO, Void> call(final TableColumn<ProductsDTO, Void> param) {
+                final TableCell<ProductsDTO, Void> cell = new TableCell<ProductsDTO, Void>() {
+                    private final Button btn = new Button("Deletar");
+                    {
+                        btn.setOnAction((ActionEvent event) -> {
+                            ProductsDTO data = getTableView().getItems().get(getIndex());
+                            System.out.println("selectedData: " + data);
     }
 }

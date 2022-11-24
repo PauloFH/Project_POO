@@ -117,13 +117,10 @@ public class ClientsBO{
     	try {
         		while(rs.next()) {
         			ClientsDTO cl = new ClientsDTO();
-//        			cl.setSelect(new CheckBox());
         			cl.setName(rs.getString("name"));
         			cl.setCpf(rs.getString("cpf"));
         			cl.setAddress(rs.getString("adress"));
-//        			Button botao = new Button();
-//        			botao.setText("editar");
-//        			cl.setButton(botao);
+
         			rslist.add(cl);
         		}
     		return rslist;
