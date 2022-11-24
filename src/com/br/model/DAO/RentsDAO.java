@@ -48,7 +48,7 @@ public class RentsDAO extends BaseDAO<Rents>{
 		}
 	}
 	
-		public ResultSet search(Calendar rent, Calendar devolution ) {
+		public ResultSet findRent(Calendar rent, Calendar devolution ) {
 			String sql = "SELECT * FROM tb_Clients WHERE rentsDate=? AND devolutionDate =?";
 			try {
 				Date rentdate = new Date(rent.getTimeInMillis());
@@ -77,9 +77,17 @@ public class RentsDAO extends BaseDAO<Rents>{
 		}
 	}
 
-	public ResultSet findRent(Calendar initialDate, Calendar finalDate) {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public ResultSet findRentClient(Rents rent, Calendar initialDate, Calendar finalDate) {
+		String sql = "SELECT * FROM tb_Rents WHERE client_id=? AND devolution=FALSE";
+		try {
+			PreparedStatement pst = getConnection().prepareStatement(sql);
+			ResultSet rs = pst.executeQuery();
+			return rs;
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null,"Erro: "+e);
+			return null;
+		}
 	}
 }
 

@@ -18,6 +18,7 @@ public class Rents {
   private int qtA;
   private boolean devolution;
   private int getTotalRents;
+private int copiesAmount;
   
   public int getQtA() {
 	return qtA;
@@ -157,6 +158,21 @@ public void setTitle(String title) {
 	}else {
 		this.title = title;
 	}
+}
+
+public void setCopiesAmount(int copiesAmount) {
+	// TODO Auto-generated method stub
+	if (id < 0) {
+	      System.out.println("copiesAmount tem que ser positivo");
+	    } else {
+	    	this.copiesAmount = copiesAmount;
+	    }
+	  }
+	
+}
+
+public int getCopiesAmount(int copiesAmount) {
+	return copiesAmount;
 }
 
 }
