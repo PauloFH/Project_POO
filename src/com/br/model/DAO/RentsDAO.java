@@ -18,7 +18,7 @@ public class RentsDAO extends BaseDAO<Rents>{
 			Calendar cal = Calendar.getInstance();
 			PreparedStatement pst = getConnection().prepareStatement(sql);
 			pst.setInt(1, rent.getClient().getId());
-			pst.setDate(3, new java.sql.Date());
+			pst.setDate(3, new java.sql.Date(0));
 			pst.setDouble(4, rent.getPrice());
 			pst.execute();
 			return true;
@@ -30,7 +30,15 @@ public class RentsDAO extends BaseDAO<Rents>{
 		}
 	}
 	
-	public boolean devolution(Rents rent) {
+	public boolean edit(Rents rent) {
+		
+	}
+	
+	public ResultSet findRentDevolution(Rents rent) {
+		
+	}
+	
+	public boolean registerDevolution(Rents rent) {
 		String sql = "UPDATE tb_rents SET devolution=? devolutionDate=? WHERE id=? ";
 		try {
 			
@@ -39,7 +47,7 @@ public class RentsDAO extends BaseDAO<Rents>{
 			pst.setBoolean(1, true);
 			pst.setDate(2, data);
 			pst.executeUpdate();
-			return true;
+			return false;
 		} catch (SQLException e) {
 			// TODO: handle exception
 			JOptionPane.showMessageDialog(null,"Erro: "+e);

@@ -70,7 +70,7 @@ public void setPrice(Double price) {
 	}
 }
 
-public boolean isDevolution() {
+public boolean getDevolution() {
 	return devolution;
 }
 
