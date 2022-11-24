@@ -1,24 +1,21 @@
 package com.br.model.Services;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.text.html.parser.Entity;
-
-import com.br.exception.RegisterRentException;
 import com.br.model.DAO.BaseInterDAO;
 import com.br.model.DAO.BooksDAO;
 import com.br.model.DAO.RentsDAO;
+import com.br.model.DAO.RentsInterDAO;
 import com.br.model.DAO.VinylRecordDAO;
 import com.br.model.entity.Books;
 import com.br.model.entity.Clients;
 import com.br.model.entity.Rents;
 import com.br.model.entity.VinylRecord;
 
-public class RentsBO implements BaseInterDAO<Rents> {
+public class RentsBO implements RentsInterDAO<Rents>, BaseInterDAO<Rents> {
 	BaseInterDAO<Rents> rent = new RentsBO();
 
 
@@ -52,6 +49,8 @@ public class RentsBO implements BaseInterDAO<Rents> {
 							bookBO.edit(rent.getBook());
 
 							//aq vai gerar o pdf
+						}else {
+							
 						}
 						
 					}}
@@ -65,34 +64,44 @@ public class RentsBO implements BaseInterDAO<Rents> {
 						
 						//pdf aluguel
 					}else {
-						throw new RegisterRentException();
+						
 					}
 					
 				}
 			}
+		return false;
 
 		}
 
+
+	public void registerDevolution(Rents rent) {
+		RentsDAO dao = new RentsDAO();
+		if(rent.getClient().getCpf() != null && rent.getTitle() != null && rent.getDevolutionDate() != null) {
+			dao.registerDevolution(rent);
+			
+			Books book = new Books();
+			VinylRecord vinyl = new VinylRecord();
+			book.setTitle(rent.getTitle());
+			vinyl.setTitle(rent.getTitle());
+			
+			ProductsBO<Books> bookBO = new ProductsBO<Books>();
+			ProductsBO<VinylRecord> vinylBO = new ProductsBO<VinylRecord>();
+			List<Books> listBooks = bookBO.searchProducts(book);
+			List<VinylRecord> listVinyl = vinylBO.searchProducts(vinyl);
+			
+			List<Rents> rentDevolution = findRentDevolution(rent);
+			
+			if(!listBooks.isEmpty()) {
+				listBooks.get(0).setCopiesAmount(listBooks.get(0).getCopiesAmount() + rentDevolution.get(0).getGetTotalRents());
+				bookBO.edit(listBooks.get(0));
+			}else if(!listVinyl.isEmpty()) {
+				listVinyl.get(0).setCopiesAmount(listVinyl.get(0).getCopiesAmount() + rentDevolution.get(0).getGetTotalRents());
+				vinylBO.edit(listVinyl.get(0));
+			}
+			
+		}
 	}
-
-
-	public Rents findById(Rents e) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	public ResultSet findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	public ResultSet findBySpecifiedField(Rents e, String field) {
-		
-		return null;
-	}
-
+	
 
 	public Connection getConnection() {
 		// TODO Auto-generated method stub
@@ -116,6 +125,13 @@ public class RentsBO implements BaseInterDAO<Rents> {
 
 
 	@Override
+	public Rents findById(Rents e) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
 	public ResultSet findAll(Books book) {
 		// TODO Auto-generated method stub
 		return null;
@@ -127,4 +143,35 @@ public class RentsBO implements BaseInterDAO<Rents> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+	@Override
+	public ResultSet findBySpecifiedField(Rents e, String field) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public ResultSet findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public List<Rents> findRent() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public ResultSet findRentDevolution(Rents e) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
 }
