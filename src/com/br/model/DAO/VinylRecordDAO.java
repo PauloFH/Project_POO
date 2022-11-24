@@ -131,14 +131,15 @@ import com.br.model.entity.VinylRecord;
 				default: 
 					pst.setInt(1, entity.getId());
 				}
-			
+				ResultSet rs =pst.executeQuery();
+				return rs;
 			
 			} catch (SQLException ex) {
 				// TODO Auto-generated catch block
 				ex.printStackTrace();
 				return null;
 			}
-			return null;
+			
 		}
 
 		

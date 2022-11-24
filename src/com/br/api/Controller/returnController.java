@@ -58,7 +58,14 @@ public class returnController {
     @FXML
     void onGoBack(MouseEvent event) {
 
+    	
     }
+
+    @FXML
+    void backtomain(MouseEvent event) {
+    	Main.telamenu();
+    }
+
 
     @FXML
     void openbooksview(MouseEvent event) {
