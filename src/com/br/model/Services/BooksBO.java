@@ -32,7 +32,8 @@ public class BooksBO {
         }
     }
 
-    public boolean editBooks(Books book) {
+    public boolean editBooks(BookDTO dto) {
+    	Books book = Books.converter(dto);
         ResultSet rs = dao.findBySpecifiedField(book, "title");
         try {
             if (rs != null && rs.next()) {
@@ -49,7 +50,8 @@ public class BooksBO {
 
     }
 
-    public boolean deleteBooks(Books book) {
+    public boolean deleteBooks(BookDTO dto) {
+    	Books book = Books.converter(dto);
         ResultSet rs = dao.findBySpecifiedField(book, "title");
         try {
             if (rs != null && rs.next()) {

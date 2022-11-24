@@ -11,8 +11,9 @@ import com.br.api.Views.Main;
 import com.br.model.Services.BooksBO;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 
-public class EditBooksController {
+public class EditBooksController implements Initializable{
 	
 	    @FXML // fx:id="author"
 	    private TextField author; // Value injected by FXMLLoader
@@ -58,4 +59,10 @@ public class EditBooksController {
 	    public void close() {
 	    	Main.telaControleLivro();
 	    }
+
+		@Override
+		public void initialize(URL arg0, ResourceBundle arg1) {
+			// TODO Auto-generated method stub
+			
+		}
 }

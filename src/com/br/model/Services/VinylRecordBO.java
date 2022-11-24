@@ -7,7 +7,6 @@ import java.util.List;
 
 import com.br.model.DAO.VinylRecordDAO;
 import com.br.api.DTO.VinylRecordDTO;
-import com.br.model.DAO.BaseInterDAO;
 import com.br.model.entity.VinylRecord;
 
 public class VinylRecordBO {

@@ -18,7 +18,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -64,14 +63,12 @@ public class LivrosController implements Initializable {
 	public void listarLivros() {
 		List<BookDTO> books = new ArrayList<BookDTO>();
 		listaDeLivros = FXCollections.observableArrayList(books);
-//		columnSelecione.setCellValueFactory(new PropertyValueFactory<>("select"));
 		columnGenero.setCellValueFactory(new PropertyValueFactory<>("gender"));
 		columnTitulo.setCellValueFactory(new PropertyValueFactory<>("title"));
 		columnAutor.setCellValueFactory(new PropertyValueFactory<>("author"));
 		columnAnoLancamento.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));
 		columnPreco.setCellValueFactory(new PropertyValueFactory<>("rentPrice"));
 		columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
-//		columnBotao.setCellValueFactory(new PropertyValueFactory<>("button"));
 		columnQtdExemplares.setCellValueFactory(new PropertyValueFactory<>("copiesAmount"));
 		tabelaLivros.setItems(listaDeLivros);
 		columnId.setVisible(false);
