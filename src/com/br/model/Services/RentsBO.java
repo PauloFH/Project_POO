@@ -2,6 +2,7 @@ package com.br.model.Services;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -91,7 +92,7 @@ public class RentsBO implements RentsInterDAO<Rents>, BaseInterDAO<Rents> {
 			List<Books> listBooks = bookBO.searchProducts(book);
 			List<VinylRecord> listVinyl = vinylBO.searchProducts(vinyl);
 			
-			List<Rents> rentDevolution = findRentDevolution(rent);
+			ResultSet rentDevolution = findRentDevolution(rent);
 			
 			if(!listBooks.isEmpty()) {
 				listBooks.get(0).setCopiesAmount(listBooks.get(0).getCopiesAmount() + rentDevolution.get(0).getGetTotalRents());
@@ -103,7 +104,6 @@ public class RentsBO implements RentsInterDAO<Rents>, BaseInterDAO<Rents> {
 			
 		}
 	}
-	@Override
 	public List<Rents> findRent(Calendar initialDate, Calendar finalDate){
 	    RentsDAO dao = new RentsDAO();
 	    ResultSet rs = dao.findRent(initialDate, finalDate);
@@ -117,20 +117,20 @@ public class RentsBO implements RentsInterDAO<Rents>, BaseInterDAO<Rents> {
 	            Clients client = new Clients();
 	            client.setCpf(rs.getString("Cpf_cliente"));
 	            rent.setClient(client);
-	            rent.setTitle(rs.getString("title");
-	            rent.setCopiesAmount(rs.getInt("copiesAmount");
+	            rent.setTitle(rs.getString("title"));
+	            rent.setCopiesAmount(rs.getInt("copiesAmount"));
 	            date1.setTime(rs.getDate("initialDate"));
-	            rent.setInitialDate(date1);
+	            rent.setRentDate(date1);
 	            date2.setTime(rs.getDate("finalDate"));
-	            rent.setInitialDate(date2);
+	            rent.setDevolutionDate(date2);
 	            rent.setPrice(rs.getDouble("price"));
-	            rent.add(vo);
+	            rents.add(rent);
 
 	        }
 	    }catch(SQLException e){
 	        e.printStackTrace();
 	    }
-	    return rent;
+	    return rents;
 	}
 	
 	@Override
@@ -143,26 +143,26 @@ public class RentsBO implements RentsInterDAO<Rents>, BaseInterDAO<Rents> {
 	        while(rs.next()){
 	            Calendar date1 = Calendar.getInstance();
 	            Calendar date2 = Calendar.getInstance();
-	            Rents rent = new Rents();
+	            Rents rent1 = new Rents();
 	            Clients client = new Clients();
 	            client.setCpf(rs.getString("Cpf_cliente"));
 	            rent.setClient(client);
-	            rent.setTitle(rs.getString("title");
-	            rent.setCopiesAmount(rs.getInt("copiesAmount");
+	            rent.setTitle(rs.getString("title"));
+	            rent.setCopiesAmount(rs.getInt("copiesAmount"));
 	            date1.setTime(rs.getDate("initialDate"));
-	            rent.setInitialDate(date1);
+	            rent.setRentDate(date1);
 	            date2.setTime(rs.getDate("finalDate"));
-	            rent.setInitialDate(date2);
+	            rent.setRentDate(date2);
 	            rent.setPrice(rs.getDouble("price"));
-	            System.out.println(date1).getTime());
-	            System.out.println(date2).getTime());
-	            rent.add(vo);
+	            System.out.println(date1.getTime());
+	            System.out.println(date2.getTime());
+	            rents.add(rent1);
 
 	        }
 	    }catch(SQLException e){
 	        e.printStackTrace();
 	    }
-	    return rent;
+	    return rents;
 	}
 	public Connection getConnection() {
 		// TODO Auto-generated method stub
