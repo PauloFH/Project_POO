@@ -12,8 +12,9 @@ public class BookDTO extends ProductsDTO {
 	private String author;
     private String releaseDate;
     private int pagesAmount;
-    private CheckBox select;
-    private Button button;
+    private int id;
+//    private CheckBox select;
+//    private Button button;
     
     public String getGender() {
     	return this.gender;
@@ -63,20 +64,28 @@ public class BookDTO extends ProductsDTO {
     	}
     }
 
-	public CheckBox getSelect() {
-		return select;
+	public int getId() {
+		return id;
 	}
 
-	public void setSelect(CheckBox select) {
-		this.select = select;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public Button getButton() {
-		return button;
-	}
-
-	public void setButton(Button button) {
-		this.button = button;
-	}
+//	public CheckBox getSelect() {
+//		return select;
+//	}
+//
+//	public void setSelect(CheckBox select) {
+//		this.select = select;
+//	}
+//
+//	public Button getButton() {
+//		return button;
+//	}
+//
+//	public void setButton(Button button) {
+//		this.button = button;
+//	}
 
 }
