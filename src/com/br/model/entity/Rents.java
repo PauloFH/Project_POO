@@ -5,6 +5,7 @@ import java.util.Calendar;
 
 public class Rents {
   private int id;
+  private String title;
   private String name;
   private String name_2;
   private Clients client;
@@ -69,7 +70,7 @@ public void setPrice(Double price) {
 	}
 }
 
-public boolean isDevolution() {
+public boolean getDevolution() {
 	return devolution;
 }
 
@@ -144,5 +145,18 @@ public void setGetTotalRents(int getTotalRents) {
 	    	this.getTotalRents = getTotalRents;
 	    }
 	  }
+
+public String getTitle() {
+	// TODO Auto-generated method stub
+	return title;
+}
+
+public void setTitle(String title) {
+	if(title == null) {
+		System.out.println("Erro: nome não encontrado");
+	}else {
+		this.title = title;
+	}
+}
 
 }
