@@ -1,7 +1,6 @@
 package com.br.api.Controller;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -17,7 +16,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -58,7 +56,7 @@ public class DiscosController implements Initializable {
 		listadeDiscos();
 	} 
 	
-	private ObservableList<VinylRecordDTO> listadeDiscos() {
+	private void listadeDiscos() {
 		
 		List<VinylRecordDTO> discos = bo.findAll();
 		listaDeDiscos = FXCollections.observableArrayList(discos);
@@ -69,11 +67,11 @@ public class DiscosController implements Initializable {
 		columnQtd.setCellValueFactory(new PropertyValueFactory<>("copiesAmount"));
 		columnPreco.setCellValueFactory(new PropertyValueFactory<>("rentPrice"));
 		columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
-//		columnBotao.setCellValueFactory(new PropertyValueFactory<>("button"));
 		tabelaDiscos.setItems(listaDeDiscos);
 		columnId.setVisible(false);
 		addButtonEdit();
 		addButtonDel();
+
 	}
 	
 	public void addButtonEdit() {
@@ -184,7 +182,4 @@ public class DiscosController implements Initializable {
 		Main.telaCadastroVinyl();
 	}
 	
-//	public void deleteDiscos() {
-//		JOptionPane.showMessageDialog(null, "deletado com sucesso!");
-//	}
 }

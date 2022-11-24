@@ -56,7 +56,7 @@
       <Button fx:id="returnTitle" layoutX="91.0" layoutY="413.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="273.0" style="-fx-background-color: #01A76A; -fx-border-radius: 4px; -fx-padding: 10px 24px;" text="Devolver" textAlignment="CENTER" textFill="WHITE" />
       <ImageView fitHeight="316.0" fitWidth="428.0" layoutX="372.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@imgs/Library-cuatelibrary-cuate.png" />
+            <Image url="@imgs/Library-cuate.png" />
          </image>
       </ImageView>
       <TableView layoutX="91.0" layoutY="208.0" prefHeight="137.0" prefWidth="273.0">
@@ -68,7 +68,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <ImageView fx:id="backButton" fitHeight="40.0" fitWidth="40.0" layoutX="91.0" layoutY="24.0" onMouseClicked="#onGoBack" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="backButton" fitHeight="40.0" fitWidth="40.0" layoutX="91.0" layoutY="24.0" onDragDetected="#backtomain" onMouseClicked="#onGoBack" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@imgs/arrow-back.png" />
          </image>

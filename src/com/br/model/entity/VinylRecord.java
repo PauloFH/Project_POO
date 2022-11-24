@@ -1,5 +1,7 @@
 package com.br.model.entity;
 
+import com.br.api.DTO.VinylRecordDTO;
+
 public class VinylRecord extends Products {
     private String bandsName;
     private String musicalStyle;
@@ -72,7 +74,16 @@ public class VinylRecord extends Products {
 		
 	}
 
-
+	public static VinylRecord conveter(VinylRecordDTO dto) {
+		VinylRecord v= new VinylRecord();
+		v.setBandsName(dto.getBandsName());
+		v.setMusicalStyle(dto.getBandsName());;
+		v.setTitle(dto.getTitle());
+		v.setCopiesAmount(dto.getCopiesAmount());
+		v.setId(dto.getId());
+		v.setRentPrice(dto.getRentPrice());
+		return v;
+	}
    
 
 }

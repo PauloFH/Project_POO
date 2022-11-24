@@ -5,6 +5,7 @@ package com.br.model.DAO;
 	import java.sql.SQLException;
 import java.util.List;
 
+import com.br.api.DTO.VinylRecordDTO;
 import com.br.model.entity.VinylRecord;
 	public class VinylRecordDAO  extends BaseDAO<VinylRecord>{
 		
@@ -27,7 +28,7 @@ import com.br.model.entity.VinylRecord;
 			return false;
 		}
 		
-		public boolean del(VinylRecord vinylRecord) {
+		public boolean del(VinylRecordDTO vinylRecord) {
 			String sql = "DELETE FROM tb_vinylRecord WHERE id_vinylRecord=?;";
 			try {
 				PreparedStatement pst = getConnection().prepareStatement(sql);
@@ -102,34 +103,33 @@ import com.br.model.entity.VinylRecord;
 			}
 		}
 		
-		@Override
-		public List<VinylRecord> findBySpecifiedField(VinylRecord e, String field) {
+		public ResultSet findBySpecifiedField(VinylRecordDTO entity, String field) {
 			String sql = "SELECT * FROM tb_aluno WHERE " + field +"=? ;";
 			try {
 				PreparedStatement pst = getConnection().prepareStatement(sql);
 				switch (field) {
 				case "title":
-					pst.setString(1, e.getTitle());
+					pst.setString(1, entity.getTitle());
 					break;
 					
 				case "rentPrice":
-					pst.setDouble(1, e.getRentPrice());
+					pst.setDouble(1, entity.getRentPrice());
 					break;
 					
 				case "telefone":
-					pst.setInt(1, e.getCopiesAmount());
+					pst.setInt(1, entity.getCopiesAmount());
 					break;
 					
 				case "endereco":
-					pst.setString(1, e.getBandsName());
+					pst.setString(1, entity.getBandsName());
 					break;
 					
 				case "musicalStyle":
-					pst.setString(1, e.getMusicalStyle());
+					pst.setString(1, entity.getMusicalStyle());
 					break;
 				
 				default: 
-					pst.setInt(1, e.getId());
+					pst.setInt(1, entity.getId());
 				}
 			
 			

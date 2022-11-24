@@ -3,6 +3,7 @@ package com.br.model.DAO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -104,9 +105,8 @@ public class ClientsDAO extends BaseDAO<Clients>{
 					pst.setInt(1, client.getId());
 					break;
 				}
-			
 				ResultSet rs =pst.executeQuery();
-				return rs;
+					return rs;
 				} catch (SQLException e) {
 				JOptionPane.showMessageDialog(null,"Erro: "+e);
 				return null;

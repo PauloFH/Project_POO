@@ -1,7 +1,6 @@
 package com.br.api.Controller;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -17,7 +16,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -28,7 +26,6 @@ public class ClientesController implements Initializable {
 	@FXML
 	private TableView<ClientsDTO> tabelaClientes;
 //	@FXML
-//	private TableColumn<ClientsDTO, CheckBox> columnSelecione;
 	@FXML
 	private TableColumn<ClientsDTO, String> columnNome;
 	@FXML 
@@ -38,7 +35,6 @@ public class ClientesController implements Initializable {
 	@FXML
 	private TableColumn<ClientsDTO, Integer> columnId;
 //	@FXML
-//	private TableColumn<ClientsDTO, Button> columnBotao;
 	@FXML private TableColumn<ClientsDTO,Void> edit = new TableColumn<ClientsDTO, Void>("editar");
 	@FXML private TableColumn<ClientsDTO,Void> del = new TableColumn<ClientsDTO, Void>("deletar");
 	
@@ -55,12 +51,10 @@ public class ClientesController implements Initializable {
 	public void listarClientes() {
 		List<ClientsDTO> clientes = bo.listAll();
 		listaDeClientes = FXCollections.observableArrayList(clientes);
-//		columnSelecione.setCellValueFactory(new PropertyValueFactory<>("select"));
 		columnNome.setCellValueFactory(new PropertyValueFactory<>("name"));
 		columnEndereco.setCellValueFactory(new PropertyValueFactory<>("address"));
 		columnCpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
 		columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
-//		columnBotao.setCellValueFactory(new PropertyValueFactory<>("button"));
 		tabelaClientes.setItems(listaDeClientes);
 		columnId.setVisible(false);
 		addButtonEdit();
@@ -184,3 +178,4 @@ public class ClientesController implements Initializable {
     	
     }
 }
+

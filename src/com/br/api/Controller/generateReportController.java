@@ -1,6 +1,8 @@
 package com.br.api.Controller;
 
 import com.br.api.Views.Main;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -15,6 +17,7 @@ public class generateReportController {
 
     @FXML
     private ImageView buttonbooks;
+
 
     @FXML
     private ImageView buttonclients;
@@ -74,4 +77,9 @@ public class generateReportController {
         Main.telaControleDevolucao();
     }
 
+
+    @FXML
+    void voltar(ActionEvent event) {
+
+    }
 }
