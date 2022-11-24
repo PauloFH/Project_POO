@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.br.model.entity.Books;
+import com.br.model.entity.Rents;
 import com.br.model.entity.VinylRecord;
 
 import com.br.model.entity.Books;
@@ -60,6 +61,11 @@ public class BaseDAO<entity> implements BaseInterDAO <entity> {
 	}
 	@Override
 	public ResultSet findAll(VinylRecord vinyl) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public List<Rents> findRent() {
 		// TODO Auto-generated method stub
 		return null;
 	}

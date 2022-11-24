@@ -3,7 +3,10 @@ package com.br.model.DAO;
 	import java.sql.PreparedStatement;
 	import java.sql.ResultSet;
 	import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.JOptionPane;
 
 import com.br.api.DTO.VinylRecordDTO;
 import com.br.model.entity.VinylRecord;
@@ -103,8 +106,8 @@ import com.br.model.entity.VinylRecord;
 			}
 		}
 		
-		public ResultSet findBySpecifiedField(VinylRecordDTO entity, String field) {
-			String sql = "SELECT * FROM tb_aluno WHERE " + field +"=? ;";
+		public List<VinylRecord> findBySpecifiedField(VinylRecordDTO entity, String field) {
+			String sql = "SELECT * FROM tb_vinylRecord WHERE " + field +"=? ;";
 			try {
 				PreparedStatement pst = getConnection().prepareStatement(sql);
 				switch (field) {
@@ -132,11 +135,20 @@ import com.br.model.entity.VinylRecord;
 					pst.setInt(1, entity.getId());
 				}
 				ResultSet rs =pst.executeQuery();
-				return rs;
-			
+				List<VinylRecord> vrs = new ArrayList<VinylRecord>();
+					while(rs.next()) {
+						VinylRecord d = new VinylRecord();
+						d.setTitle(rs.getString("title"));
+						d.setId(rs.getInt("id"));
+						d.setRentPrice(rs.getDouble("rentprice"));
+						d.setCopiesAmount(rs.getInt("copiesAmount"));
+						d.setBandsName(rs.getString("bandsName"));
+						d.setMusicalStyle(rs.getString("musicalStyle"));
+						vrs.add(d);
+					}
+					return vrs;
 			} catch (SQLException ex) {
-				// TODO Auto-generated catch block
-				ex.printStackTrace();
+				JOptionPane.showMessageDialog(null, "erro: "+ex);
 				return null;
 			}
 			

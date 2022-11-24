@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import com.br.api.DTO.AdministratorsDTO;
 import com.br.exception.AutenticationException;
+import com.br.exception.RegisterRentException;
 import com.br.model.DAO.AdministratorsDAO;
 import com.br.model.DAO.BaseInterDAO;
 import com.br.model.entity.Administrators;
@@ -35,7 +36,7 @@ public class AdministratorsBO {
 		  return true;
 	  }
 
-	  public boolean registerAdministrator(AdministratorsDTO newAdmin) {
+	  public boolean registerAdministrator(AdministratorsDTO newAdmin) throws RegisterRentException {
 		  Administrators admin = Administrators.converter(newAdmin);
 		 ResultSet response = adminDAO.findBySpecifiedField(admin, "acessCode");
 		 try {

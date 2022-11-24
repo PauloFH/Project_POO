@@ -6,10 +6,8 @@ import java.sql.ResultSet;
 import java.util.List;
 
 import com.br.exception.RegisterRentException;
-import com.br.model.Services.IOEception;
 import com.br.model.entity.Books;
 import com.br.model.entity.Rents;
-import com.br.model.entity.Books;
 import com.br.model.entity.VinylRecord;
 
 public interface BaseInterDAO<entity> {

@@ -23,6 +23,16 @@ public class BooksDAO extends BaseDAO<Books> {
             stmt.setInt(6, book.getCopiesAmount());
             stmt.setDouble(7, book.getRentPrice());
             stmt.execute();
+            
+            sql = "SELECT * FROM sql10526105.tb_books where title =? ;";
+         PreparedStatement prt = getConnection().prepareStatement(sql);
+         ResultSet rs = prt.executeQuery();
+         	if(rs.next()) {
+         		book.setId(rs.getInt("id"));
+         	}
+         	sql = "INSERT INTO INSERT INTO tb_books(title, id_books) VALUES (?,?);";
+         prt.setString(2,book.getTitle());
+         prt.setInt(1, book.getId());
             return true;
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e);
@@ -44,7 +54,7 @@ public class BooksDAO extends BaseDAO<Books> {
     }
 
     public boolean edit(Books book) {
-        String sql = "UPDATE tb_books SET title=?,gender=?,author=?,release_date=?,pages_amount=?,copies_amount=?,rent_price=?";
+        String sql = "UPDATE tb_books SET title=?,gender=?,author=?,release_date=?,pages_amount=?,copies_amount=?,rent_price=? WHERE id=?";
         try {
             PreparedStatement stmt = getConnection().prepareStatement(sql);
             stmt.setString(1, book.getTitle());
@@ -54,6 +64,7 @@ public class BooksDAO extends BaseDAO<Books> {
             stmt.setInt(5, book.getPagesAmount());
             stmt.setInt(6, book.getCopiesAmount());
             stmt.setDouble(7, book.getRentPrice());
+            stmt.setString(8, book.getTitle());
             stmt.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -122,11 +133,12 @@ public class BooksDAO extends BaseDAO<Books> {
                     break;
             
             }
-
+            ResultSet rs =stmt.executeQuery();
+            return rs;
+            
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e);
             return null;
-        }
-		return null;
+        
     }
-}
+}}

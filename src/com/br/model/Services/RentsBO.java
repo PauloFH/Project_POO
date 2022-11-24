@@ -3,8 +3,11 @@ package com.br.model.Services;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
+import com.br.api.DTO.BookDTO;
+import com.br.api.DTO.VinylRecordDTO;
 import com.br.model.DAO.BaseInterDAO;
 import com.br.model.DAO.BooksDAO;
 import com.br.model.DAO.RentsDAO;
@@ -20,10 +23,10 @@ public class RentsBO implements RentsInterDAO<Rents>, BaseInterDAO<Rents> {
 
 
 	public boolean add(Rents rent) {
-
+		BooksBO bo = new BooksBO();
 		RentsDAO dao = new RentsDAO();
 		if(rent.getClient().getCpf() != null && rent.getTitle() != null && rent.getGetTotalRents() > 0 && rent.getRentDate() != null && rent.getPrice() > 0) {
-			VinylRecord vinyl = new VinylRecord();
+			VinylRecordDTO vinyl = new VinylRecordDTO();
 			Books book = new Books();
 			vinyl.setTitle(rent.getTitle());
 			book.setTitle(rent.getTitle());
@@ -36,7 +39,7 @@ public class RentsBO implements RentsInterDAO<Rents>, BaseInterDAO<Rents> {
 			List<Clients> clientList = client.searchname(rent.getClient());
 			ProductsBO<Books> bookBO = new ProductsBO<Books>();
 			ProductsBO<VinylRecord> vinylBO = new ProductsBO<VinylRecord>();
-			List<Books> listBooks = books.findBySpecifiedField(book, "title");
+			List<Books> listBooks = bo.getByTitle(book);
 			List<VinylRecord> listVinyl = vinylDAO.findBySpecifiedField(vinyl, "title");
 
 			if(!clientList.isEmpty()) {
@@ -73,7 +76,6 @@ public class RentsBO implements RentsInterDAO<Rents>, BaseInterDAO<Rents> {
 
 		}
 
-
 	public void registerDevolution(Rents rent) {
 		RentsDAO dao = new RentsDAO();
 		if(rent.getClient().getCpf() != null && rent.getTitle() != null && rent.getDevolutionDate() != null) {
@@ -101,8 +103,67 @@ public class RentsBO implements RentsInterDAO<Rents>, BaseInterDAO<Rents> {
 			
 		}
 	}
-	
+	@Override
+	public List<Rents> findRent(Calendar initialDate, Calendar finalDate){
+	    RentsDAO dao = new RentsDAO();
+	    ResultSet rs = dao.findRent(initialDate, finalDate);
 
+	    List<Rents> rents = new ArrayList<Rents>();
+	    try{
+	        while(rs.next()){
+	            Calendar date1 = Calendar.getInstance();
+	            Calendar date2 = Calendar.getInstance();
+	            Rents rent = new Rents();
+	            Clients client = new Clients();
+	            client.setCpf(rs.getString("Cpf_cliente"));
+	            rent.setClient(client);
+	            rent.setTitle(rs.getString("title");
+	            rent.setCopiesAmount(rs.getInt("copiesAmount");
+	            date1.setTime(rs.getDate("initialDate"));
+	            rent.setInitialDate(date1);
+	            date2.setTime(rs.getDate("finalDate"));
+	            rent.setInitialDate(date2);
+	            rent.setPrice(rs.getDouble("price"));
+	            rent.add(vo);
+
+	        }
+	    }catch(SQLException e){
+	        e.printStackTrace();
+	    }
+	    return rent;
+	}
+	
+	@Override
+	public List<Rents> findRentClient(Rents rent, Calendar initialDate, Calendar finalDate){
+	    RentsDAO dao = new RentsDAO();
+	    ResultSet rs = dao.findRentClient(rent, initialDate, finalDate);
+
+	    List<Rents> rents = new ArrayList<Rents>();
+	    try{
+	        while(rs.next()){
+	            Calendar date1 = Calendar.getInstance();
+	            Calendar date2 = Calendar.getInstance();
+	            Rents rent = new Rents();
+	            Clients client = new Clients();
+	            client.setCpf(rs.getString("Cpf_cliente"));
+	            rent.setClient(client);
+	            rent.setTitle(rs.getString("title");
+	            rent.setCopiesAmount(rs.getInt("copiesAmount");
+	            date1.setTime(rs.getDate("initialDate"));
+	            rent.setInitialDate(date1);
+	            date2.setTime(rs.getDate("finalDate"));
+	            rent.setInitialDate(date2);
+	            rent.setPrice(rs.getDouble("price"));
+	            System.out.println(date1).getTime());
+	            System.out.println(date2).getTime());
+	            rent.add(vo);
+
+	        }
+	    }catch(SQLException e){
+	        e.printStackTrace();
+	    }
+	    return rent;
+	}
 	public Connection getConnection() {
 		// TODO Auto-generated method stub
 		return null;

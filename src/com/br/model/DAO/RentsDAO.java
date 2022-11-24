@@ -3,7 +3,6 @@ package com.br.model.DAO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.Format;
 import java.util.Calendar;
 import java.sql.Date;
 
@@ -14,7 +13,7 @@ import com.br.model.entity.Rents;
 public class RentsDAO extends BaseDAO<Rents>{
 	
 	public boolean add(Rents rent) {
-		String sql = "INSERT INTO tb_rents (client_id,rentData, price) VALUES (?, ?, ?, ?)";
+		String sql = "INSERT INTO tb_rents (client_id,title,rentData, price) VALUES (?, ?, ?, ?)";
 		try {
 			Calendar cal = Calendar.getInstance();
 			PreparedStatement pst = getConnection().prepareStatement(sql);
@@ -30,21 +29,13 @@ public class RentsDAO extends BaseDAO<Rents>{
 			return false;
 		}
 	}
-	
-	public boolean edit(Rents rent) {
-		
-	}
-	
-	public ResultSet findRentDevolution(Rents rent) {
-		
-	}
-	
+
 	public boolean registerDevolution(Rents rent) {
 		String sql = "UPDATE tb_rents SET devolution=? devolutionDate=? WHERE id=? ";
 		try {
 			
 			PreparedStatement pst = getConnection().prepareStatement(sql);
-			Date data = new Date(rent.getDevolutionDate().getTime());
+			Date data = new Date(rent.getDevolutionDate().getTimeInMillis());
 			pst.setBoolean(1, true);
 			pst.setDate(2, data);
 			pst.executeUpdate();
@@ -84,6 +75,11 @@ public class RentsDAO extends BaseDAO<Rents>{
 			JOptionPane.showMessageDialog(null,"Erro: "+e);
 			return null;
 		}
+	}
+
+	public ResultSet findRent(Calendar initialDate, Calendar finalDate) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
 

@@ -68,12 +68,11 @@ public class BooksBO {
         }
     }
 
-    public List<Books> getByTitle(String title) {
-        Books book = new Books();
-        book.setTitle(title);
+    public List<Books> getByTitle(Books book) {
         ResultSet rs = dao.findBySpecifiedField(book, "title");
         List<Books> list = new ArrayList<Books>();
         try {
+
             while (rs.next()) {
                 Books bk = new Books();
                 bk.setTitle(rs.getString("title"));
