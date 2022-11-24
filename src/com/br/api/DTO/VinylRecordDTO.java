@@ -21,6 +21,10 @@ public class VinylRecordDTO extends ProductsDTO {
 //		this.button = button;
 	}
 
+	public VinylRecordDTO() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getBandsName() {
         return bandsName;
     }
@@ -47,19 +51,4 @@ public class VinylRecordDTO extends ProductsDTO {
 		this.id = id;
 	}
 
-//	public CheckBox getSelect() {
-//		return select;
-//	}
-//
-//	public void setSelect(CheckBox select) {
-//		this.select = select;
-//	}
-//
-//	public Button getButton() {
-//		return button;
-//	}
-//
-//	public void setButton(Button button) {
-//		this.button = button;
-//	}
 }

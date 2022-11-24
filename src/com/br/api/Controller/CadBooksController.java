@@ -62,12 +62,10 @@ public class CadBooksController {
 			msgCadastroIncompleto.setVisible(true);
 		}
 		else {
-			SimpleDateFormat form = new SimpleDateFormat();
-			Date newdate = (Date) form.parse(releaseDate.getText());
 			BookDTO book = new BookDTO();
 			book.setTitle(title.getText());
 			book.setGender(gender.getText());
-			book.setReleaseDate(newdate);
+			book.setReleaseDate(releaseDate.getText());
 			book.setAuthor(author.getText());
 			int pages = Integer.parseInt(pagesAmount.getText());
 			book.setPagesAmount(pages);

@@ -49,7 +49,7 @@ public class BaseDAO<entity> implements BaseInterDAO <entity> {
 		return null;
 	}
 	@Override
-	public List<entity> findBySpecifiedField(entity e, String field) {
+	public ResultSet findBySpecifiedField(entity e, String field) {
 
 		return null;
 	}

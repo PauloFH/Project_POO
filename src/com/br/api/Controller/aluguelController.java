@@ -57,6 +57,9 @@ public class aluguelController {
     @FXML // fx:id="generateReport"
     private Button generateReport; // Value injected by FXMLLoader
 
+    @FXML
+    private ImageView backButton;
+
     @FXML // fx:id="rentbooks"
     private Text rentbooks; // Value injected by FXMLLoader
 
@@ -96,11 +99,12 @@ public class aluguelController {
 
     @FXML
     void openrentsview(MouseEvent event) {
+    	Main.telaControleDevolucao();
     }
     
     @FXML
     void selectbook(ActionEvent event) {
-
+    	
     }
 
     @FXML
@@ -110,8 +114,13 @@ public class aluguelController {
 
     @FXML
     void telarelatorio(ActionEvent event) {
-
+    	Main.telarelatorio();
     }
+    @FXML
+    void backtomain(MouseEvent event) {
+    	Main.telamenu();
+    }
+
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
         assert Rentsdisc != null : "fx:id=\"Rentsdisc\" was not injected: check your FXML file 'alugar.fxml'.";

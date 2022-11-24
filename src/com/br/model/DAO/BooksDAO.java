@@ -100,7 +100,7 @@ public class BooksDAO extends BaseDAO<Books> {
         }
     }
 
-    public List<Books> findBySpecifiedField(Books book, String field) {
+    public ResultSet findBySpecifiedField(Books book, String field) {
         String sql = "SELECT * FROM tb_books WHERE " + field + "=?;";
         try {
             PreparedStatement stmt = getConnection().prepareStatement(sql);

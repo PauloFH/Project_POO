@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.br.model.DAO.VinylRecordDAO;
+import com.br.api.DTO.VinylRecordDTO;
 import com.br.model.DAO.BaseInterDAO;
 import com.br.model.entity.VinylRecord;
 
@@ -31,14 +32,14 @@ public class VinylRecordBO {
 	public void listAll(){
 		
 	}
-	public List<VinylRecord>findAll(){
+	public List<VinylRecordDTO>findAll(){
 
-		List<VinylRecord> vinylRecords = new ArrayList<VinylRecord>();
+		List<VinylRecordDTO> vinylRecords = new ArrayList<VinylRecordDTO>();
 		VinylRecord v = new VinylRecord();
 		ResultSet rs = dao.findAll(v);
 		try {
 			while(rs.next()) {
-				VinylRecord vinyl = new VinylRecord();
+				VinylRecordDTO vinyl = new VinylRecordDTO();
 				vinyl.setTitle(rs.getString("title"));
 				vinyl.setRentPrice(rs.getDouble("rentPrice"));
 				vinyl.setCopiesAmount(rs.getInt("copiesAmount"));
@@ -56,8 +57,8 @@ public class VinylRecordBO {
 		}
 	}
 	
-	public boolean edit (VinylRecord vinylRecord) {
-		
+	public boolean edit (VinylRecordDTO dto) {
+		VinylRecord  vinylRecord = VinylRecord.conveter(dto);
 		ResultSet rs = dao.findBySpecifiedField(vinylRecord, "id_vinylRecord");
 		try {
 			if(rs!=null && rs.next() ) {
@@ -72,7 +73,8 @@ public class VinylRecordBO {
 			return false;
 		}	
 	}
-	public boolean del (VinylRecord vinylRecord) {
+	public boolean del (VinylRecordDTO vinylRecord) {
+		
 		ResultSet rs = dao.findBySpecifiedField(vinylRecord, "id_vinylRecord");
 		try {
 			if(rs!=null && rs.next() ) {

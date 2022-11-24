@@ -1,5 +1,7 @@
 package com.br.api.Views;
 
+import java.io.IOException;
+
 import javax.swing.JOptionPane;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -59,7 +61,7 @@ public class Main extends Application {
 				stage.show();
 			} catch (Exception e) {
 				// TODO: handle exception
-				JOptionPane.showMessageDialog(null,"Erro: "+e);
+				e.printStackTrace();
 			}
 		}
 		
@@ -175,7 +177,7 @@ public class Main extends Application {
 				JOptionPane.showMessageDialog(null,"Erro: "+e);
 			}
 		}
-		
+
 		public static void telaEditarLivro() {
 			try {
 				Parent root = FXMLLoader.load(Main.class.getResource("resources/livroEdit.fxml"));
@@ -186,5 +188,35 @@ public class Main extends Application {
 				JOptionPane.showMessageDialog(null,"Erro: "+e);
 			}
 		}
+
+		public static void telaEditarCliente() {
+			Parent root;
+			try {
+				root = FXMLLoader.load(Main.class.getResource("resources/clientEdit.fxml"));
+				Scene scene = new Scene (root);
+				stage.setScene(scene);
+				stage.setTitle("Tela Editar Disco");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			
+		}		
+			public static void telarelatorio() {
+			Parent root;
+			try {
+				root = FXMLLoader.load(Main.class.getResource("resources/generateReport.fxml"));
+				Scene scene = new Scene (root);
+				stage.setScene(scene);
+				stage.setTitle("Tela Editar Disco");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			
+		}
+		
 
 }
