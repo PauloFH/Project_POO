@@ -10,16 +10,20 @@ import javax.swing.JOptionPane;
 
 import com.br.api.DTO.BookDTO;
 import com.br.api.Views.Main;
+import com.br.model.Services.BooksBO;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
 
 
 public class LivrosController implements Initializable {
@@ -39,6 +43,8 @@ public class LivrosController implements Initializable {
 	private TableColumn<BookDTO, Double> columnQtdExemplares;
 	@FXML
 	private TableColumn<BookDTO, Double> columnPreco;
+	@FXML
+	private TableColumn<BookDTO, Integer> columnId;
 //	@FXML
 //	private TableColumn<BookDTO, Button> columnBotao;
 	@FXML private TableColumn<BookDTO,Void> edit = new TableColumn<BookDTO, Void>("editar");
@@ -48,6 +54,8 @@ public class LivrosController implements Initializable {
 	
 	protected static BookDTO livrosEdit;
 	 
+	private BooksBO bo = new BooksBO();
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		listarLivros();
@@ -62,9 +70,13 @@ public class LivrosController implements Initializable {
 		columnAutor.setCellValueFactory(new PropertyValueFactory<>("author"));
 		columnAnoLancamento.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));
 		columnPreco.setCellValueFactory(new PropertyValueFactory<>("rentPrice"));
+		columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
 //		columnBotao.setCellValueFactory(new PropertyValueFactory<>("button"));
 		columnQtdExemplares.setCellValueFactory(new PropertyValueFactory<>("copiesAmount"));
 		tabelaLivros.setItems(listaDeLivros);
+		columnId.setVisible(false);
+		addButtonEdit();
+		addButtonDel();
 	}
 	
 	public void addButtonEdit() {
@@ -118,12 +130,16 @@ public class LivrosController implements Initializable {
 							livrosEdit = getTableView().getItems().get(getIndex());
 							
 							BookDTO book = new BookDTO();
-							client.setAddress(clientesEdit.getAddress());
-							client.setCpf(clientesEdit.getCpf());
-							client.setName(clientesEdit.getName());
-							client.setId(clientesEdit.getId());
+							book.setAuthor(livrosEdit.getAuthor());
+							book.setCopiesAmount(livrosEdit.getCopiesAmount());
+							book.setGender(livrosEdit.getGender());
+							book.setId(livrosEdit.getId());
+							book.setPagesAmount(livrosEdit.getPagesAmount());
+							book.setReleaseDate(livrosEdit.getReleaseDate());
+							book.setRentPrice(livrosEdit.getRentPrice());
+							book.setTitle(livrosEdit.getTitle());
 							
-							if (bo.deleteClients(client)) {
+							if (bo.deleteBooks(book)) {
 								JOptionPane.showMessageDialog(null, "Livro deletado.");
 							}
 							
@@ -147,7 +163,7 @@ public class LivrosController implements Initializable {
 		};
 		
 		del.setCellFactory(cellFactory);
-		tabelaLivros	.getColumns().add(del);
+		tabelaLivros.getColumns().add(del);
 	}
 	
 	public void irParaTelaControleDiscos() {

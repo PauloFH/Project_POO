@@ -4,9 +4,13 @@ import java.awt.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
+
 import com.br.api.DTO.BookDTO;
 import com.br.api.Views.Main;
 import com.br.model.Services.BooksBO;
+
+import javafx.fxml.FXML;
 
 public class EditBooksController {
 	
