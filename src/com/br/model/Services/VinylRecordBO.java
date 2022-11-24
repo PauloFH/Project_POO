@@ -60,7 +60,7 @@ public class VinylRecordBO {
 	
 	public boolean edit (VinylRecordDTO dto) {
 		VinylRecord  vinylRecord = VinylRecord.conveter(dto);
-		ResultSet rs = dao.findBySpecifiedField(vinylRecord, "id_vinylRecord");
+		ResultSet rs = dao.findBySpecifiedField(vinylRecord, "id");
 		try {
 			if(rs!=null && rs.next() ) {
 				if(dao.edit(vinylRecord) == true)
@@ -74,21 +74,20 @@ public class VinylRecordBO {
 			return false;
 		}	
 	}
-	public boolean del (VinylRecordDTO vinylRecord) {
-		
-		ResultSet rs = dao.findBySpecifiedField(vinylRecord, "id_vinylRecord");
+	public boolean del (VinylRecordDTO vinylRecord){
 		try {
-			if(rs!=null && rs.next() ) {
+			List<VinylRecord> rs = dao.findBySpecifiedField(vinylRecord, "id");
+			if(rs.get(0) !=null) {
 				if(dao.del(vinylRecord) == true)
 					return true;
 					else return false;
 			}
-			else return false;
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			else return false;	
+		} catch (Exception e) {
 			e.printStackTrace();
+		}
 			return false;
-		}	
+			
+		
 	}
-	
 }

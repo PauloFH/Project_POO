@@ -1,6 +1,8 @@
 package com.br.api.Controller;
 
+import java.awt.HeadlessException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -131,10 +133,14 @@ public class DiscosController implements Initializable {
 							disco.setRentPrice(discosEdit.getRentPrice());
 							disco.setId(discosEdit.getId());
 							disco.setTitle(discosEdit.getTitle());
-							if (bo.del(disco)) {
-								JOptionPane.showMessageDialog(null, "Disco deletado.");
+							try {
+								if (bo.del(disco)) {
+									JOptionPane.showMessageDialog(null, "Disco deletado.");
+								}else JOptionPane.showMessageDialog(null, "Disco não deletado.");
+							} catch (HeadlessException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
 							}
-							
 							Main.telaControleDiscos();
 						});
 					}

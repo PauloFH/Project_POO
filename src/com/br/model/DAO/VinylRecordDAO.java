@@ -32,7 +32,7 @@ import com.br.model.entity.VinylRecord;
 		}
 		
 		public boolean del(VinylRecordDTO vinylRecord) {
-			String sql = "DELETE FROM tb_vinylRecord WHERE id_vinylRecord=?;";
+			String sql = "DELETE FROM tb_vinylRecord WHERE id=?;";
 			try {
 				PreparedStatement pst = getConnection().prepareStatement(sql);
 				pst.setInt(1, vinylRecord.getId());
@@ -47,7 +47,7 @@ import com.br.model.entity.VinylRecord;
 			}
 		}
 		public boolean edit(VinylRecord vinylRecord) {
-			String sql = "UPDATE tb_vinylRecord SET title=?, rentPrice=?, copiesAmount=?, bandsName=?, musicalStyle=? WHERE id_vinylRecord=?";
+			String sql = "UPDATE tb_vinylRecord SET title=?, rentPrice=?, copiesAmount=?, bandsName=?, musicalStyle=? WHERE id=?";
 			try {
 				PreparedStatement pst = getConnection().prepareStatement(sql);
 				pst.setString(1, vinylRecord.getTitle());
@@ -136,16 +136,17 @@ import com.br.model.entity.VinylRecord;
 				}
 				ResultSet rs =pst.executeQuery();
 				List<VinylRecord> vrs = new ArrayList<VinylRecord>();
-					while(rs.next()) {
-						VinylRecord d = new VinylRecord();
-						d.setTitle(rs.getString("title"));
-						d.setId(rs.getInt("id"));
-						d.setRentPrice(rs.getDouble("rentprice"));
-						d.setCopiesAmount(rs.getInt("copiesAmount"));
-						d.setBandsName(rs.getString("bandsName"));
-						d.setMusicalStyle(rs.getString("musicalStyle"));
-						vrs.add(d);
-					}
+				
+				while(rs.next()) {
+					VinylRecord d = new VinylRecord();
+					d.setTitle(rs.getString("title"));
+					d.setId(rs.getInt("id"));
+					d.setRentPrice(rs.getDouble("rentprice"));
+					d.setCopiesAmount(rs.getInt("copiesAmount"));
+					d.setBandsName(rs.getString("bandsName"));
+					d.setMusicalStyle(rs.getString("musicalStyle"));
+					vrs.add(d);
+				}
 					return vrs;
 			} catch (SQLException ex) {
 				JOptionPane.showMessageDialog(null, "erro: "+ex);

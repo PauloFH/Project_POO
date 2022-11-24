@@ -46,7 +46,7 @@ public class EditVinylController implements Initializable {
 			JOptionPane.showMessageDialog(null, "Disco Editado.");
 			ClientesController.clientesEdit = null;
 			Main.telaControleClientes();
-		}
+		}else JOptionPane.showMessageDialog(null, "Disco não editado.");
 	}
 	
 	public void close() {

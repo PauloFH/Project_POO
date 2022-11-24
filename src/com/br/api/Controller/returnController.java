@@ -5,7 +5,15 @@
 package com.br.api.Controller;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+
+import com.br.api.DTO.ClientsDTO;
+import com.br.api.Views.Main;
+import com.br.model.DAO.ClientsDAO;
+import com.br.model.Services.ClientsBO;
+import com.br.model.entity.Clients;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -51,42 +59,49 @@ public class returnController {
 
     @FXML
     void backtomain(MouseEvent event) {
-
+    	Main.telamenu();
     }
 
     @FXML
     void buscacliete(ActionEvent event) {
-
+    	ClientsBO dao = new ClientsBO();
+    	Clients dto = new Clients();
+    	dto.setName(searchTitle.getText());
+    	List<Clients> list = dao.searchname(dto);
+    	if(list.get(0) != null) {
+    		
+    	}
     }
 
     @FXML
     void logout(MouseEvent event) {
-
+    	Main.telalogin();
     }
 
     @FXML
     void onGoBack(MouseEvent event) {
-
+    	Main.telamenu();
     }
 
     @FXML
     void openbooksview(MouseEvent event) {
-
+    	Main.telaControleClientes();
     }
 
     @FXML
     void openclientsview(MouseEvent event) {
-
+    	Main.telaControleClientes();
     }
 
     @FXML
     void openrecordsview(MouseEvent event) {
-
+    		Main.telaControleDiscos();
     }
 
     @FXML
     void openrentsview(MouseEvent event) {
-
+    		
+    	
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete

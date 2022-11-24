@@ -26,6 +26,7 @@ public class BooksDAO extends BaseDAO<Books> {
             
             sql = "SELECT * FROM sql10526105.tb_books where title =? ;";
          PreparedStatement prt = getConnection().prepareStatement(sql);
+         				prt.setString(1,book.getTitle());
          ResultSet rs = prt.executeQuery();
          	if(rs.next()) {
          		book.setId(rs.getInt("id"));
@@ -54,7 +55,7 @@ public class BooksDAO extends BaseDAO<Books> {
     }
 
     public boolean edit(Books book) {
-        String sql = "UPDATE tb_books SET title=?,gender=?,author=?,release_date=?,pages_amount=?,copies_amount=?,rent_price=? WHERE id=?";
+        String sql = "UPDATE tb_books SET title=?,gender=?,author=?,release_date=?,pages_amount=?,copies_amount=?,rent_price=? WHERE =?title";
         try {
             PreparedStatement stmt = getConnection().prepareStatement(sql);
             stmt.setString(1, book.getTitle());
