@@ -58,5 +58,12 @@ public abstract class Products{
    public abstract void setBandsName(String bandsName);
    public abstract String getMusicalStyle();
    public abstract void setMusicalStyle(String musicalStyle);
+
+
+
+public void setBandsName() {
+	// TODO Auto-generated method stub
+	
+}
    
 }

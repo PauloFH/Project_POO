@@ -2,8 +2,6 @@ package com.br.model.entity;
 
 
 
-import java.sql.Date;
-
 import com.br.api.DTO.BookDTO;
 
 public class Books extends Products{
@@ -68,16 +66,15 @@ public class Books extends Products{
     //Ignorar metodos de discos
 	@Override
 	public String getBandsName() {
-		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public void setBandsName(String bandsName) {
-		// TODO Auto-generated method stub
 		
 	}
 
+	@Override
+	public void setBandsName() {
+		
+	}
+	
 	@Override
 	public String getMusicalStyle() {
 		// TODO Auto-generated method stub
@@ -100,6 +97,12 @@ public class Books extends Products{
 		
 	}
 
+	}
+
+	@Override
+	public void setBandsName(String bandsName) {
+		// TODO Auto-generated method stub
+		
 	}
 
   
